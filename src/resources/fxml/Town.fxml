@@ -27,7 +27,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="shop_button" mnemonicParsing="false" stylesheets="@../style/style.css" text="SHOP" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="store_button" mnemonicParsing="false" stylesheets="@../style/style.css" text="STORE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="pub_button" layoutX="137.0" layoutY="48.0" mnemonicParsing="false" text="PUB" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Button fx:id="land_office_button" layoutX="441.0" layoutY="48.0" mnemonicParsing="false" text="LAND OFFICE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Button fx:id="assay_office_button" layoutX="116.0" layoutY="248.0" mnemonicParsing="false" text="ASSAY OFFICE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />

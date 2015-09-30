@@ -172,7 +172,7 @@ public class Player {
         } else {
             if (food >= foodRequirements.get(round) && energy >= numberOfMules) {
                 return 10;
-                //return 50; need for demo tomorrow
+                //return 50;// need for demo tomorrow
             } else {
                 return 30;
             }
