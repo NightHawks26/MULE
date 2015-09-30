@@ -53,7 +53,6 @@ public class MapController implements Initializable {
 
 
     public void initialize(URL url, ResourceBundle rb) {
-        //display.setText(muleGame.map.getTileValues(0,0));
     }
 
     public void setMuleGame(MuleGame mulegame) {
@@ -65,6 +64,9 @@ public class MapController implements Initializable {
 //    }
 
     public void start(boolean startOfTurn) {
+        if (!muleGame.selectionRound) {
+            skipButton.setVisible(false);
+        }
         for (int i = 0; i < 5; i++) {
             for (int k = 0; k < 9; k++) {
                 TileButton button = new TileButton(muleGame.getMap().getTile(i,k));
@@ -87,19 +89,21 @@ public class MapController implements Initializable {
                     @Override
                     public void handle(MouseEvent event) {
                         if (button.getId().equals("t")) {
-                            try {
-                                FXMLLoader loader = new FXMLLoader();
-                                loader.setLocation(getClass().getResource("/fxml/Town.fxml"));
-                                loader.load();
-                                Parent p = loader.getRoot();
-                                //((Node)event.getSource()).getScene().getWindow();
-                                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                                stage.setScene(new Scene(p));
-                                TownController townController = loader.getController();
-                                townController.start(mapController, muleGame, stage);
-                                stage.show();
-                            } catch (Exception e) {
-                                System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+                            if (!muleGame.selectionRound) {
+                                try {
+                                    FXMLLoader loader = new FXMLLoader();
+                                    loader.setLocation(getClass().getResource("/fxml/Town.fxml"));
+                                    loader.load();
+                                    Parent p = loader.getRoot();
+                                    //((Node)event.getSource()).getScene().getWindow();
+                                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                    stage.setScene(new Scene(p));
+                                    TownController townController = loader.getController();
+                                    townController.start(mapController, muleGame, stage);
+                                    stage.show();
+                                } catch (Exception e) {
+                                    System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+                                }
                             }
                         } else if (!button.getTile().isOwned()) {
 //                        StackPane pane = new StackPane();
@@ -230,40 +234,14 @@ public class MapController implements Initializable {
                     public void run()
                     {
                         //if (muleGame.timeRemaining > 0) {
-                            muleGame.timeRemaining--;
-                            System.out.println(muleGame.timeRemaining);
-                        //}
-                        //if (muleGame.timeRemaining <= 0) {
-//                        else {
-//                            System.out.print("TURN ENDED");
-//                            muleGame.sound.playSoundEffect(0);
-//                            muleGame.t.cancel();
-//                            try {
-//                                FXMLLoader loader = new FXMLLoader();
-//                                loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
-//                                loader.load();
-//                                Parent p = loader.getRoot();
-//                                //((Node)event.getSource()).getScene().getWindow();
-//                                stage.setScene(new Scene(p));
-//                                RoundController roundController = loader.getController();
-//                                roundController.setMuleGame(muleGame);
-//                                roundController.setStage(stage);
-//                                roundController.start();
-//                                stage.show();
-//                            } catch (Exception e) {
-//                                System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+                        muleGame.timeRemaining--;
+                        System.out.println(muleGame.timeRemaining);
+//                        Platform.runLater(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                skipButton.setText(Integer.toString(muleGame.timeRemaining));
 //                            }
-//                            ActionEvent event = new ActionEvent();
-//                            timerEnds.fireEvent(event);
-                            //timerEnds.fireEvent(ActionEvent event);
-                            //----- we can update a label every second------
-                            //label.update();
-                            //---------------
-
-                            //Here we need to basically hit the pub button
-                            //but dont add any money to the player
-
-                        //}
+//                        });
                     }
                 },
                 1000,      // run first occurrence after 1 second
@@ -272,6 +250,9 @@ public class MapController implements Initializable {
     }
 
     public void skipSelection(ActionEvent event) {
+        if (!muleGame.selectionRound) {
+            return;
+        }
         muleGame.sound.playSoundEffect(0);
         if (selectingRound <=2 && muleGame.getRound() == 1) {
             numSkipped = 0;

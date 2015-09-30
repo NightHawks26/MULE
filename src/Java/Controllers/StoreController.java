@@ -60,12 +60,6 @@ public class StoreController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
-    }
-
-    public void start(MapController dGCC, MuleGame mG, Stage s) {
-        this.mapController = dGCC;
-        this.muleGame = mG;
-        this.stage = s;
         food_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -75,6 +69,26 @@ public class StoreController implements Initializable {
                 //if user doesn't have money
                 //give dialog warning
 
+            }
+        });
+
+        town_menu_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/Town.fxml"));
+                    loader.load();
+                    Parent p = loader.getRoot();
+                    //((Node)event.getSource()).getScene().getWindow();
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(p));
+                    TownController townController = loader.getController();
+                    townController.start(mapController, muleGame, stage);
+                    stage.show();
+                } catch (Exception e) {
+                    System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+                }
             }
         });
 
@@ -98,6 +112,12 @@ public class StoreController implements Initializable {
 
             }
         });
+    }
+
+    public void start(MapController dGCC, MuleGame mG, Stage s) {
+        this.mapController = dGCC;
+        this.muleGame = mG;
+        this.stage = s;
 
     }
 }
