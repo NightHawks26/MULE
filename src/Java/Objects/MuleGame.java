@@ -42,9 +42,11 @@ public class MuleGame {
         return difficulty;
     }
 
-    public void setPrice(int round) {
+    public void setPrice(int round, Player player) {
         Random rng = new Random();
-        if (round <= 2 && this.round < 2) {
+       // if (round <= 2 && this.round < 2) {
+        //    price = 0;
+        if (player.landCounter < 2) {
             price = 0;
         } else if (this.round >= 2) {
             price = 300 + (this.round * rng.nextInt(101));

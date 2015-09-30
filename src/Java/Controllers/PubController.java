@@ -38,28 +38,52 @@ public class PubController implements Initializable{
     private MuleGame muleGame;
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
-        Image img = new Image("/images/bar.jpg");
-        ImageView imgView = new ImageView(img);
-        StackPane sp = new StackPane();
-        sp.getChildren().add(imgView);
-        Scene scene = new Scene(sp);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void start(MapController dGCC, MuleGame mG, Stage s) {
-
-
-        this.mapController = dGCC;
-        this.muleGame = mG;
-        this.stage = s;
-
+//        Image img = new Image("/images/bar.jpg");
+//        ImageView imgView = new ImageView(img);
+//        StackPane sp = new StackPane();
+//        sp.getChildren().add(imgView);
+//        Scene scene = new Scene(sp);
+//        stage.setScene(scene);
+//        stage.show();
         gamble_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-
+                muleGame.t.cancel();
+                Pub p = new Pub();
+                System.out.println(muleGame.timeRemaining);
+                int bonus = p.gamble(muleGame.timeRemaining, muleGame.getRound());
+                muleGame.getPlayers()[muleGame.getCurrentPlayer()].addMoney(bonus);
+                System.out.println("Gambled for: " + bonus);
+                try {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
+                    loader.load();
+                    Parent par = loader.getRoot();
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(par));
+                    RoundController roundController = loader.getController();
+                    if (muleGame.getCurrentPlayer() == (muleGame.getPlayers().length - 1)) {
+                        muleGame.setCurrentPlayer(0);
+                        muleGame.selectionRound = true;
+                        muleGame.incRound();
+                    } else {
+                        muleGame.incCurrentPlayer();
+                    }
+                    roundController.setMuleGame(muleGame);
+                    roundController.setStage(stage);
+                    roundController.start();
+                    stage.show();
+                } catch (Exception e) {
+                    System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+                }
 
             }
         });
+    }
+
+    public void start(MapController dGCC, MuleGame mG, Stage s) {
+        this.mapController = dGCC;
+        this.muleGame = mG;
+        this.stage = s;
     }
 }

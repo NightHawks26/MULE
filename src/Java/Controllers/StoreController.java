@@ -57,8 +57,6 @@ public class StoreController implements Initializable {
     private Stage stage;
     private MapController mapController;
     private MuleGame muleGame;
-    // private int current;
-
 
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
@@ -84,10 +82,8 @@ public class StoreController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 FXMLLoader loader = new FXMLLoader();
-                System.out.println("Am I working?");
                 loader.setLocation(getClass().getResource("/fxml/Map.fxml"));
                 try {
-                    System.out.println("Am I working?");
                     loader.load();
                     Parent p = loader.getRoot();
                     ((Node) event.getSource()).getScene().getWindow();
@@ -95,9 +91,8 @@ public class StoreController implements Initializable {
                     mapController = loader.getController();
                     mapController.setMuleGame(muleGame);
                     mapController.setStage(stage);
-                    mapController.start();
+                    mapController.start(false);
                     stage.show();
-                    System.out.println("CANNOT GO BACK");
                 } catch (Exception e) {
                 }
 

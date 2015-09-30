@@ -175,7 +175,7 @@ public class RoundController implements Initializable {
                 mapController.setMuleGame(muleGame);
                 mapController.setSkips(skips);
                 mapController.setStage(stage);
-                mapController.start();
+                mapController.start(true);
                 stage.show();
             }
         });
