@@ -53,6 +53,8 @@ public class AddPlayerController implements Initializable{
         currentMap.setText(muleGame.getMap().getName());
         playerNumber.setText("PLAYER 1");
         this.muleGame = muleGame;
+        //delete the following after done testing
+        newName.setText("Player 1");
     }
 
     public void setStage(Stage stage) {
@@ -85,6 +87,8 @@ public class AddPlayerController implements Initializable{
             } else {
                 newName.clear();
                 playerNumber.setText("PLAYER " + (x + 2));
+                //delete following after testing
+                newName.setText("Player " + (x + 2));
             }
         }
     }
