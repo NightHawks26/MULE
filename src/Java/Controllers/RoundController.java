@@ -70,6 +70,9 @@ public class RoundController implements Initializable {
     private Label p2Money;
 
     @FXML
+    private Label nextAction;
+
+    @FXML
     private Label player3Name;
 
     @FXML
@@ -127,9 +130,12 @@ public class RoundController implements Initializable {
         if (!muleGame.selectionRound) {
             System.out.println("It is " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].toString() + "'s turn!");
             muleGame.setTimeForTurn(muleGame.getPlayers()[muleGame.getCurrentPlayer()].calculateTimeForTurn(muleGame.getRound()));
+            nextAction.setText("TURN: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].toString()
+                    + "\nTIME FOR TURN: " + muleGame.getTimeForTurn());
         } else {
             System.out.println("Next is a land selection");
             muleGame.arrangePlayers();
+            nextAction.setText("Next is a land selection!");
         }
         //Image human = new Image(".." + File.separator + ".." + File.separator + "resources" + File.separator + "images" + File.separator + "human.jpg");
         Image human = new Image("/images/human.jpg");

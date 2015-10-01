@@ -22,6 +22,7 @@ import Java.Objects.Player;
 import Java.Objects.MuleGame;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -48,6 +49,7 @@ public class MapController implements Initializable {
     @FXML private Label currentPlayerLabel;
     @FXML private Button skipButton;
     @FXML private Button timerEnds;
+    @FXML private HBox bottomBar;
 
     MapController mapController = this;
 
@@ -66,6 +68,12 @@ public class MapController implements Initializable {
     public void start(boolean startOfTurn) {
         if (!muleGame.selectionRound) {
             skipButton.setVisible(false);
+            String playerColor = muleGame.getPlayers()[muleGame.getCurrentPlayer()].getColor().substring(2);
+            bottomBar.setStyle("-fx-background-color: #" + playerColor);
+
+        } else {
+            String playerColor = muleGame.getPlayers()[selectingPlayer].getColor().substring(2);
+            bottomBar.setStyle("-fx-background-color: #" + playerColor);
         }
         for (int i = 0; i < 5; i++) {
             for (int k = 0; k < 9; k++) {
@@ -291,6 +299,8 @@ public class MapController implements Initializable {
         }
         currentPlayerLabel.setText("LS: " + muleGame.getPlayers()[selectingPlayer].getName()
                 + " Money Remaining: " + muleGame.getPlayers()[selectingPlayer].getMoney());
+        String playerColor = muleGame.getPlayers()[selectingPlayer].getColor().substring(2);
+        bottomBar.setStyle("-fx-background-color: #" + playerColor);
     }
 
     public void setSkips(int skips) {
@@ -326,6 +336,8 @@ public class MapController implements Initializable {
 
             currentPlayerLabel.setText("LS: " + muleGame.getPlayers()[selectingPlayer].getName()
                     + " Money Remaining: " + muleGame.getPlayers()[selectingPlayer].getMoney());
+            String playerColor = muleGame.getPlayers()[selectingPlayer].getColor().substring(2);
+            bottomBar.setStyle("-fx-background-color: #" + playerColor);
         } else {
             button.getTile().setOwner(player);
             player.incLandCounter();
