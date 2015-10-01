@@ -1,29 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Controllers.StoreController">
+<GridPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Controllers.StoreController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="590.0" minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="607.0" minWidth="10.0" prefWidth="200.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="607.0" minWidth="10.0" prefWidth="200.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <Button fx:id="food_button" layoutX="22.0" layoutY="349.0" mnemonicParsing="false" text="Buy Food" />
-      <Button fx:id="energy_button" layoutX="146.0" layoutY="349.0" mnemonicParsing="false" text="Buy Energy" />
-      <Button fx:id="smithore_button" layoutX="273.0" layoutY="349.0" mnemonicParsing="false" text="Buy Smithore" />
-      <Button fx:id="crystite_button" layoutX="411.0" layoutY="349.0" mnemonicParsing="false" text="Buy Crystite" />
-      <Button fx:id="mule_button" layoutX="523.0" layoutY="349.0" mnemonicParsing="false" text="Buy Mule" />
-       <Button fx:id="map_menu_button" layoutX="505.0" layoutY="10.0" mnemonicParsing="false" text="Back to Map" />
-       <Button fx:id="town_menu_button" layoutX="400.0" layoutY="10.0" mnemonicParsing="false" text="Back to Town" />
-      <TableView layoutX="22.0" layoutY="94.0" prefHeight="200.0" prefWidth="553.0">
-        <columns>
-          <TableColumn fx:id="food_col" prefWidth="75.0" text="Food" />
-          <TableColumn fx:id="energy_col" prefWidth="75.0" text="Energy" />
-          <TableColumn fx:id="smithore_col" prefWidth="75.0" text="Smithore" />
-          <TableColumn fx:id="mule_col" prefWidth="75.0" text="Mule" />
-          <TableColumn prefWidth="75.0" text="C5" />
-
-        </columns>
-      </TableView>
-
+       <Button fx:id="map_menu_button" mnemonicParsing="false" text="Back to Map" GridPane.columnIndex="2" />
+       <Button fx:id="town_menu_button" mnemonicParsing="false" text="Back to Town" />
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox>
+               <children>
+                  <Button fx:id="smithore_button" mnemonicParsing="false" text="Buy Smithore">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox>
+               <children>
+                  <Button fx:id="food_button" mnemonicParsing="false" text="Buy Food">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox>
+               <children>
+                  <Button fx:id="energy_button" mnemonicParsing="false" text="Buy Energy">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox>
+               <children>
+                  <Button fx:id="crystite_button" mnemonicParsing="false" text="Buy Crystite">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+         <children>
+            <Button fx:id="buy_food_mule" mnemonicParsing="false" text="Buy Food Mule" />
+         </children>
+         <padding>
+            <Insets left="45.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <children>
+            <VBox>
+               <children>
+                  <Button fx:id="sell_smithore_button" mnemonicParsing="false" text="Sell Smithore">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <children>
+            <VBox>
+               <children>
+                  <Button fx:id="sell_food_button" mnemonicParsing="false" text="Sell Food">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <children>
+            <VBox>
+               <children>
+                  <Button fx:id="sell_energy_button" mnemonicParsing="false" text="Sell Energy">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+         <children>
+            <VBox>
+               <children>
+                  <Button fx:id="sell_crystite_button" mnemonicParsing="false" text="Sell Crystite">
+                     <HBox.margin>
+                        <Insets top="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+         <children>
+            <Button fx:id="buy_energy_mule_button" mnemonicParsing="false" text="Buy Energy Mule" />
+         </children>
+         <padding>
+            <Insets left="40.0" top="10.0" />
+         </padding>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+         <children>
+            <Button fx:id="buy_ore_mule_button" mnemonicParsing="false" text="Buy Ore Mule" />
+         </children>
+         <padding>
+            <Insets left="50.0" top="10.0" />
+         </padding>
+      </HBox>
+      <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="6">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </ImageView>
+      <ImageView fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
+         <GridPane.margin>
+            <Insets left="50.0" />
+         </GridPane.margin>
+      </ImageView>
    </children>
-</Pane>
+</GridPane>

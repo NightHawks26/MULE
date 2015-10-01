@@ -12,7 +12,10 @@ public class MuleGame {
     public String difficulty;
     public Map map;
     private int round = 1;
-    private int price;
+    private int purchasePrice;
+    private int selectPrice = 300;
+    private int grantPrice = 0;
+    private int playerCount = 0;
     public boolean selectionRound = true;
     public JayLayer sound;
     public int currentPlayer = 0;
@@ -42,20 +45,29 @@ public class MuleGame {
         return difficulty;
     }
 
-    public void setPrice(int round, Player player) {
-        Random rng = new Random();
-       // if (round <= 2 && this.round < 2) {
-        //    price = 0;
-        if (player.landCounter < 2) {
-            price = 0;
-        } else if (this.round >= 2) {
-            price = 300 + (this.round * rng.nextInt(101));
-        } else {
-            price = 300;
+    public void setPrice() {
+        if (playerCount % players.length != 0) {
+            Random rng = new Random();
+            purchasePrice = 300 + (this.round * rng.nextInt(101));
         }
+        playerCount++;
+//        Random rng = new Random();
+//       // if (round <= 2 && this.round < 2) {
+//        //    price = 0;
+//        if (selectionRound && round <= 2) {
+//            price = 0;
+//        } else if (!selectionRound) {
+//            price = 300 + (this.round * rng.nextInt(101));
+//        } else {
+//            price = 300;
+//        }
     }
 
-    public int getPrice() { return price; }
+    public int getPurchasePrice() { return purchasePrice; }
+
+    public int getSelectPrice() { return selectPrice; }
+
+    public int getGrantPrice() { return grantPrice; }
 
     public Map getMap() {
         return map;
