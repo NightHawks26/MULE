@@ -31,40 +31,58 @@ import java.util.ResourceBundle;
  * Created by Adam on 9/29/2015.
  */
 public class StoreController implements Initializable {
-    @FXML
-    public Button food_button;
+
+        @FXML
+        private Button sell_food_button;
+
+        @FXML
+        private Button sell_smithore_button;
+
+        @FXML
+        private Button crystite_button;
+
+        @FXML
+        private Button smithore_button;
+
+        @FXML
+        private Button town_menu_button;
+
+        @FXML
+        private Button sell_energy_button;
+
+        @FXML
+        private Button sell_crystite_button;
+
+        @FXML
+        private Button buy_ore_mule_button;
+
+        @FXML
+        private Button buy_food_mule;
+
+        @FXML
+        private Button energy_button;
 
     @FXML
-    private Button energy_button;
+    private Button food_button;
 
     @FXML
-    private Button smithore_button;
+    private Button buy_energy_mule_button;
 
-    @FXML
-    private Button crystite_button;
-
-    @FXML
-    private Button mule_button;
-
-    @FXML
-    private TableView goods_table;
 
     @FXML
     private Button map_menu_button;
 
-    @FXML
-    private Button town_menu_button;
     private Stage stage;
     private MapController mapController;
     private MuleGame muleGame;
 
     @FXML
     public void initialize(URL url, ResourceBundle rb) {
-        food_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
+//        food_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//            @Override
+//            public void handle(MouseEvent event) {
                 //if user has money
-                goods_table.append(goods_table);
+                //goods_table.append(goods_table);
                 //give user x amount of item
                 //if user doesn't have money
                 //give dialog warning

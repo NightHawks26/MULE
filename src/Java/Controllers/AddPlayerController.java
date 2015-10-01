@@ -61,35 +61,39 @@ public class AddPlayerController implements Initializable{
         this.stage = stage;
     }
 
-    public void addPlayer(ActionEvent event) throws IOException {
-        muleGame.sound.playSoundEffect(0);
-        int x = nextNull(muleGame.getPlayers());
-        if (x == 10) {
-            return;
-        } else {
-            muleGame.players[x] = new Player(newName.getText(), raceGroup.getSelectedToggle().toString(), muleGame.getDifficulty(), colorPicker.getValue().toString());
-            System.out.println(Arrays.toString(muleGame.getPlayers()));
-            if (muleGame.players[(muleGame.getPlayers().length) - 1] != null) {
-
-                muleGame.arrangePlayers();
-                muleGame.getPlayers()[muleGame.getPlayers().length - 1].setIsLast(true);
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
-                loader.load();
-                Parent p = loader.getRoot();
-                ((Node)event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(p));
-                roundController = loader.getController();
-                roundController.setMuleGame(muleGame);
-                roundController.setStage(stage);
-                startGame();
-                stage.show();
+    public void addPlayer(ActionEvent event) {//throws IOException {
+        try {
+            muleGame.sound.playSoundEffect(0);
+            int x = nextNull(muleGame.getPlayers());
+            if (x == 10) {
+                return;
             } else {
-                newName.clear();
-                playerNumber.setText("PLAYER " + (x + 2));
-                //delete following after testing
-                newName.setText("Player " + (x + 2));
+                muleGame.players[x] = new Player(newName.getText(), raceGroup.getSelectedToggle().toString(), muleGame.getDifficulty(), colorPicker.getValue().toString());
+                System.out.println(Arrays.toString(muleGame.getPlayers()));
+                if (muleGame.players[(muleGame.getPlayers().length) - 1] != null) {
+
+                    muleGame.arrangePlayers();
+                    muleGame.getPlayers()[muleGame.getPlayers().length - 1].setIsLast(true);
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
+                    loader.load();
+                    Parent p = loader.getRoot();
+                    ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(p));
+                    roundController = loader.getController();
+                    roundController.setMuleGame(muleGame);
+                    roundController.setStage(stage);
+                    startGame();
+                    stage.show();
+                } else {
+                    newName.clear();
+                    playerNumber.setText("PLAYER " + (x + 2));
+                    //delete following after testing
+                    newName.setText("Player " + (x + 2));
+                }
             }
+        } catch (IOException e) {
+            System.out.println("Error with Loader");
         }
     }
 

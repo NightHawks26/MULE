@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Controllers.StoreController">
+   <children>
+      <Button fx:id="food_button" layoutX="22.0" layoutY="349.0" mnemonicParsing="false" text="Buy Food" />
+      <Button fx:id="energy_button" layoutX="146.0" layoutY="349.0" mnemonicParsing="false" text="Buy Energy" />
+      <Button fx:id="smithore_button" layoutX="273.0" layoutY="349.0" mnemonicParsing="false" text="Buy Smithore" />
+      <Button fx:id="crystite_button" layoutX="411.0" layoutY="349.0" mnemonicParsing="false" text="Buy Crystite" />
+      <Button fx:id="mule_button" layoutX="523.0" layoutY="349.0" mnemonicParsing="false" text="Buy Mule" />
+       <Button fx:id="map_menu_button" layoutX="505.0" layoutY="10.0" mnemonicParsing="false" text="Back to Map" />
+       <Button fx:id="town_menu_button" layoutX="400.0" layoutY="10.0" mnemonicParsing="false" text="Back to Town" />
+      <TableView layoutX="22.0" layoutY="94.0" prefHeight="200.0" prefWidth="553.0">
+        <columns>
+          <TableColumn fx:id="food_col" prefWidth="75.0" text="Food" />
+          <TableColumn fx:id="energy_col" prefWidth="75.0" text="Energy" />
+          <TableColumn fx:id="smithore_col" prefWidth="75.0" text="Smithore" />
+          <TableColumn fx:id="mule_col" prefWidth="75.0" text="Mule" />
+          <TableColumn prefWidth="75.0" text="C5" />
+
+        </columns>
+      </TableView>
+
+   </children>
+</Pane>
