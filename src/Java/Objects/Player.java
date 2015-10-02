@@ -17,6 +17,7 @@ public class Player {
     public int energy;
     public int ore;
     public int money;
+    private int crystite;
     public int landCounter;
     private int score;
     private boolean isLast;
@@ -113,6 +114,14 @@ public class Player {
 
     public void setOre(int ore) {
         this.ore = ore;
+    }
+
+    public int getCrystite() {
+        return crystite;
+    }
+
+    public void setCrystite(int crystite) {
+        this.crystite = crystite;
     }
 
     public int getMoney() {

@@ -30,6 +30,6 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Implementation-Title': 'M2 NightHawks MULE', 'Main-class': 'Java.Main'
+        attributes 'Implementation-Title': 'M2 NightHawks MULE', 'Main-class': 'Java.Main', 'Class-Path': '../../src/resources/libs/JayLayer-master.jar'
     }
 }

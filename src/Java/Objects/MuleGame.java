@@ -22,12 +22,14 @@ public class MuleGame {
     private int timeForTurn = 0;
     public int timeRemaining = 0;
     public Timer t;
+    private Store store;
 
     public MuleGame(String difficulty, Map map, Player[] players, JayLayer sound ) {
         this.difficulty = difficulty;
         this.map = map;
         this.players = players;
         this.sound = sound;
+        this.store = new Store();
     }
     public int getTimeForTurn() {
         return timeForTurn;
@@ -35,6 +37,10 @@ public class MuleGame {
 
     public void setTimeForTurn(int time) {
         this.timeForTurn = time;
+    }
+
+    public Store getStore() {
+        return store;
     }
 
     public Player[] getPlayers() {
@@ -91,6 +97,8 @@ public class MuleGame {
 
     public void incRound() {
         round++;
+        //Random rng = new Random();
+        //purchasePrice = 300 + (this.round * rng.nextInt(101));
     }
 
     public int getCurrentPlayer() {

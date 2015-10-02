@@ -27,63 +27,88 @@
        <Button fx:id="town_menu_button" mnemonicParsing="false" text="Back to Town" />
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
-            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ore.jpg" />
+               </image>
+            </ImageView>
             <VBox>
                <children>
-                  <Button fx:id="smithore_button" mnemonicParsing="false" text="Buy Smithore">
+                  <Button fx:id="buy_smithore_button" mnemonicParsing="false" text="Buy Smithore">
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
+                  <Label fx:id="store_ore_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
-            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/food.jpg" />
+               </image>
+            </ImageView>
             <VBox>
                <children>
-                  <Button fx:id="food_button" mnemonicParsing="false" text="Buy Food">
+                  <Button fx:id="buy_food_button" mnemonicParsing="false" text="Buy Food">
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
+                  <Label fx:id="store_food_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
          <children>
-            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/energy.jpg" />
+               </image>
+            </ImageView>
             <VBox>
                <children>
-                  <Button fx:id="energy_button" mnemonicParsing="false" text="Buy Energy">
+                  <Button fx:id="buy_energy_button" mnemonicParsing="false" text="Buy Energy">
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
+                  <Label fx:id="store_energy_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
          <children>
-            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/crystite.jpg" />
+               </image>
+            </ImageView>
             <VBox>
                <children>
-                  <Button fx:id="crystite_button" mnemonicParsing="false" text="Buy Crystite">
+                  <Button fx:id="buy_crystite_button" mnemonicParsing="false" text="Buy Crystite">
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
+                  <Label fx:id="store_crystite_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
                </children>
             </VBox>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
          <children>
-            <Button fx:id="buy_food_mule" mnemonicParsing="false" text="Buy Food Mule" />
+            <VBox>
+               <children>
+                  <Button fx:id="buy_food_mule_button" mnemonicParsing="false" text="Buy Food Mule" />
+                  <Label fx:id="store_food_mule_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
+               </children>
+            </VBox>
          </children>
          <padding>
             <Insets left="45.0" top="10.0" />
@@ -98,9 +123,14 @@
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
+                  <Label fx:id="player_ore_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
                </children>
             </VBox>
-            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ore.jpg" />
+               </image>
+            </ImageView>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
@@ -112,9 +142,14 @@
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
+                  <Label fx:id="player_food_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
                </children>
             </VBox>
-            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/food.jpg" />
+               </image>
+            </ImageView>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
@@ -126,9 +161,14 @@
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
+                  <Label fx:id="player_energy_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
                </children>
             </VBox>
-            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/energy.jpg" />
+               </image>
+            </ImageView>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
@@ -140,14 +180,24 @@
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
+                  <Label fx:id="player_crystite_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
                </children>
             </VBox>
-            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/crystite.jpg" />
+               </image>
+            </ImageView>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <children>
-            <Button fx:id="buy_energy_mule_button" mnemonicParsing="false" text="Buy Energy Mule" />
+            <VBox>
+               <children>
+                  <Button fx:id="buy_energy_mule_button" mnemonicParsing="false" text="Buy Energy Mule" />
+                  <Label fx:id="store_energy_mule_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
+               </children>
+            </VBox>
          </children>
          <padding>
             <Insets left="40.0" top="10.0" />
@@ -155,7 +205,12 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
          <children>
-            <Button fx:id="buy_ore_mule_button" mnemonicParsing="false" text="Buy Ore Mule" />
+            <VBox>
+               <children>
+                  <Button fx:id="buy_ore_mule_button" mnemonicParsing="false" text="Buy Ore Mule" />
+                  <Label fx:id="store_ore_mule_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
+               </children>
+            </VBox>
          </children>
          <padding>
             <Insets left="50.0" top="10.0" />
@@ -165,13 +220,22 @@
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
+         <image>
+            <Image url="@../images/mule.jpg" />
+         </image>
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
+         <image>
+            <Image url="@../images/mule.jpg" />
+         </image>
       </ImageView>
-      <ImageView fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
+      <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
+         <image>
+            <Image url="@../images/mule.jpg" />
+         </image>
          <GridPane.margin>
             <Insets left="50.0" />
          </GridPane.margin>
