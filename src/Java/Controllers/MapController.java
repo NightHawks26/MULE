@@ -69,7 +69,7 @@ public class MapController implements Initializable {
     public void start(boolean startOfTurn) {
         muleGame.setPrice();
         if (!muleGame.selectionRound) {
-            skipButton.setVisible(false);
+            //skipButton.setVisible(false);
             String playerColor = muleGame.getPlayers()[muleGame.getCurrentPlayer()].getColor().substring(2);
             bottomBar.setStyle("-fx-background-color: #" + playerColor);
 
@@ -269,12 +269,12 @@ public class MapController implements Initializable {
                         //if (muleGame.timeRemaining > 0) {
                         muleGame.timeRemaining--;
                         System.out.println(muleGame.timeRemaining);
-//                        Platform.runLater(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                skipButton.setText(Integer.toString(muleGame.timeRemaining));
-//                            }
-//                        });
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                skipButton.setText(Integer.toString(muleGame.timeRemaining));
+                            }
+                        });
                     }
                 },
                 1000,      // run first occurrence after 1 second
