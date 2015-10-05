@@ -57,16 +57,6 @@ public class MuleGame {
             purchasePrice = 300 + (this.round * rng.nextInt(101));
         }
         playerCount++;
-//        Random rng = new Random();
-//       // if (round <= 2 && this.round < 2) {
-//        //    price = 0;
-//        if (selectionRound && round <= 2) {
-//            price = 0;
-//        } else if (!selectionRound) {
-//            price = 300 + (this.round * rng.nextInt(101));
-//        } else {
-//            price = 300;
-//        }
     }
 
     public int getPurchasePrice() { return purchasePrice; }
@@ -130,33 +120,5 @@ public class MuleGame {
         Arrays.sort(players, new playerComparator());
         players[players.length - 1].setIsLast(true);
     }
-
-//    public void startTimer(int turnTime) {
-//        timeRemaining = turnTime;
-//        System.out.println(timeRemaining);
-//        Timer t = new Timer();
-//        t.scheduleAtFixedRate(
-//                new TimerTask()
-//                {
-//                    public void run()
-//                    {
-//                        timeRemaining--;
-//                        System.out.println(timeRemaining);
-//                        if (timeRemaining == 0) {
-//                            System.out.print("TURN ENDED");
-//                            //----- we can update a label every second------
-//                            //label.update();
-//                            //---------------
-//
-//                            //Here we need to basically hit the pub button
-//                            //but dont add any money to the player
-//                            t.cancel();
-//                        }
-//                    }
-//                },
-//                1000,      // run first occurrence after 1 second
-//                1000);  // run every one seconds
-//
-//    }
 
 }

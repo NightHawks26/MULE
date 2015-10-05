@@ -22,6 +22,7 @@ public class Player {
     private int score;
     private boolean isLast;
     private int numberOfMules;
+    private Mule muleInHand;
     private static final Map<Integer, Integer> foodRequirements;
     static {
         Map<Integer, Integer> aMap = new HashMap<>();
@@ -175,13 +176,21 @@ public class Player {
         this.money += money;
     }
 
+    public Mule getMuleInHand() {
+        return muleInHand;
+    }
+
+    public void setMuleInHand(Mule muleInHand) {
+        this.muleInHand = muleInHand;
+    }
+
     public int calculateTimeForTurn(int round) {
         if (food <= 0) {
             return 5;
         } else {
             if (food >= foodRequirements.get(round) && energy >= numberOfMules) {
-                return 10;
-                //return 50;// need for demo tomorrow
+                //return 10;
+                return 50;// need for demo tomorrow
             } else {
                 return 30;
             }

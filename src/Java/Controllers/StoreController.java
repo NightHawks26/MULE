@@ -1,6 +1,7 @@
 package Java.Controllers;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import Java.Objects.MuleGame;
 import Java.Objects.Pub;
@@ -8,23 +9,20 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.image.*;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
-
-import javax.swing.text.TableView;
-import java.awt.*;
-import java.awt.Menu;
+import javafx.scene.image.Image;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -103,6 +101,12 @@ public class StoreController implements Initializable {
     private Label store_energy_mule_stock_label;
 
     @FXML
+    private Label player_Name;
+
+    @FXML
+    private Label player_Money;
+
+    @FXML
     private Button map_menu_button;
 
     private Stage stage;
@@ -118,9 +122,9 @@ public class StoreController implements Initializable {
         this.muleGame = mG;
         this.stage = s;
 
-        buy_ore_mule_button.setText("Cost: 175");
-        buy_energy_mule_button.setText("Cost: 150");
-        buy_food_mule_button.setText("Cost: 125");
+        buy_ore_mule_button.setText("Cost: 125");
+        buy_energy_mule_button.setText("Cost: 75");
+        buy_food_mule_button.setText("Cost: 55");
         buy_energy_button.setText("Cost: 25");
         buy_crystite_button.setText("Cost: 100");
         buy_food_button.setText("Cost: 30");
@@ -129,6 +133,8 @@ public class StoreController implements Initializable {
         sell_energy_button.setText("Price: 12");
         sell_food_button.setText("Price: 15");
         sell_smithore_button.setText("Price: 25");
+        player_Name.setText(muleGame.getPlayers()[muleGame.getCurrentPlayer()].getName());
+        player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
 
         store_crystite_stock_label.setText("Stock: " + muleGame.getStore().getCrystiteStock());
         store_energy_stock_label.setText("Stock: " + muleGame.getStore().getEnergyStock());
@@ -155,6 +161,7 @@ public class StoreController implements Initializable {
                 muleGame.getStore().buyOre(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
                 store_ore_stock_label.setText("Stock: " + muleGame.getStore().getOreStock());
                 player_ore_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getOre());
+                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
             }
         });
 
@@ -164,6 +171,7 @@ public class StoreController implements Initializable {
                 muleGame.getStore().sellOre(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
                 store_ore_stock_label.setText("Stock: " + muleGame.getStore().getOreStock());
                 player_ore_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getOre());
+                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
             }
         });
 
@@ -173,6 +181,7 @@ public class StoreController implements Initializable {
                 muleGame.getStore().buyCrystite(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
                 store_crystite_stock_label.setText("Stock: " + muleGame.getStore().getCrystiteStock());
                 player_crystite_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getCrystite());
+                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
             }
         });
 
@@ -182,6 +191,7 @@ public class StoreController implements Initializable {
                 muleGame.getStore().sellCrystite(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
                 store_crystite_stock_label.setText("Stock: " + muleGame.getStore().getCrystiteStock());
                 player_crystite_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getCrystite());
+                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
             }
         });
 
@@ -191,6 +201,7 @@ public class StoreController implements Initializable {
                 muleGame.getStore().buyFood(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
                 store_food_stock_label.setText("Stock: " + muleGame.getStore().getFoodStock());
                 player_food_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getFood());
+                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
             }
         });
 
@@ -200,6 +211,7 @@ public class StoreController implements Initializable {
                 muleGame.getStore().sellFood(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
                 store_food_stock_label.setText("Stock: " + muleGame.getStore().getFoodStock());
                 player_food_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getFood());
+                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
             }
         });
 
@@ -209,6 +221,7 @@ public class StoreController implements Initializable {
                 muleGame.getStore().buyEnergy(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
                 store_energy_stock_label.setText("Stock: " + muleGame.getStore().getEnergyStock());
                 player_energy_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getEnergy());
+                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
             }
         });
 
@@ -218,36 +231,61 @@ public class StoreController implements Initializable {
                 muleGame.getStore().sellEnergy(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
                 store_energy_stock_label.setText("Stock: " + muleGame.getStore().getEnergyStock());
                 player_energy_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getEnergy());
+                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
             }
         });
 
         buy_energy_mule_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "energy");
+                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "energy", 75);
                 store_ore_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_energy_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_food_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
+                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+                if (muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMuleInHand() != null) {
+                    Image energyMule = new Image("/images/energyCursor.png");
+                    stage.getScene().setCursor(new ImageCursor(energyMule));
+                    Event.fireEvent(map_menu_button, new MouseEvent(MouseEvent.MOUSE_CLICKED,
+                            0, 0, 0, 0, MouseButton.PRIMARY, 1, true, true, true,
+                            true, true, true, true, true, true, true, null));
+                }
             }
         });
 
         buy_ore_mule_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "ore");
+                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "ore", 125);
                 store_ore_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_energy_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_food_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
+                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+                if (muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMuleInHand() != null) {
+                    Image oreMule = new Image("/images/oreCursor.png");
+                    stage.getScene().setCursor(new ImageCursor(oreMule));
+                    Event.fireEvent(map_menu_button, new MouseEvent(MouseEvent.MOUSE_CLICKED,
+                            0, 0, 0, 0, MouseButton.PRIMARY, 1, true, true, true,
+                            true, true, true, true, true, true, true, null));
+                }
             }
         });
 
         buy_food_mule_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "food");
+                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "food", 55);
                 store_ore_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_energy_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_food_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
+                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+                if (muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMuleInHand() != null) {
+                    Image foodMule = new Image("/images/foodCursor.gif");
+                    stage.getScene().setCursor(new ImageCursor(foodMule));
+                    Event.fireEvent(map_menu_button, new MouseEvent(MouseEvent.MOUSE_CLICKED,
+                            0, 0, 0, 0, MouseButton.PRIMARY, 1, true, true, true,
+                            true, true, true, true, true, true, true, null));
+                }
             }
         });
 
@@ -280,7 +318,9 @@ public class StoreController implements Initializable {
                     loader.load();
                     Parent p = loader.getRoot();
                     ((Node) event.getSource()).getScene().getWindow();
+                    Cursor tempCursor = stage.getScene().getCursor();
                     stage.setScene(new Scene(p));
+                    stage.getScene().setCursor(tempCursor);
                     mapController = loader.getController();
                     mapController.setMuleGame(muleGame);
                     mapController.setStage(stage);

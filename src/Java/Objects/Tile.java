@@ -10,6 +10,7 @@ public class Tile {
     int column;
     Player owner;
     Terrain terrain;
+    Mule mule;
     //Image image = new Image("/../../resources/" + terrain + ".jpeg");
 
     public Tile(int row, int col, String ter) {
@@ -53,4 +54,12 @@ public class Tile {
     }
 
     public boolean isOwned() { return owner != null; }
+
+    public Mule getMule() {
+        return mule;
+    }
+
+    public void setMule(Mule mule) {
+        this.mule = mule;
+    }
 }
