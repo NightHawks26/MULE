@@ -11,7 +11,6 @@ public class Tile {
     Player owner;
     Terrain terrain;
     Mule mule;
-    //Image image = new Image("/../../resources/" + terrain + ".jpeg");
 
     public Tile(int row, int col, String ter) {
         try {
@@ -61,5 +60,68 @@ public class Tile {
 
     public void setMule(Mule mule) {
         this.mule = mule;
+    }
+
+    public void calculateProduction() {
+        if (owner != null && owner.getEnergy() < 1) {
+            System.out.println("not enough energy for " + owner.getName() + " to produce on " + terrain.getName());
+        }
+        if (owner != null && mule != null && owner.getEnergy() >= 1) {
+            System.out.println("Producing for " + owner.getName() + " on " + terrain.getName());
+            if (terrain.getName().equals("m1")) {
+                if (mule.getMuleType().equals("Food")) {
+                    owner.setFood(owner.getFood() + mule.getMountain1Production());
+                } else if (mule.getMuleType().equals("Energy")) {
+                    owner.setEnergy(owner.getEnergy() + mule.getMountain1Production());
+                } else if (mule.getMuleType().equals("Ore")) {
+                    owner.setOre(owner.getOre() + mule.getMountain1Production());
+                } else {
+                    System.out.println("this should never print");
+                }
+            } else if (terrain.getName().equals("m2")) {
+                if (mule.getMuleType().equals("Food")) {
+                    owner.setFood(owner.getFood() + mule.getMountain2Production());
+                } else if (mule.getMuleType().equals("Energy")) {
+                    owner.setEnergy(owner.getEnergy() + mule.getMountain2Production());
+                } else if (mule.getMuleType().equals("Ore")) {
+                    owner.setOre(owner.getOre() + mule.getMountain2Production());
+                } else {
+                    System.out.println("this should never print");
+                }
+            } else if (terrain.getName().equals("m3")) {
+                if (mule.getMuleType().equals("Food")) {
+                    owner.setFood(owner.getFood() + mule.getMountain3Production());
+                } else if (mule.getMuleType().equals("Energy")) {
+                    owner.setEnergy(owner.getEnergy() + mule.getMountain3Production());
+                } else if (mule.getMuleType().equals("Ore")) {
+                    owner.setOre(owner.getOre() + mule.getMountain3Production());
+                } else {
+                    System.out.println("this should never print");
+                }
+            } else if (terrain.getName().equals("r")) {
+                if (mule.getMuleType().equals("Food")) {
+                    owner.setFood(owner.getFood() + mule.getRiverProduction());
+                } else if (mule.getMuleType().equals("Energy")) {
+                    owner.setEnergy(owner.getEnergy() + mule.getRiverProduction());
+                } else if (mule.getMuleType().equals("Ore")) {
+                    owner.setOre(owner.getOre() + mule.getRiverProduction());
+                } else {
+                    System.out.println("this should never print");
+                }
+            } else if (terrain.getName().equals("p")) {
+                if (mule.getMuleType().equals("Food")) {
+                    owner.setFood(owner.getFood() + mule.getPlainProduction());
+                } else if (mule.getMuleType().equals("Energy")) {
+                    owner.setEnergy(owner.getEnergy() + mule.getPlainProduction());
+                } else if (mule.getMuleType().equals("Ore")) {
+                    owner.setOre(owner.getOre() + mule.getPlainProduction());
+                } else {
+                    System.out.println("this should never print");
+                }
+            } else {
+                System.out.println("this should never print");
+            }
+
+        }
     }
 }

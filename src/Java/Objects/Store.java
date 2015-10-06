@@ -14,12 +14,28 @@ public class Store {
     private int foodPrice;
     private int energyPrice;
 
-    public Store() {
-        this.oreStock = 0;
+    public Store(String difficulty) {
+        if (difficulty.equals("Beginner")) {
+            this.oreStock = 0;
+        } else {
+            this.oreStock = 8;
+        }
         this.crystiteStock = 0;
-        this.foodStock = 16;
-        this.energyStock = 16;
-        this.muleStock = 25;
+        if (difficulty.equals("Beginner")) {
+            this.foodStock = 16;
+        } else {
+            this.foodStock = 8;
+        }
+        if (difficulty.equals("Beginner")) {
+            this.energyStock = 16;
+        } else {
+            this.energyStock = 8;
+        }
+        if (difficulty.equals("Beginner")) {
+            this.muleStock = 25;
+        } else {
+            this.muleStock = 14;
+        }
         this.orePrice = 50;
         this.crystitePrice = 100;
         this.foodPrice = 30;

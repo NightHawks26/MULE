@@ -10,8 +10,10 @@ public class Mule {
     private int mountain1Production;
     private int mountain2Production;
     private int mountain3Production;
+    private String muleType;
 
     public Mule(String muleType) {
+        this.muleType = muleType;
         if (muleType.equals("Food")) {
             this.riverProduction = 4;
             this.plainProduction = 2;
@@ -53,5 +55,9 @@ public class Mule {
 
     public int getMountain3Production() {
         return mountain3Production;
+    }
+
+    public String getMuleType() {
+        return muleType;
     }
 }

@@ -122,9 +122,9 @@ public class StoreController implements Initializable {
         this.muleGame = mG;
         this.stage = s;
 
-        buy_ore_mule_button.setText("Cost: 125");
-        buy_energy_mule_button.setText("Cost: 75");
-        buy_food_mule_button.setText("Cost: 55");
+        buy_ore_mule_button.setText("Cost: 175");
+        buy_energy_mule_button.setText("Cost: 150");
+        buy_food_mule_button.setText("Cost: 125");
         buy_energy_button.setText("Cost: 25");
         buy_crystite_button.setText("Cost: 100");
         buy_food_button.setText("Cost: 30");
@@ -238,7 +238,7 @@ public class StoreController implements Initializable {
         buy_energy_mule_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "energy", 75);
+                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "energy", 150);
                 store_ore_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_energy_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_food_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
@@ -256,7 +256,7 @@ public class StoreController implements Initializable {
         buy_ore_mule_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "ore", 125);
+                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "ore", 175);
                 store_ore_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_energy_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_food_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
@@ -274,7 +274,7 @@ public class StoreController implements Initializable {
         buy_food_mule_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "food", 55);
+                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "food", 125);
                 store_ore_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_energy_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_food_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());

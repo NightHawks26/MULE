@@ -29,7 +29,7 @@ public class MuleGame {
         this.map = map;
         this.players = players;
         this.sound = sound;
-        this.store = new Store();
+        this.store = new Store(difficulty);
     }
     public int getTimeForTurn() {
         return timeForTurn;

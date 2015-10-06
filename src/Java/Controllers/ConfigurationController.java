@@ -58,7 +58,7 @@ public class ConfigurationController implements Initializable{
        // sound.startPlaylist(0);
         selectMap.getItems().addAll("default", "random");
         selectPlayers.getItems().addAll(2, 3, 4);
-        selectDifficulty.getItems().addAll("Beginner");
+        selectDifficulty.getItems().addAll("Beginner", "Standard", "Tournament");
         selectDifficulty.getSelectionModel().selectFirst();
         selectMap.getSelectionModel().selectFirst();
         selectPlayers.getSelectionModel().selectFirst();
