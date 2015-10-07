@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-
 
 <GridPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Controllers.StoreController">
    <columnConstraints>
@@ -32,14 +32,14 @@
                   <Image url="@../images/ore.jpg" />
                </image>
             </ImageView>
-            <VBox>
+            <VBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="123.0">
                <children>
                   <Button fx:id="buy_smithore_button" mnemonicParsing="false" text="Buy Smithore">
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
-                  <Label fx:id="store_ore_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
+                  <Label fx:id="store_ore_stock_label" contentDisplay="RIGHT" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="98.0" text="Label" />
                </children>
             </VBox>
          </children>
@@ -51,14 +51,14 @@
                   <Image url="@../images/food.jpg" />
                </image>
             </ImageView>
-            <VBox>
+            <VBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="155.0">
                <children>
-                  <Button fx:id="buy_food_button" mnemonicParsing="false" text="Buy Food">
+                  <Button fx:id="buy_food_button" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Buy Food">
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
-                  <Label fx:id="store_food_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
+                  <Label fx:id="store_food_stock_label" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="146.0" text="Label" />
                </children>
             </VBox>
          </children>
@@ -70,14 +70,14 @@
                   <Image url="@../images/energy.jpg" />
                </image>
             </ImageView>
-            <VBox>
+            <VBox alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="117.0">
                <children>
                   <Button fx:id="buy_energy_button" mnemonicParsing="false" text="Buy Energy">
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
-                  <Label fx:id="store_energy_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
+                  <Label fx:id="store_energy_stock_label" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="96.0" text="Label" />
                </children>
             </VBox>
          </children>
@@ -89,14 +89,14 @@
                   <Image url="@../images/crystite.jpg" />
                </image>
             </ImageView>
-            <VBox>
+            <VBox alignment="CENTER_RIGHT">
                <children>
-                  <Button fx:id="buy_crystite_button" mnemonicParsing="false" text="Buy Crystite">
+                  <Button fx:id="buy_crystite_button" alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Buy Crystite" textAlignment="RIGHT">
                      <HBox.margin>
                         <Insets top="15.0" />
                      </HBox.margin>
                   </Button>
-                  <Label fx:id="store_crystite_stock_label" prefHeight="30.0" prefWidth="96.0" text="Label" />
+                  <Label fx:id="store_crystite_stock_label" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="132.0" text="Label" />
                </children>
             </VBox>
          </children>
@@ -240,5 +240,15 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </ImageView>
+      <Label fx:id="player_Name" alignment="CENTER" prefHeight="16.0" prefWidth="245.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="player_Money" alignment="CENTER" prefHeight="16.0" prefWidth="216.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
    </children>
 </GridPane>

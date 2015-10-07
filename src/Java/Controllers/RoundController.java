@@ -135,6 +135,7 @@ public class RoundController implements Initializable {
         } else {
             System.out.println("Next is a land selection");
             muleGame.arrangePlayers();
+            muleGame.map.calculateProduction();
             nextAction.setText("Next is a land selection!");
         }
         //Image human = new Image(".." + File.separator + ".." + File.separator + "resources" + File.separator + "images" + File.separator + "human.jpg");

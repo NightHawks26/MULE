@@ -69,4 +69,12 @@ public class Map {
         }
     }
 
+    public void calculateProduction() {
+        for (int i = 0; i < tiles.length; i++) {
+            for (int k = 0; k < tiles[0].length; k++) {
+                tiles[i][k].calculateProduction();
+            }
+        }
+    }
+
 }
