@@ -26,9 +26,9 @@
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <VBox prefHeight="191.0" prefWidth="238.0">
+                  <VBox prefHeight="191.0" prefWidth="206.0">
                      <children>
-                        <Label prefHeight="42.0" prefWidth="251.0" text="SELECT A RACE">
+                        <Label prefHeight="42.0" prefWidth="219.0" text="SELECT A RACE">
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
@@ -65,7 +65,7 @@
                         </RadioButton>
                      </children>
                   </VBox>
-                  <ColorPicker fx:id="colorPicker" prefHeight="34.0" prefWidth="103.0" promptText="Select a Color for your Player" />
+                  <ChoiceBox fx:id="colorPicker" prefHeight="26.0" prefWidth="139.0" />
                   <Button fx:id="finishPlayer" mnemonicParsing="false" onAction="#addPlayer" prefHeight="34.0" prefWidth="88.0" text="Add Player">
                      <HBox.margin>
                         <Insets left="20.0" />

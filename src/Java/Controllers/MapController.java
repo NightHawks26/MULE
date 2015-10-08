@@ -71,12 +71,12 @@ public class MapController implements Initializable {
         muleGame.setPrice();
         if (!muleGame.selectionRound) {
             //skipButton.setVisible(false);
-            String playerColor = muleGame.getPlayers()[muleGame.getCurrentPlayer()].getColor().substring(2);
-            bottomBar.setStyle("-fx-background-color: #" + playerColor);
+            String playerColor = muleGame.getPlayers()[muleGame.getCurrentPlayer()].getColor();
+            bottomBar.setStyle("-fx-background-color: " + playerColor);
 
         } else {
-            String playerColor = muleGame.getPlayers()[selectingPlayer].getColor().substring(2);
-            bottomBar.setStyle("-fx-background-color: #" + playerColor);
+            String playerColor = muleGame.getPlayers()[selectingPlayer].getColor();
+            bottomBar.setStyle("-fx-background-color: " + playerColor);
         }
         for (int i = 0; i < 5; i++) {
             for (int k = 0; k < 9; k++) {
@@ -88,8 +88,8 @@ public class MapController implements Initializable {
                 button.setRow(k);
                 button.getStylesheets().addAll(this.getClass().getResource("../../resources/style/style.css").toExternalForm());
                 if (button.getTile().isOwned()) {
-                    String color = button.getTile().getOwner().getColor().substring(2);
-                    button.setStyle("-fx-background-color: #" + color);
+                    String color = button.getTile().getOwner().getColor();
+                    button.setStyle("-fx-background-color: " + color);
                 }
                 if (button.getTile().getMule() != null) {
                     button.setText("M U              L E");
@@ -358,8 +358,8 @@ public class MapController implements Initializable {
         }
         currentPlayerLabel.setText("LS: " + muleGame.getPlayers()[selectingPlayer].getName()
                 + " Money Remaining: " + muleGame.getPlayers()[selectingPlayer].getMoney());
-        String playerColor = muleGame.getPlayers()[selectingPlayer].getColor().substring(2);
-        bottomBar.setStyle("-fx-background-color: #" + playerColor);
+        String playerColor = muleGame.getPlayers()[selectingPlayer].getColor();
+        bottomBar.setStyle("-fx-background-color: " + playerColor);
     }
 
     public void setSkips(int skips) {
@@ -374,8 +374,8 @@ public class MapController implements Initializable {
                 numSkipped = 0;
             }
 
-            String color = player.getColor().substring(2);
-            button.setStyle("-fx-background-color: #" + color);
+            String color = player.getColor();
+            button.setStyle("-fx-background-color: " + color);
             player.setMoney(player.getMoney() - currentPrice);
             //set the tile to be owned by player
             //if (muleGame.selectionRound) {
@@ -390,14 +390,14 @@ public class MapController implements Initializable {
 
             currentPlayerLabel.setText("LS: " + muleGame.getPlayers()[selectingPlayer].getName()
                     + " Money Remaining: " + muleGame.getPlayers()[selectingPlayer].getMoney());
-            String playerColor = muleGame.getPlayers()[selectingPlayer].getColor().substring(2);
-            bottomBar.setStyle("-fx-background-color: #" + playerColor);
+            String playerColor = muleGame.getPlayers()[selectingPlayer].getColor();
+            bottomBar.setStyle("-fx-background-color: " + playerColor);
         } else {
             button.getTile().setOwner(player);
             player.incLandCounter();
 
-            String color = player.getColor().substring(2);
-            button.setStyle("-fx-background-color: #" + color);
+            String color = player.getColor();
+            button.setStyle("-fx-background-color: " + color);
             player.setMoney(player.getMoney() - currentPrice);
             currentPlayerLabel.setText("TURN: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getName()
                     + " Money Remaining: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
