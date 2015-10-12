@@ -22,7 +22,8 @@ public class Main extends Application {
             }
         });
         currentStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Configuration.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/fxml/Configuration.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/StartScreen.fxml"));
         currentStage.setTitle("NightHawks M.U.L.E");
         currentStage.setScene(new Scene(root, 600, 400));
         currentStage.show();
