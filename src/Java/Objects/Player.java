@@ -72,6 +72,8 @@ public class Player {
         }
     }
 
+    public Player() {};
+
     @Override
     public String toString() {
         return name;
@@ -91,6 +93,18 @@ public class Player {
 
     public void setRace(String race) {
         this.race = race;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setLandCounter(int landCounter) {
+        this.landCounter = landCounter;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public int getFood() {

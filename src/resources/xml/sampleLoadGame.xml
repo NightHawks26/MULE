@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<muleGame>
+	<gameInfo>
+		<difficulty>Beginner</difficulty>
+		<round>4</round>
+		<purchasePrice>323</purchasePrice>
+		<selectPrice>211</selectPrice>
+		<grantPrice>432</grantPrice>
+		<playerCount>2</playerCount>
+		<selectionRound>true</selectionRound>
+		<currentPlayer>0</currentPlayer>
+		<timeForTurn>30</timeForTurn>
+	</gameInfo>
+	<!--still need to add
+	map and store -->
+	<player>
+		<name>Avery</name>
+		<race>Human</race>
+		<color>#CC66FF></color>
+		<food>43</food>
+		<energy>12</energy>
+		<ore>2</ore>
+		<money>523</money>
+		<crystite>21</crystite>
+		<landCounter>3</landCounter>
+		<score>32211</score>
+		<isLast>false</isLast>
+		<numberOfMules>2</numberOfMules>
+	</player>
+	<player>
+		<name>Adam</name>
+		<race>Flapper</race>
+		<color>#FF0000></color>
+		<food>88</food>
+		<energy>76</energy>
+		<ore>2</ore>
+		<money>3234</money>
+		<crystite>3</crystite>
+		<landCounter>1</landCounter>
+		<score>89988</score>
+		<isLast>true</isLast>
+		<numberOfMules>0</numberOfMules>
+	</player>
+</muleGame>

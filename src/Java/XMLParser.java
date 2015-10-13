@@ -6,13 +6,19 @@ package Java;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
+
+import Java.Objects.MuleGame;
+import Java.Objects.Player;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import java.io.File;
+import java.util.Arrays;
 
 public class XMLParser {
+
+    private Player[] players;
 
     public XMLParser() {
 
@@ -33,10 +39,11 @@ public class XMLParser {
 
             System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 
-            NodeList nList = doc.getElementsByTagName("staff");
 
-            System.out.println("----------------------------");
+            //----------CREATE PLAYER ARRAY------------
 
+            NodeList nList = doc.getElementsByTagName("player");
+            players = new Player[nList.getLength()];
             for (int temp = 0; temp < nList.getLength(); temp++) {
 
                 Node nNode = nList.item(temp);
@@ -47,17 +54,36 @@ public class XMLParser {
 
                     Element eElement = (Element) nNode;
 
-                    System.out.println("Staff id : " + eElement.getAttribute("id"));
-                    System.out.println("First Name : " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
-                    System.out.println("Last Name : " + eElement.getElementsByTagName("lastname").item(0).getTextContent());
-                    System.out.println("Nick Name : " + eElement.getElementsByTagName("nickname").item(0).getTextContent());
-                    System.out.println("Salary : " + eElement.getElementsByTagName("salary").item(0).getTextContent());
+                    System.out.println("Name : " + eElement.getElementsByTagName("name").item(0).getTextContent());
+                    System.out.println("Race : " + eElement.getElementsByTagName("race").item(0).getTextContent());
+                    System.out.println("Color : " + eElement.getElementsByTagName("color").item(0).getTextContent());
+                    System.out.println("Food : " + eElement.getElementsByTagName("food").item(0).getTextContent());
+                    System.out.println("Score : " + eElement.getElementsByTagName("score").item(0).getTextContent());
+
+                    players[temp] = new Player();
+                    players[temp].setName(eElement.getElementsByTagName("name").item(0).getTextContent());
+                    players[temp].setRace(eElement.getElementsByTagName("race").item(0).getTextContent());
+                    players[temp].setColor(eElement.getElementsByTagName("color").item(0).getTextContent());
+                    players[temp].setFood(Integer.parseInt(eElement.getElementsByTagName("food").item(0).getTextContent()));
+                    players[temp].setEnergy(Integer.parseInt(eElement.getElementsByTagName("energy").item(0).getTextContent()));
+                    players[temp].setOre(Integer.parseInt(eElement.getElementsByTagName("ore").item(0).getTextContent()));
+                    players[temp].setMoney(Integer.parseInt(eElement.getElementsByTagName("money").item(0).getTextContent()));
+                    players[temp].setCrystite(Integer.parseInt(eElement.getElementsByTagName("crystite").item(0).getTextContent()));
+                    players[temp].setLandCounter(Integer.parseInt(eElement.getElementsByTagName("landCounter").item(0).getTextContent()));
+                    players[temp].setScore(Integer.parseInt(eElement.getElementsByTagName("score").item(0).getTextContent()));
+                    players[temp].setNumberOfMules(Integer.parseInt(eElement.getElementsByTagName("numberOfMules").item(0).getTextContent()));
 
                 }
             }
+
+            //-------END CREATE PLAYER ARRAY------------
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        System.out.println(Arrays.toString(players));
     }
 
 }
