@@ -51,11 +51,25 @@ public class ConfigurationController implements Initializable{
         //javadoc
         //http://jgkamat.github.io/JayLayer/doc/jay/jaysound/JayLayer.html
         sound = new JayLayer("/audio/", "/audio/");
-       // int playlistNum = sound.createPlaylist(true);
+        int playlistNum = sound.createPlaylist(true);
        // sound.addToPlaylist(playlistNum, "Boyfriend.mp3");
        // sound.addToPlaylist(playlistNum, "No Tellin'.mp3");
+        sound.addSoundEffect("round1.mp3");
+        sound.addSoundEffect("round2.mp3");
+        sound.addSoundEffect("round3.mp3");
+        sound.addSoundEffect("store.mp3");
+        sound.addSoundEffect("gamble.mp3");
+        sound.addSoundEffect("doh.mp3");
+        sound.addSoundEffect("nicepick.mp3");
+        sound.addSoundEffect("trick.mp3");
+        sound.addSoundEffect("encouragement.mp3");
+        sound.addToPlaylist(playlistNum, "bensound-littleidea.mp3"); //got all of these from www.bensound.com
+        sound.addToPlaylist(playlistNum, "bensound-scifi.mp3"); //got all of these from www.bensound.com
+        sound.addToPlaylist(playlistNum, "bensound-sweet.mp3"); //got all of these from www.bensound.com
+        sound.addToPlaylist(playlistNum, "bensound-theelevatorbossanova.mp3"); //waiting/background music
+        sound.addToPlaylist(playlistNum, "bensound-sadday.mp3"); //could be used when a mule is lost
         sound.addSoundEffect("fart.mp3");
-       // sound.startPlaylist(0);
+        sound.startPlaylist(0);
         selectMap.getItems().addAll("default", "random");
         selectPlayers.getItems().addAll(2, 3, 4);
         selectDifficulty.getItems().addAll("Beginner", "Standard", "Tournament");
