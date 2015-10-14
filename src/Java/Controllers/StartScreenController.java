@@ -25,6 +25,8 @@ import java.util.ResourceBundle;
 public class StartScreenController implements Initializable {
 
     private Stage stage;
+    private RoundController roundController;
+    private MuleGame muleGame;
     @FXML
     private Button loadGame;
 
@@ -44,8 +46,27 @@ public class StartScreenController implements Initializable {
                         System.out.println(savedGameXML.getAbsolutePath());
                     XMLParser xmlParser = new XMLParser();
                     String fileLocation = savedGameXML.getAbsolutePath();
-                     xmlParser.loadGame(fileLocation);
+                    muleGame = xmlParser.loadGame(fileLocation);
                 }
+
+                //switch screen to round controller
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
+                try {
+                    loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Parent p = loader.getRoot();
+                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(p));
+                roundController = loader.getController();
+                roundController.setMuleGame(muleGame);
+                roundController.setStage(stage);
+                roundController.start();
+                stage.show();
+
+
 
 
 

@@ -24,6 +24,7 @@ public class MuleGame {
     public Timer t;
     private Store store;
 
+    //Constructor for loading a NEW mule game
     public MuleGame(String difficulty, Map map, Player[] players, JayLayer sound ) {
         this.difficulty = difficulty;
         this.map = map;
@@ -31,6 +32,15 @@ public class MuleGame {
         this.sound = sound;
         this.store = new Store(difficulty);
     }
+
+    //constructor for loading a mule game
+    public MuleGame(Map map, Player[] players, JayLayer sound, Store store) {
+        this.map = map;
+        this.players = players;
+        this.sound = sound;
+        this.store = store;
+    }
+
     public int getTimeForTurn() {
         return timeForTurn;
     }
@@ -49,6 +59,38 @@ public class MuleGame {
 
     public String getDifficulty() {
         return difficulty;
+    }
+
+    public void setRound(int round) {
+        this.round = round;
+    }
+
+    public void setPurchasePrice(int purchasePrice) {
+        this.purchasePrice = purchasePrice;
+    }
+
+    public void setSelectPrice(int selectPrice) {
+        this.selectPrice = selectPrice;
+    }
+
+    public void setGrantPrice(int grantPrice) {
+        this.grantPrice = grantPrice;
+    }
+
+    public void setPlayerCount(int playerCount) {
+        this.playerCount = playerCount;
+    }
+
+    public void setSelectionRound(boolean selectionRound) {
+        this.selectionRound = selectionRound;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
+    public void setSound(JayLayer sound) {
+        this.sound = sound;
     }
 
     public void setPrice() {

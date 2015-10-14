@@ -50,6 +50,11 @@ public class Map {
         }
     }
 
+    public Map(Tile[][] tiles) {
+        terrains = new String[]{"r", "p", "m1", "m2", "m3"};
+        this.tiles = tiles;
+    }
+
     public String getName() {
         return level;
     }
