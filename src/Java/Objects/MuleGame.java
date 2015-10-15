@@ -101,6 +101,10 @@ public class MuleGame {
         playerCount++;
     }
 
+    public boolean isSelectionRound() {
+        return selectionRound;
+    }
+
     public int getPurchasePrice() { return purchasePrice; }
 
     public int getSelectPrice() { return selectPrice; }

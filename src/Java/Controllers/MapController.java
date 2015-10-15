@@ -143,7 +143,7 @@ public class MapController implements Initializable {
                                         System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
                                     }
                                 }
-                            } else if (!button.getTile().isOwned()) {
+                            } else if (!button.getTile().isOwned() && muleGame.isSelectionRound()) {
 //                        StackPane pane = new StackPane();
 //                        Rectangle r = new Rectangle();
 //                        r.setX(100);
