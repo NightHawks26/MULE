@@ -48,14 +48,6 @@ public class ConfigurationController implements Initializable{
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     public void initialize(URL url, ResourceBundle rb) {
-        //javadoc
-        //http://jgkamat.github.io/JayLayer/doc/jay/jaysound/JayLayer.html
-        sound = new JayLayer("/audio/", "/audio/");
-       // int playlistNum = sound.createPlaylist(true);
-       // sound.addToPlaylist(playlistNum, "Boyfriend.mp3");
-       // sound.addToPlaylist(playlistNum, "No Tellin'.mp3");
-        sound.addSoundEffect("fart.mp3");
-       // sound.startPlaylist(0);
         selectMap.getItems().addAll("default", "random");
         selectPlayers.getItems().addAll(2, 3, 4);
         selectDifficulty.getItems().addAll("Beginner", "Standard", "Tournament");
@@ -84,6 +76,10 @@ public class ConfigurationController implements Initializable{
         addPlayerController.setMuleGame(muleGame);
         addPlayerController.setStage(stage);
         stage.show();
+    }
+
+    public void setSound(JayLayer sound) {
+        this.sound = sound;
     }
 
 }

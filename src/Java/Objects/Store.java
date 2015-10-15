@@ -14,6 +14,23 @@ public class Store {
     private int foodPrice;
     private int energyPrice;
 
+    //LOAD GAME CONSTRUCTOR
+
+
+    public Store(int oreStock, int crystiteStock, int foodStock, int energyStock,
+                 int muleStock, int orePrice, int crystitePrice, int foodPrice, int energyPrice) {
+        this.oreStock = oreStock;
+        this.crystiteStock = crystiteStock;
+        this.foodStock = foodStock;
+        this.energyStock = energyStock;
+        this.muleStock = muleStock;
+        this.orePrice = orePrice;
+        this.crystitePrice = crystitePrice;
+        this.foodPrice = foodPrice;
+        this.energyPrice = energyPrice;
+    }
+
+    //NEW GAME CONSTRUCTOR
     public Store(String difficulty) {
         if (difficulty.equals("Beginner")) {
             this.oreStock = 0;

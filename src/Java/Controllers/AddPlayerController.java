@@ -24,7 +24,7 @@ public class AddPlayerController implements Initializable{
     @FXML
     public ToggleGroup raceGroup;
     @FXML
-    public ColorPicker colorPicker;
+    public ChoiceBox<String> colorPicker;
     @FXML
     public Button finishPlayer;
     @FXML
@@ -53,6 +53,7 @@ public class AddPlayerController implements Initializable{
         currentMap.setText(muleGame.getMap().getName());
         playerNumber.setText("PLAYER 1");
         this.muleGame = muleGame;
+        colorPicker.getItems().addAll("Orange", "Purple", "Blue", "Yellow", "Red", "White");
         //delete the following after done testing
         newName.setText("Player 1");
     }
@@ -68,8 +69,27 @@ public class AddPlayerController implements Initializable{
             if (x == 10) {
                 return;
             } else {
-                muleGame.players[x] = new Player(newName.getText(), raceGroup.getSelectedToggle().toString(), muleGame.getDifficulty(), colorPicker.getValue().toString());
+                String color = null;
+                if (colorPicker.getValue().equals("Orange")) {
+                    color = "#FF6600";
+                } else if (colorPicker.getValue().equals("Purple")) {
+                    color = "#FF66FF";
+                } else if (colorPicker.getValue().equals("White")) {
+                    color = "#FFFFFF";
+                } else if (colorPicker.getValue().equals("Red")) {
+                    color = "#FF5050";
+                } else if (colorPicker.getValue().equals("Blue")) {
+                    color = "#33CCCC";
+                } else if (colorPicker.getValue().equals("Yellow")) {
+                    color = "#FFFF99";
+                } else {
+                    System.out.println("DIDN'T PICK A COLOR??");
+                }
+                muleGame.players[x] = new Player(newName.getText(), raceGroup.getSelectedToggle().toString(), muleGame.getDifficulty(), color);
                 System.out.println(Arrays.toString(muleGame.getPlayers()));
+
+                colorPicker.getItems().removeAll(colorPicker.getValue());
+
                 if (muleGame.players[(muleGame.getPlayers().length) - 1] != null) {
 
                     muleGame.arrangePlayers();
