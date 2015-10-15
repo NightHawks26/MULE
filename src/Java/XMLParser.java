@@ -22,7 +22,7 @@ public class XMLParser {
     private Tile[][] tiles = new Tile[5][9];
     private Map map;
     private Store store;
-    private JayLayer sound = new JayLayer();
+    private JayLayer sound;
     private MuleGame muleGame;
 
 
