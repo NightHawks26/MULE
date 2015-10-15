@@ -88,6 +88,7 @@ public class Tile {
             System.out.println("not enough energy for " + owner.getName() + " to produce on " + terrain.getName());
         }
         if (owner != null && mule != null && owner.getEnergy() >= 1) {
+            owner.setEnergy(owner.getEnergy() - 1);
             System.out.println("Producing for " + owner.getName() + " on " + terrain.getName());
             if (terrain.getName().equals("m1")) {
                 if (mule.getMuleType().equals("Food")) {
