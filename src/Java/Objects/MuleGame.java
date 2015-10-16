@@ -1,11 +1,7 @@
 package Java.Objects;
 
 import io.github.jgkamat.JayLayer.JayLayer;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by AveryDingler on 9/8/15.
@@ -16,16 +12,47 @@ public class MuleGame {
     public String difficulty;
     public Map map;
     private int round = 1;
-    private int price;
+    private int purchasePrice;
+    private int selectPrice = 300;
+    private int grantPrice = 0;
+    private int playerCount = 0;
+    public boolean selectionRound = true;
     public JayLayer sound;
+    public int currentPlayer = 0;
+    private int timeForTurn = 0;
+    public int timeRemaining = 0;
+    public Timer t;
+    private Store store;
 
+    //Constructor for loading a NEW mule game
     public MuleGame(String difficulty, Map map, Player[] players, JayLayer sound ) {
         this.difficulty = difficulty;
         this.map = map;
         this.players = players;
         this.sound = sound;
-
+        this.store = new Store(difficulty);
     }
+
+    //constructor for loading a mule game
+    public MuleGame(Map map, Player[] players, JayLayer sound, Store store) {
+        this.map = map;
+        this.players = players;
+        this.sound = sound;
+        this.store = store;
+    }
+
+    public int getTimeForTurn() {
+        return timeForTurn;
+    }
+
+    public void setTimeForTurn(int time) {
+        this.timeForTurn = time;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
     public Player[] getPlayers() {
         return players;
     }
@@ -34,18 +61,55 @@ public class MuleGame {
         return difficulty;
     }
 
-    public void setPrice(int round) {
-        Random rng = new Random();
-        if (round <= 2 && this.round < 2) {
-            price = 0;
-        } else if (this.round >= 2) {
-            price = 300 + (this.round * rng.nextInt(101));
-        } else {
-            price = 300;
-        }
+    public void setRound(int round) {
+        this.round = round;
     }
 
-    public int getPrice() { return price; }
+    public void setPurchasePrice(int purchasePrice) {
+        this.purchasePrice = purchasePrice;
+    }
+
+    public void setSelectPrice(int selectPrice) {
+        this.selectPrice = selectPrice;
+    }
+
+    public void setGrantPrice(int grantPrice) {
+        this.grantPrice = grantPrice;
+    }
+
+    public void setPlayerCount(int playerCount) {
+        this.playerCount = playerCount;
+    }
+
+    public void setSelectionRound(boolean selectionRound) {
+        this.selectionRound = selectionRound;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
+    public void setSound(JayLayer sound) {
+        this.sound = sound;
+    }
+
+    public void setPrice() {
+        if (playerCount % players.length != 0) {
+            Random rng = new Random();
+            purchasePrice = 300 + (this.round * rng.nextInt(101));
+        }
+        playerCount++;
+    }
+
+    public boolean isSelectionRound() {
+        return selectionRound;
+    }
+
+    public int getPurchasePrice() { return purchasePrice; }
+
+    public int getSelectPrice() { return selectPrice; }
+
+    public int getGrantPrice() { return grantPrice; }
 
     public Map getMap() {
         return map;
@@ -69,6 +133,20 @@ public class MuleGame {
 
     public void incRound() {
         round++;
+        //Random rng = new Random();
+        //purchasePrice = 300 + (this.round * rng.nextInt(101));
+    }
+
+    public int getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public void incCurrentPlayer() {
+        currentPlayer++;
+    }
+
+    public void setCurrentPlayer(int currentPlayer) {
+        this.currentPlayer = currentPlayer;
     }
 
     private class playerComparator implements Comparator<Player> {
@@ -87,10 +165,6 @@ public class MuleGame {
         }
         Arrays.sort(players, new playerComparator());
         players[players.length - 1].setIsLast(true);
-        for (Player p: players) {
-            System.out.println(p);
-        }
-
     }
 
 }

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Controllers.RoundController">
+  <children>
+    <HBox prefHeight="132.0" prefWidth="300.0">
+      <children>
+        <ImageView fx:id="p1Image" fitHeight="150.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true" />
+        <VBox prefHeight="132.0" prefWidth="184.0">
+          <children>
+            <Label fx:id="player1Name" prefHeight="37.0" prefWidth="184.0" />
+            <Label fx:id="p1Food" prefHeight="26.0" prefWidth="340.0" text="Label">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p1Energy" prefHeight="26.0" prefWidth="279.0" text="Label">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p1Ore" prefHeight="26.0" prefWidth="312.0" text="Label">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p1Money" prefHeight="26.0" prefWidth="302.0" text="Label">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+          </children>
+        </VBox>
+      </children>
+    </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+      <children>
+        <ImageView fx:id="p3Image" fitHeight="150.0" fitWidth="129.0" pickOnBounds="true" preserveRatio="true" />
+        <VBox prefHeight="150.0" prefWidth="202.0">
+          <children>
+            <Label fx:id="player3Name" prefHeight="30.0" prefWidth="171.0" />
+            <Label fx:id="p3Food" prefHeight="26.0" prefWidth="219.0">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p3Energy" prefHeight="26.0" prefWidth="243.0">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p3Ore" prefHeight="26.0" prefWidth="235.0">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p3Money" prefHeight="26.0" prefWidth="217.0">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+          </children>
+        </VBox>
+      </children>
+    </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+      <children>
+        <VBox alignment="TOP_RIGHT" prefHeight="150.0" prefWidth="230.0">
+          <children>
+            <Label fx:id="player2Name" alignment="CENTER_RIGHT" contentDisplay="TOP" prefHeight="42.0" prefWidth="256.0" />
+            <Label fx:id="p2Food" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="234.0" text="Label">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p2Energy" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="203.0" text="Label">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p2Ore" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="235.0" text="Label">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p2Money" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="200.0" text="Label">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+          </children>
+        </VBox>
+        <ImageView fx:id="p2Image" fitHeight="150.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true" />
+      </children>
+    </HBox>
+    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <children>
+        <VBox prefHeight="150.0" prefWidth="194.0">
+          <children>
+            <Label fx:id="player4Name" alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="181.0" />
+            <Label fx:id="p4Food" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="186.0">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p4Energy" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="203.0">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p4Ore" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="235.0">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+            <Label fx:id="p4Money" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="200.0">
+              <padding>
+                <Insets bottom="5.0" top="5.0" />
+              </padding>
+            </Label>
+          </children>
+        </VBox>
+        <ImageView fx:id="p4Image" fitHeight="150.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true" />
+      </children>
+    </HBox>
+    <Label fx:id="roundNumber" prefHeight="56.0" prefWidth="289.0" text="Label" GridPane.rowIndex="1">
+      <font>
+        <Font size="53.0" />
+      </font>
+    </Label>
+    <Button fx:id="continueButton" mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+</GridPane>

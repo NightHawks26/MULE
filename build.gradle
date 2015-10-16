@@ -1,4 +1,6 @@
-defaultTasks 'copyFXML', 'jar'
+//defaultTasks 'copyFXML', 'jar'
+
+defaultTasks 'jar'
 
 apply plugin: 'java'
 
@@ -11,22 +13,23 @@ sourceSets {
             srcDir 'src/Java'
         }
         resources {
-            srcDir 'src/Java'
+            srcDir 'src/resources'
         }
     }
 }
 
 task copyFXML(type: Copy) {
-    from 'build/resources/main/*.fxml'
+    from 'build/resources/main/fxml/*.fxml'
     into 'build/classes/main/Java'
 }
 
 dependencies {
-    runtime files('src/Java/*.fxml')
+    runtime files('src/resources/fxml/*.fxml')
+    compile files('src/resources/libs/JayLayer-master.jar')
 }
 
 jar {
     manifest {
-        attributes 'Implementation-Title': 'M2 NightHawks MULE', 'Main-class': 'Java.Main'
+        attributes 'Implementation-Title': 'M2 NightHawks MULE', 'Main-class': 'Java.Main', 'Class-Path': '../../src/resources/libs/JayLayer-master.jar'
     }
 }

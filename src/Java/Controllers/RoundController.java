@@ -18,44 +18,94 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RoundController implements Initializable {
 
-    @FXML // fx:id="player1Name"
-    private Label player1Name; // Value injected by FXMLLoader
+    @FXML
+    private Label player1Name;
 
-    @FXML // fx:id="p3Image"
-    private ImageView p3Image; // Value injected by FXMLLoader
+    @FXML
+    private Label p2Food;
 
-    @FXML // fx:id="roundNumber"
-    private Label roundNumber; // Value injected by FXMLLoader
+    @FXML
+    private Label p2Ore;
 
-    @FXML // fx:id="p1Image"
-    private ImageView p1Image; // Value injected by FXMLLoader
+    @FXML
+    private Label p1Food;
 
-    @FXML // fx:id="player2Name"
-    private Label player2Name; // Value injected by FXMLLoader
+    @FXML
+    private Label p3Money;
 
-    @FXML // fx:id="player3Name"
-    private Label player3Name; // Value injected by FXMLLoader
+    @FXML
+    private Label roundNumber;
 
-    @FXML // fx:id="p2Image"
-    private ImageView p2Image; // Value injected by FXMLLoader
+    @FXML
+    private ImageView p1Image;
 
-    @FXML // fx:id="p4Image"
-    private ImageView p4Image; // Value injected by FXMLLoader
+    @FXML
+    private ImageView p4Image;
 
-    @FXML // fx:id="player4Name"
-    private Label player4Name; // Value injected by FXMLLoader
+    @FXML
+    private Label player4Name;
+
+    @FXML
+    private Label p3Ore;
+
+    @FXML
+    private Label p2Energy;
+
+    @FXML
+    private Label p4Food;
+
+    @FXML
+    private Label p1Ore;
+
+    @FXML
+    private ImageView p3Image;
+
+    @FXML
+    private Label p2Money;
+
+    @FXML
+    private Label nextAction;
+
+    @FXML
+    private Label player3Name;
+
+    @FXML
+    private Label p4Energy;
+
+    @FXML
+    private Label p3Food;
+
+    @FXML
+    private Label player2Name;
+
+    @FXML
+    private Label p3Energy;
+
+    @FXML
+    private Label p1Money;
+
+    @FXML
+    private Label p1Energy;
+
+    @FXML
+    private ImageView p2Image;
+
+    @FXML
+    private Label p4Money;
+
+    @FXML
+    private Label p4Ore;
 
     @FXML
     private Button continueButton;
 
-    private int current;
+    // private int current = -1;
     private MapController mapController;
     private MuleGame muleGame;
     private Stage stage;
@@ -73,18 +123,33 @@ public class RoundController implements Initializable {
         this.muleGame = mulegame;
     }
 
-    public void setCurrent(int current) { this.current = current % muleGame.getPlayers().length; }
+    // public void setCurrent(int current) { this.current = current % muleGame.getPlayers().length; }
 
     public void start() {
-        muleGame.arrangePlayers();
-       //Image human = new Image(".." + File.separator + ".." + File.separator + "resources" + File.separator + "images" + File.separator + "human.jpg");
-        Image human = new Image("/resources/images/human.jpg");
-        Image flapper = new Image("/resources/images/flapper.jpg");
-        Image other = new Image("/resources/images/other.gif");
+
+        if (!muleGame.selectionRound) {
+            System.out.println("It is " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].toString() + "'s turn!");
+            muleGame.setTimeForTurn(muleGame.getPlayers()[muleGame.getCurrentPlayer()].calculateTimeForTurn(muleGame.getRound()));
+            nextAction.setText("TURN: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].toString()
+                    + "\nTIME FOR TURN: " + muleGame.getTimeForTurn());
+        } else {
+            System.out.println("Next is a land selection");
+            muleGame.arrangePlayers();
+            muleGame.map.calculateProduction();
+            nextAction.setText("Next is a land selection!");
+        }
+        //Image human = new Image(".." + File.separator + ".." + File.separator + "resources" + File.separator + "images" + File.separator + "human.jpg");
+        Image human = new Image("/images/human.jpg");
+        Image flapper = new Image("/images/flapper.jpg");
+        Image other = new Image("/images/other.gif");
         roundNumber.setText("ROUND: " + Integer.toString(muleGame.getRound()));
         ImageView[] images = {p1Image, p2Image, p3Image, p4Image};
         Player[] players = muleGame.getPlayers();
         Label[] playerNames = {player1Name, player2Name, player3Name, player4Name};
+        Label[] playerMoney = {p1Money, p2Money, p3Money, p4Money};
+        Label[] playerOre = {p1Ore, p2Ore, p3Ore, p4Ore};
+        Label[] playerEnergy = {p1Energy, p2Energy, p3Energy, p4Energy};
+        Label[] playerFood = {p1Food, p2Food, p3Food, p4Food};
         for (int x = 0; x < players.length; x++) {
             if (players[x].getRace().contains("Human")) {
                 images[x].setImage(human);
@@ -94,13 +159,17 @@ public class RoundController implements Initializable {
                 images[x].setImage(other);
             }
             playerNames[x].setText(players[x].getName());
+            playerMoney[x].setText("MONEY: " + players[x].getMoney());
+            playerOre[x].setText("ORE: " + players[x].getOre());
+            playerEnergy[x].setText("ENERGY: " + players[x].getEnergy());
+            playerFood[x].setText("FOOD: " + players[x].getFood());
         }
         updatePlayerScores();
         continueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/Java/Map.fxml"));
+                loader.setLocation(getClass().getResource("/fxml/Map.fxml"));
                 try {
                     loader.load();
                 } catch (IOException e) {
@@ -113,7 +182,7 @@ public class RoundController implements Initializable {
                 mapController.setMuleGame(muleGame);
                 mapController.setSkips(skips);
                 mapController.setStage(stage);
-                mapController.start();
+                mapController.start(true);
                 stage.show();
             }
         });

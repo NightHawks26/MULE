@@ -50,6 +50,11 @@ public class Map {
         }
     }
 
+    public Map(Tile[][] tiles) {
+        terrains = new String[]{"r", "p", "m1", "m2", "m3"};
+        this.tiles = tiles;
+    }
+
     public String getName() {
         return level;
     }
@@ -65,6 +70,14 @@ public class Map {
                 System.out.println("ROW: " + tiles[i][k].getRow());
                 System.out.println("COL: " + tiles[i][k].getColumn());
                 System.out.println("TER: " + tiles[i][k].getTerrain().getName());
+            }
+        }
+    }
+
+    public void calculateProduction() {
+        for (int i = 0; i < tiles.length; i++) {
+            for (int k = 0; k < tiles[0].length; k++) {
+                tiles[i][k].calculateProduction();
             }
         }
     }
