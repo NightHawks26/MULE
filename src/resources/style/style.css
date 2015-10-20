@@ -97,10 +97,10 @@
     -fx-font-size: 18;
     -fx-font-weight: 600;
 }
-#newGame:hover, #loadGame:hover, #startGame:hover, #selectPlayers:hover, #selectDifficulty:hover, #selectMap:hover {
+#newGame:hover, #loadGame:hover, #startGame:hover, #selectPlayers:hover, #selectDifficulty:hover, #selectMap:hover, #addPlayerButton:hover {
     -fx-background-color: #CCCCCC;
 }
-#selectPlayers, #selectDifficulty, #selectMap {
+#selectPlayers, #selectDifficulty, #selectMap, #addPlayerButton {
     -fx-border-radius: 0;
     -fx-border-color: #333333;
     -fx-border-width: 3;
@@ -111,4 +111,7 @@
 }
 #background {
     -fx-background-color: #FFFFFF;
+}
+
+#addPlayerTitle {
 }
