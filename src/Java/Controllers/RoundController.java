@@ -4,6 +4,7 @@ package Java.Controllers; /**
 
 import Java.Objects.MuleGame;
 import Java.Objects.Player;
+import Java.Objects.RandomEventGenerator;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -126,9 +127,16 @@ public class RoundController implements Initializable {
     // public void setCurrent(int current) { this.current = current % muleGame.getPlayers().length; }
 
     public void start() {
-
+        RandomEventGenerator events = new RandomEventGenerator();
+        boolean isLastPlace;
         if (!muleGame.selectionRound) {
             System.out.println("It is " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].toString() + "'s turn!");
+            if (muleGame.getCurrentPlayer() == 0) {
+                isLastPlace = true;
+            } else {
+                isLastPlace = false;
+            }
+            System.out.println(events.getRandomEvent(muleGame.getPlayers()[muleGame.getCurrentPlayer()], isLastPlace));
             muleGame.setTimeForTurn(muleGame.getPlayers()[muleGame.getCurrentPlayer()].calculateTimeForTurn(muleGame.getRound()));
             nextAction.setText("TURN: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].toString()
                     + "\nTIME FOR TURN: " + muleGame.getTimeForTurn());
