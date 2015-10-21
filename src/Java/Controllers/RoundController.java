@@ -130,15 +130,15 @@ public class RoundController implements Initializable {
         RandomEventGenerator events = new RandomEventGenerator();
         boolean isLastPlace;
         if (!muleGame.selectionRound) {
-            System.out.println("It is " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].toString() + "'s turn!");
+            System.out.println("It is " + muleGame.getCurrentPlayerObject().toString() + "'s turn!");
             if (muleGame.getCurrentPlayer() == 0) {
                 isLastPlace = true;
             } else {
                 isLastPlace = false;
             }
-            System.out.println(events.getRandomEvent(muleGame.getPlayers()[muleGame.getCurrentPlayer()], isLastPlace));
-            muleGame.setTimeForTurn(muleGame.getPlayers()[muleGame.getCurrentPlayer()].calculateTimeForTurn(muleGame.getRound()));
-            nextAction.setText("TURN: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].toString()
+            System.out.println(events.getRandomEvent(muleGame.getCurrentPlayerObject(), isLastPlace));
+            muleGame.setTimeForTurn(muleGame.getCurrentPlayerObject().calculateTimeForTurn(muleGame.getRound()));
+            nextAction.setText("TURN: " + muleGame.getCurrentPlayerObject().toString()
                     + "\nTIME FOR TURN: " + muleGame.getTimeForTurn());
         } else {
             System.out.println("Next is a land selection");
