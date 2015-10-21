@@ -18,13 +18,13 @@ import java.util.ResourceBundle;
 public class AuctionController implements Initializable {
 
     @FXML
-    public Button submit;
+    private Button submit;
     @FXML
-    public Label currentPlayer;
+    private Label currentPlayer;
     @FXML
-    public Label currentMoney;
+    private Label currentMoney;
     @FXML
-    public PasswordField auctionAmount;
+    private PasswordField auctionAmount;
 
     private MuleGame muleGame;
     private int counter = 0;
