@@ -88,6 +88,7 @@ public class StartScreenController implements Initializable {
                 roundController = loader.getController();
                 roundController.setMuleGame(muleGame);
                 roundController.setStage(stage);
+                stage.getScene().getWindow().sizeToScene();
                 roundController.start();
                 stage.show();
 

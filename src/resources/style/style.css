@@ -97,3 +97,26 @@
     -fx-background-color: #666666;
     -fx-cursor: hand;
 }
+
+#title {
+    -fx-background-image: url('../images/mule_logo_new.png');
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 80%;
+}
+
+#newGame, #loadGame {
+    -fx-border-radius: 0;
+    -fx-border-color: #333333;
+    -fx-border-width: 3;
+    -fx-padding: 20 40;
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 18;
+    -fx-font-weight: 600;
+}
+#newGame:hover, #loadGame:hover {
+    -fx-background-color: #CCCCCC;
+}
+#background {
+    -fx-background-color: #FFFFFF;
+}
