@@ -10,15 +10,15 @@ import java.util.Map;
  */
 public class Player {
 
-    public String name;
-    public String race;
-    public String color;
-    public int food;
-    public int energy;
-    public int ore;
-    public int money;
+    private String name;
+    private String race;
+    private String color;
+    private int food;
+    private int energy;
+    private int ore;
+    private int money;
     private int crystite;
-    public int landCounter;
+    private int landCounter;
     private int score;
     private boolean isLast;
     private int numberOfMules;

@@ -6,11 +6,11 @@ import javafx.scene.image.Image;
  * Created by Brian on 9/12/2015.
  */
 public class Tile {
-    int row;
-    int column;
-    Player owner;
-    Terrain terrain;
-    Mule mule;
+    private int row;
+    private int column;
+    private Player owner;
+    private Terrain terrain;
+    private Mule mule;
 
     public Tile(int row, int col, String ter) {
         try {

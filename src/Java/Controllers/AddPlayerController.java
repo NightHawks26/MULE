@@ -28,17 +28,17 @@ import javafx.stage.Stage;
  */
 public class AddPlayerController implements Initializable{
     @FXML
-    public ToggleGroup raceGroup;
+    private ToggleGroup raceGroup;
     @FXML
-    public ChoiceBox<String> colorPicker;
+    private ChoiceBox<String> colorPicker;
     @FXML
-    public Button finishPlayer;
+    private Button finishPlayer;
     @FXML
-    public Label playerNumber;
+    private Label playerNumber;
     @FXML
-    public Text currentMap;
+    private Text currentMap;
     @FXML
-    public Text currentDifficulty;
+    private Text currentDifficulty;
     @FXML
     private TextField newName;
 

@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 
 public class TownController implements Initializable {
     @FXML
-    public Button pub_button;
+    private Button pub_button;
 
     @FXML
     private Button assay_office_button;
