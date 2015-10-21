@@ -39,12 +39,12 @@ public class ConfigurationController implements Initializable{
     private Stage stage;
 
     @FXML
-    public ChoiceBox<String> selectDifficulty;
+    private ChoiceBox<String> selectDifficulty;
 
     @FXML // fx:id="startGame"
     private Button startGame; // Value injected by FXMLLoader
 
-    public JayLayer sound;
+    private JayLayer sound;
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     public void initialize(URL url, ResourceBundle rb) {

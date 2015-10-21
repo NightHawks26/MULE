@@ -133,8 +133,8 @@ public class StoreController implements Initializable {
         sell_energy_button.setText("Price: 12");
         sell_food_button.setText("Price: 15");
         sell_smithore_button.setText("Price: 25");
-        player_Name.setText(muleGame.getPlayers()[muleGame.getCurrentPlayer()].getName());
-        player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+        player_Name.setText(muleGame.getCurrentPlayerObject().getName());
+        player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
 
         store_crystite_stock_label.setText("Stock: " + muleGame.getStore().getCrystiteStock());
         store_energy_stock_label.setText("Stock: " + muleGame.getStore().getEnergyStock());
@@ -143,10 +143,10 @@ public class StoreController implements Initializable {
         store_ore_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
         store_energy_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
         store_food_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
-        player_ore_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getOre());
-        player_energy_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getEnergy());
-        player_crystite_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getCrystite());
-        player_food_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getFood());
+        player_ore_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getOre());
+        player_energy_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getEnergy());
+        player_crystite_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getCrystite());
+        player_food_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getFood());
 //        food_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
 //            @Override
 //            public void handle(MouseEvent event) {
@@ -158,92 +158,92 @@ public class StoreController implements Initializable {
         buy_smithore_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyOre(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
+                muleGame.getStore().buyOre(muleGame.getCurrentPlayerObject());
                 store_ore_stock_label.setText("Stock: " + muleGame.getStore().getOreStock());
-                player_ore_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getOre());
-                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+                player_ore_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getOre());
+                player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
             }
         });
 
         sell_smithore_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().sellOre(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
+                muleGame.getStore().sellOre(muleGame.getCurrentPlayerObject());
                 store_ore_stock_label.setText("Stock: " + muleGame.getStore().getOreStock());
-                player_ore_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getOre());
-                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+                player_ore_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getOre());
+                player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
             }
         });
 
         buy_crystite_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyCrystite(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
+                muleGame.getStore().buyCrystite(muleGame.getCurrentPlayerObject());
                 store_crystite_stock_label.setText("Stock: " + muleGame.getStore().getCrystiteStock());
-                player_crystite_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getCrystite());
-                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+                player_crystite_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getCrystite());
+                player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
             }
         });
 
         sell_crystite_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().sellCrystite(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
+                muleGame.getStore().sellCrystite(muleGame.getCurrentPlayerObject());
                 store_crystite_stock_label.setText("Stock: " + muleGame.getStore().getCrystiteStock());
-                player_crystite_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getCrystite());
-                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+                player_crystite_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getCrystite());
+                player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
             }
         });
 
         buy_food_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyFood(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
+                muleGame.getStore().buyFood(muleGame.getCurrentPlayerObject());
                 store_food_stock_label.setText("Stock: " + muleGame.getStore().getFoodStock());
-                player_food_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getFood());
-                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+                player_food_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getFood());
+                player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
             }
         });
 
         sell_food_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().sellFood(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
+                muleGame.getStore().sellFood(muleGame.getCurrentPlayerObject());
                 store_food_stock_label.setText("Stock: " + muleGame.getStore().getFoodStock());
-                player_food_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getFood());
-                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+                player_food_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getFood());
+                player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
             }
         });
 
         buy_energy_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyEnergy(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
+                muleGame.getStore().buyEnergy(muleGame.getCurrentPlayerObject());
                 store_energy_stock_label.setText("Stock: " + muleGame.getStore().getEnergyStock());
-                player_energy_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getEnergy());
-                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+                player_energy_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getEnergy());
+                player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
             }
         });
 
         sell_energy_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().sellEnergy(muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
+                muleGame.getStore().sellEnergy(muleGame.getCurrentPlayerObject());
                 store_energy_stock_label.setText("Stock: " + muleGame.getStore().getEnergyStock());
-                player_energy_stock_label.setText("Owned: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getEnergy());
-                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+                player_energy_stock_label.setText("Owned: " + muleGame.getCurrentPlayerObject().getEnergy());
+                player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
             }
         });
 
         buy_energy_mule_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "energy", 150);
+                muleGame.getStore().buyMule(muleGame.getCurrentPlayerObject(), "energy", 150);
                 store_ore_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_energy_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_food_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
-                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
-                if (muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMuleInHand() != null) {
+                player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
+                if (muleGame.getCurrentPlayerObject().getMuleInHand() != null) {
                     Image energyMule = new Image("/images/energyCursor.png");
                     stage.getScene().setCursor(new ImageCursor(energyMule));
                     Event.fireEvent(map_menu_button, new MouseEvent(MouseEvent.MOUSE_CLICKED,
@@ -256,12 +256,12 @@ public class StoreController implements Initializable {
         buy_ore_mule_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "ore", 175);
+                muleGame.getStore().buyMule(muleGame.getCurrentPlayerObject(), "ore", 175);
                 store_ore_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_energy_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_food_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
-                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
-                if (muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMuleInHand() != null) {
+                player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
+                if (muleGame.getCurrentPlayerObject().getMuleInHand() != null) {
                     Image oreMule = new Image("/images/oreCursor.png");
                     stage.getScene().setCursor(new ImageCursor(oreMule));
                     Event.fireEvent(map_menu_button, new MouseEvent(MouseEvent.MOUSE_CLICKED,
@@ -274,12 +274,12 @@ public class StoreController implements Initializable {
         buy_food_mule_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                muleGame.getStore().buyMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()], "food", 125);
+                muleGame.getStore().buyMule(muleGame.getCurrentPlayerObject(), "food", 125);
                 store_ore_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_energy_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
                 store_food_mule_stock_label.setText("Stock: " + muleGame.getStore().getMuleStock());
-                player_Money.setText("$" + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
-                if (muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMuleInHand() != null) {
+                player_Money.setText("$" + muleGame.getCurrentPlayerObject().getMoney());
+                if (muleGame.getCurrentPlayerObject().getMuleInHand() != null) {
                     Image foodMule = new Image("/images/foodCursor.gif");
                     stage.getScene().setCursor(new ImageCursor(foodMule));
                     Event.fireEvent(map_menu_button, new MouseEvent(MouseEvent.MOUSE_CLICKED,

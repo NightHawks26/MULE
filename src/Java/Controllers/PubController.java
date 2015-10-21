@@ -52,7 +52,7 @@ public class PubController implements Initializable{
                 Pub p = new Pub();
                 System.out.println(muleGame.timeRemaining);
                 int bonus = p.gamble(muleGame.timeRemaining, muleGame.getRound());
-                muleGame.getPlayers()[muleGame.getCurrentPlayer()].addMoney(bonus);
+                muleGame.getCurrentPlayerObject().addMoney(bonus);
                 System.out.println("Gambled for: " + bonus);
                 try {
                     FXMLLoader loader = new FXMLLoader();

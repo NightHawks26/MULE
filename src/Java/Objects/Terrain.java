@@ -5,14 +5,14 @@ package Java.Objects;
  */
 public class Terrain {
 
-    String name;
-    int food;
-    int energy;
-    int ore;
-    int crystite;
+    private String name;
+    private int food;
+    private int energy;
+    private int ore;
+    private int crystite;
 
-    int upper = 3;
-    int lower = 0;
+    private int upper = 3;
+    private int lower = 0;
 
     public Terrain(String name) {
         this.name = name;

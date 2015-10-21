@@ -71,7 +71,7 @@ public class MapController implements Initializable {
         muleGame.setPrice();
         if (!muleGame.selectionRound) {
             //skipButton.setVisible(false);
-            String playerColor = muleGame.getPlayers()[muleGame.getCurrentPlayer()].getColor();
+            String playerColor = muleGame.getCurrentPlayerObject().getColor();
             bottomBar.setStyle("-fx-background-color: " + playerColor);
 
         } else {
@@ -102,27 +102,27 @@ public class MapController implements Initializable {
                 button.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-                        if (muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMuleInHand() != null
+                        if (muleGame.getCurrentPlayerObject().getMuleInHand() != null
                                 && !button.getTile().isOwned()) {
                             System.out.println("you lost that mule, dummie. tile not owned");
                             stage.getScene().setCursor(Cursor.DEFAULT);
-                            muleGame.getPlayers()[muleGame.getCurrentPlayer()].setMuleInHand(null);
-                        } else if (muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMuleInHand() != null
+                            muleGame.getCurrentPlayerObject().setMuleInHand(null);
+                        } else if (muleGame.getCurrentPlayerObject().getMuleInHand() != null
                                 && button.getTile().getMule() != null){
                             System.out.println("You lost that mule, dummie. already has a mule");
                             stage.getScene().setCursor(Cursor.DEFAULT);
-                            muleGame.getPlayers()[muleGame.getCurrentPlayer()].setMuleInHand(null);
-                        } else if (muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMuleInHand() != null
+                            muleGame.getCurrentPlayerObject().setMuleInHand(null);
+                        } else if (muleGame.getCurrentPlayerObject().getMuleInHand() != null
                                 && !(button.getId().equals("t"))) {
-                            if (button.getTile().getOwner().equals(muleGame.getPlayers()[muleGame.getCurrentPlayer()])) {
+                            if (button.getTile().getOwner().equals(muleGame.getCurrentPlayerObject())) {
                                 System.out.println("CORRECT OWNER");
                                 button.setText("M U              L E");
-                                button.getTile().setMule(muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMuleInHand());
+                                button.getTile().setMule(muleGame.getCurrentPlayerObject().getMuleInHand());
                             } else {
                                 System.out.println("You lost that mule, dummie");
                             }
                             stage.getScene().setCursor(Cursor.DEFAULT);
-                            muleGame.getPlayers()[muleGame.getCurrentPlayer()].setMuleInHand(null);
+                            muleGame.getCurrentPlayerObject().setMuleInHand(null);
                         } else {
                             if (button.getId().equals("t")) {
                                 if (!muleGame.selectionRound) {
@@ -156,7 +156,7 @@ public class MapController implements Initializable {
 //                            if (muleGame.selectionRound) {
 //                                muleGame.setPrice(muleGame.getRound(), muleGame.getPlayers()[selectingPlayer]);
 //                            } else {
-//                                muleGame.setPrice(muleGame.getRound(), muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
+//                                muleGame.setPrice(muleGame.getRound(), muleGame.getCurrentPlayerObject());
 //                            }
                                 accept.setText("Accept");
                                 Button decline = new Button();
@@ -209,9 +209,9 @@ public class MapController implements Initializable {
                                                 vbox.getChildren().setAll(accept, decline, failText);
                                             }
                                         } else {
-                                            //muleGame.setPrice(muleGame.getRound(), muleGame.getPlayers()[muleGame.getCurrentPlayer()]);
-                                            if (muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney() >= currentPrice) {
-                                                purchaseLand(muleGame.getPlayers()[muleGame.getCurrentPlayer()], button, muleGame.selectionRound);
+                                            //muleGame.setPrice(muleGame.getRound(), muleGame.getCurrentPlayerObject());
+                                            if (muleGame.getCurrentPlayerObject().getMoney() >= currentPrice) {
+                                                purchaseLand(muleGame.getCurrentPlayerObject(), button, muleGame.selectionRound);
                                             } else {
                                                 TextField failText = new TextField();
                                                 failText.setText("Not enough Money!");
@@ -242,8 +242,8 @@ public class MapController implements Initializable {
             currentPlayerLabel.setText("LS: " + muleGame.getPlayers()[selectingPlayer].getName()
                     + " Money Remaining: " + muleGame.getPlayers()[selectingPlayer].getMoney());
         } else {
-            currentPlayerLabel.setText("TURN: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getName()
-                    + " Money Remaining: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+            currentPlayerLabel.setText("TURN: " + muleGame.getCurrentPlayerObject().getName()
+                    + " Money Remaining: " + muleGame.getCurrentPlayerObject().getMoney());
             if (startOfTurn) {
                 startTimer(muleGame.getTimeForTurn());
             }
@@ -399,8 +399,8 @@ public class MapController implements Initializable {
             String color = player.getColor();
             button.setStyle("-fx-background-color: " + color);
             player.setMoney(player.getMoney() - currentPrice);
-            currentPlayerLabel.setText("TURN: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getName()
-                    + " Money Remaining: " + muleGame.getPlayers()[muleGame.getCurrentPlayer()].getMoney());
+            currentPlayerLabel.setText("TURN: " + muleGame.getCurrentPlayerObject().getName()
+                    + " Money Remaining: " + muleGame.getCurrentPlayerObject().getMoney());
 
         }
 

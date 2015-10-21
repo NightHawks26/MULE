@@ -145,6 +145,8 @@ public class MuleGame {
         currentPlayer++;
     }
 
+    public Player getCurrentPlayerObject() { return players[currentPlayer]; }
+
     public void setCurrentPlayer(int currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
