@@ -198,6 +198,7 @@ public class Player {
         this.muleInHand = muleInHand;
     }
 
+
     public int calculateTimeForTurn(int round) {
         if (food <= 0) {
             return 5;

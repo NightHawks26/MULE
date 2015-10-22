@@ -64,6 +64,7 @@ public class StartScreenController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 FileChooser fileChooser = new FileChooser();
+                fileChooser.setInitialDirectory(new File(System.getProperty("user.dir") + "/src/resources/xml"));
                 fileChooser.setTitle("Open Resource File");
                 File savedGameXML = fileChooser.showOpenDialog(stage);
                 if (savedGameXML != null) {

@@ -135,33 +135,30 @@ public class Store {
 
     public void buyMule(Player player, String type, int price) {
         if (muleStock > 0) {
-            switch (type) {
-                case "ore":
-                    if (player.getMoney() >= (price)) {
-                        player.incNumberOfMules();
-                        player.setMoney(player.getMoney() - (price));
-                        Mule newMule = new Mule("Ore");
-                        player.setMuleInHand(newMule);
-                        muleStock--;
-                    }
-                    break;
-                case "energy":
-                    if (player.getMoney() >= (price)) {
-                        player.incNumberOfMules();
-                        player.setMoney(player.getMoney() - (price));
-                        Mule newMule = new Mule("Energy");
-                        player.setMuleInHand(newMule);
-                        muleStock--;
-                    }
-                    break;
-                case "food":
-                    if (player.getMoney() >= (price)) {
-                        player.incNumberOfMules();
-                        player.setMoney(player.getMoney() - (price));
-                        Mule newMule = new Mule("Food");
-                        player.setMuleInHand(newMule);
-                        muleStock--;
-                    }
+            if (type.equals("ore")) {
+                if (player.getMoney() >= (price)) {
+                    player.incNumberOfMules();
+                    player.setMoney(player.getMoney() - (price));
+                    Mule newMule = new Mule("Ore");
+                    player.setMuleInHand(newMule);
+                    muleStock--;
+                }
+            } else if (type.equals("energy")) {
+                if (player.getMoney() >= (price)) {
+                    player.incNumberOfMules();
+                    player.setMoney(player.getMoney() - (price));
+                    Mule newMule = new Mule("Energy");
+                    player.setMuleInHand(newMule);
+                    muleStock--;
+                }
+            } else if (type.equals("food")) {
+                if (player.getMoney() >= (price)) {
+                    player.incNumberOfMules();
+                    player.setMoney(player.getMoney() - (price));
+                    Mule newMule = new Mule("Food");
+                    player.setMuleInHand(newMule);
+                    muleStock--;
+                }
             }
         }
     }
