@@ -129,10 +129,16 @@
         <ImageView fx:id="p4Image" fitHeight="150.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true" />
       </children>
     </HBox>
-    <Button fx:id="continueButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="56.0" prefWidth="207.0" text="Lets Go!" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <font>
-            <Font size="24.0" />
-         </font></Button>
+      <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+          <Button fx:id="continueButton" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="56.0" prefWidth="207.0" text="Lets Go!" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+            <Label fx:id="randomEventLabel" />
+         </children>
+      </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
          <children>
           <Label fx:id="roundNumber" prefHeight="56.0" prefWidth="289.0" text="Label">

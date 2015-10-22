@@ -104,13 +104,16 @@ public class AddPlayerController implements Initializable{
                         if (p.getName().equals(newName.getText())) {
                             throw new IOException("samename");
                         }
+                        if (p.getColor().equals(colorPicker.getValue())) {
+                            throw new IOException("samecolor");
+                        }
                     }
                 }
                 muleGame.players[x] = new Player(newName.getText(), raceGroup.getSelectedToggle().toString(), muleGame.getDifficulty(), color);
                 System.out.println(Arrays.toString(muleGame.getPlayers()));
 
                 colorPicker.getItems().removeAll(colorPicker.getValue());
-
+                colorPicker.setValue(null);
                 if (muleGame.players[(muleGame.getPlayers().length) - 1] != null) {
 
                     muleGame.arrangePlayers();
@@ -143,6 +146,10 @@ public class AddPlayerController implements Initializable{
                 errorMsg = "You didn't pick a name!";
             } else if (e.getMessage().equals("samename")) {
                 errorMsg = "Someone else already has that name!";
+            } else if (e.getMessage().equals("samecolor")) {
+                errorMsg = "Please pick a different color!";
+            } else {
+                errorMsg = "Wow you really goofed up";
             }
             Button closer = new Button("Try again");
             Label errMsg = new Label(errorMsg);
