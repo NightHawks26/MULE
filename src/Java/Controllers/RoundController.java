@@ -106,6 +106,9 @@ public class RoundController implements Initializable {
     @FXML
     private Button continueButton;
 
+    @FXML
+    private Label randomEventLabel;
+
     // private int current = -1;
     private MapController mapController;
     private MuleGame muleGame;
@@ -136,7 +139,9 @@ public class RoundController implements Initializable {
             } else {
                 isLastPlace = false;
             }
-            System.out.println(events.getRandomEvent(muleGame.getCurrentPlayerObject(), isLastPlace,muleGame.getRound()));
+            String randomEventText = events.getRandomEvent(muleGame.getCurrentPlayerObject(), isLastPlace, muleGame.getRound());
+            System.out.println(randomEventText);
+            randomEventLabel.setText(randomEventText);
             muleGame.setTimeForTurn(muleGame.getCurrentPlayerObject().calculateTimeForTurn(muleGame.getRound()));
             nextAction.setText("TURN: " + muleGame.getCurrentPlayerObject().toString()
                     + "\nTIME FOR TURN: " + muleGame.getTimeForTurn());
