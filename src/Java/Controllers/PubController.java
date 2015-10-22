@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -66,6 +67,24 @@ public class PubController implements Initializable{
                         muleGame.setCurrentPlayer(0);
                         muleGame.selectionRound = true;
                         muleGame.incRound();
+                        System.out.println(muleGame.getRound());
+                        if (muleGame.getRound() > 12) {
+                            try {
+                                FXMLLoader endLoader = new FXMLLoader();
+                                endLoader.setLocation(getClass().getResource("/fxml/FinalScores.fxml"));
+                                endLoader.load();
+                                System.out.println(endLoader.getRoot() == null);
+                                Parent endP = endLoader.getRoot();
+                                stage.setScene(new Scene(endP));
+                                FinalScoresController finals = endLoader.getController();
+                                finals.setMuleGame(muleGame);
+                                finals.setStage(stage);
+                                finals.start();
+                                stage.show();
+                            } catch (Exception e) {
+                                System.out.println(e + "Oh no, the final scores don't want to work!");
+                            }
+                        }
                     } else {
                         muleGame.incCurrentPlayer();
                     }
@@ -74,7 +93,7 @@ public class PubController implements Initializable{
                     roundController.start();
                     stage.show();
                 } catch (Exception e) {
-                    System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+                    System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER in the pub");
                 }
 
             }

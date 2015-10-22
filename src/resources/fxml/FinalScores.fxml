@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Java.Controllers.FinalScoresController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="firstNameLabel" text="firstName" />
+            <Label fx:id="firstIndScoreLabel" text="firstIndScore" />
+            <Label fx:id="firstTotalScoreLabel" text="firstTotalScore" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <children>
+            <Label fx:id="secondNameLabel" text="secondName" />
+            <Label fx:id="secondIndScoreLabel" text="secondIndScore" />
+            <Label fx:id="secondTotalScoreLabel" text="secondTotalScore" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+         <children>
+            <Label fx:id="thirdNameLabel" text="thirdName" />
+            <Label fx:id="thirdIndScoreLabel" text="thirdIndScore" />
+            <Label fx:id="thirdTotalScoreLabel" text="thirdTotalScore" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+         <children>
+            <Label fx:id="fourthNameLabel" text="fourthName" />
+            <Label fx:id="fourthIndScoreLabel" text="fourthIndScore" />
+            <Label fx:id="fourthTotalScoreLabel" text="fourthTotalScore" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+         <children>
+            <Button fx:id="playAgainButton" mnemonicParsing="false" text="PlayAgain" />
+            <Button fx:id="quitButton" mnemonicParsing="false" text="Quit" />
+            <Button fx:id="secretSurpriseButton" mnemonicParsing="false" text="Collect Your Prize!" />
+         </children>
+      </HBox>
+   </children>
+</GridPane>

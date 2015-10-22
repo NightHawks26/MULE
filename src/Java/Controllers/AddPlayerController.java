@@ -137,7 +137,7 @@ public class AddPlayerController implements Initializable{
                 }
             }
         } catch (IOException e) {
-            String errorMsg = "";
+            String errorMsg;
             if (e.getMessage().equals("norace")) {
                 errorMsg = "You didn't pick a race!";
             } else if (e.getMessage().equals("color")) {

@@ -278,6 +278,20 @@ public class MapController implements Initializable {
                                 muleGame.setCurrentPlayer(0);
                                 muleGame.selectionRound = true;
                                 muleGame.incRound();
+                                if (muleGame.getRound() > 12) {
+                                    FXMLLoader endLoader = new FXMLLoader();
+                                    endLoader.setLocation(getClass().getResource("/fxml/FinalScores.fxml"));
+                                    endLoader.load();
+                                    Parent endP = endLoader.getRoot();
+                                    Cursor tmp = stage.getScene().getCursor();
+                                    stage.setScene(new Scene(endP));
+                                    stage.getScene().setCursor(tmp);
+                                    FinalScoresController finals = endLoader.getController();
+                                    finals.setMuleGame(muleGame);
+                                    finals.setStage(stage);
+                                    finals.start();
+                                    stage.show();
+                                }
                             } else {
                                 muleGame.incCurrentPlayer();
                             }
