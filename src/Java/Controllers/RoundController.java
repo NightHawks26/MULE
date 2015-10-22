@@ -136,7 +136,7 @@ public class RoundController implements Initializable {
             } else {
                 isLastPlace = false;
             }
-            System.out.println(events.getRandomEvent(muleGame.getCurrentPlayerObject(), isLastPlace));
+            System.out.println(events.getRandomEvent(muleGame.getCurrentPlayerObject(), isLastPlace,muleGame.getRound()));
             muleGame.setTimeForTurn(muleGame.getCurrentPlayerObject().calculateTimeForTurn(muleGame.getRound()));
             nextAction.setText("TURN: " + muleGame.getCurrentPlayerObject().toString()
                     + "\nTIME FOR TURN: " + muleGame.getTimeForTurn());
