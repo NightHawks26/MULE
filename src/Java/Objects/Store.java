@@ -69,6 +69,22 @@ public class Store {
 
     public int getMuleStock() { return muleStock; }
 
+    public int getOrePrice() {
+        return orePrice;
+    }
+
+    public int getCrystitePrice() {
+        return crystitePrice;
+    }
+
+    public int getFoodPrice() {
+        return foodPrice;
+    }
+
+    public int getEnergyPrice() {
+        return energyPrice;
+    }
+
     public void buyOre(Player player) {
         if (oreStock > 0 && player.getMoney() >= orePrice) {
             player.setMoney(player.getMoney() - orePrice);

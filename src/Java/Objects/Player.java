@@ -103,6 +103,10 @@ public class Player {
         this.landCounter = landCounter;
     }
 
+    public int getLandCounter() {
+        return landCounter;
+    }
+
     public void setScore(int score) {
         this.score = score;
     }
