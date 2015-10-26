@@ -44,21 +44,32 @@ public class StartScreenController implements Initializable {
         int playlistNum = sound.createPlaylist(true);
         // sound.addToPlaylist(playlistNum, "Boyfriend.mp3");
         // sound.addToPlaylist(playlistNum, "No Tellin'.mp3");
-        sound.addSoundEffect("round1.mp3");
-        sound.addSoundEffect("round2.mp3");
-        sound.addSoundEffect("round3.mp3");
-        sound.addSoundEffect("store.mp3");
-        sound.addSoundEffect("gamble.mp3");
-        sound.addSoundEffect("doh.mp3");
-        sound.addSoundEffect("nicepick.mp3");
-        sound.addSoundEffect("trick.mp3");
-        sound.addSoundEffect("encouragement.mp3");
-        sound.addToPlaylist(playlistNum, "bensound-littleidea.mp3"); //got all of these from www.bensound.com
-        sound.addToPlaylist(playlistNum, "bensound-scifi.mp3"); //got all of these from www.bensound.com
-        sound.addToPlaylist(playlistNum, "bensound-sweet.mp3"); //got all of these from www.bensound.com
-        sound.addToPlaylist(playlistNum, "bensound-theelevatorbossanova.mp3"); //waiting/background music
-        sound.addToPlaylist(playlistNum, "bensound-sadday.mp3"); //could be used when a mule is lost
-        sound.addSoundEffect("fart.mp3");
+        sound.addSoundEffect("round1.mp3"); //0
+        sound.addSoundEffect("round2.mp3"); //1
+        sound.addSoundEffect("round3.mp3"); //2
+        sound.addSoundEffect("round4.mp3"); //3
+        sound.addSoundEffect("round5.mp3"); //4
+        sound.addSoundEffect("round6.mp3"); //5
+        sound.addSoundEffect("round7.mp3"); //6
+        sound.addSoundEffect("round8.mp3"); //7
+        sound.addSoundEffect("round9.mp3"); //8
+        sound.addSoundEffect("round10.mp3"); //9
+        sound.addSoundEffect("round11.mp3"); //10
+        sound.addSoundEffect("round12.mp3"); //11
+        sound.addSoundEffect("gameOver.mp3"); //12
+        sound.addSoundEffect("store.mp3"); //13
+        sound.addSoundEffect("gamble.mp3"); //14
+        sound.addSoundEffect("doh.mp3"); //15
+        sound.addSoundEffect("nicepick.mp3"); //16
+        sound.addSoundEffect("trick.mp3"); //17
+        sound.addSoundEffect("encouragement.mp3"); //18
+        sound.addSoundEffect("fart.mp3"); //19
+        sound.addToPlaylist(playlistNum, "bensound-littleidea.mp3"); //playlist 0
+        sound.addToPlaylist(playlistNum, "bensound-scifi.mp3"); //1
+        sound.addToPlaylist(playlistNum, "bensound-sweet.mp3"); // 2         got all of these from www.bensound.com
+        sound.addToPlaylist(playlistNum, "bensound-theelevatorbossanova.mp3"); //3      waiting/background music
+        sound.addToPlaylist(playlistNum, "bensound-sadday.mp3"); //4        could be used when a mule is lost
+
         sound.startPlaylist(0);
         loadGame.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
