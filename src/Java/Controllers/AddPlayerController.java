@@ -59,7 +59,7 @@ public class AddPlayerController implements Initializable{
         currentMap.setText(muleGame.getMap().getName());
         playerNumber.setText("PLAYER 1");
         this.muleGame = muleGame;
-        colorPicker.getItems().addAll("Orange", "Purple", "Blue", "Yellow", "Red", "White");
+        colorPicker.getItems().addAll("Orange", "Purple", "Blue", "Yellow", "Red", "White", "Black", "Pink");
         //delete the following after done testing
         newName.setText("Player 1");
     }
@@ -80,17 +80,21 @@ public class AddPlayerController implements Initializable{
                     throw new IOException("color");
                 }
                 if (colorPicker.getValue().equals("Orange")) {
-                    color = "#FF6600";
+                    color = "#FF9600";
                 } else if (colorPicker.getValue().equals("Purple")) {
-                    color = "#FF66FF";
+                    color = "#C000FF";
                 } else if (colorPicker.getValue().equals("White")) {
                     color = "#FFFFFF";
                 } else if (colorPicker.getValue().equals("Red")) {
-                    color = "#FF5050";
+                    color = "#FF0000";
                 } else if (colorPicker.getValue().equals("Blue")) {
-                    color = "#33CCCC";
+                    color = "#000AFF";
                 } else if (colorPicker.getValue().equals("Yellow")) {
-                    color = "#FFFF99";
+                    color = "#FFFC00";
+                } else if (colorPicker.getValue().equals("Black")) {
+                    color = "#000000";
+                } else if (colorPicker.getValue().equals("Pink")) {
+                    color = "#FF6EB2";
                 } else {
                     System.out.println("DIDN'T PICK A COLOR??");
                 }
