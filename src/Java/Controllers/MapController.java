@@ -22,6 +22,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import Java.Objects.Player;
 import Java.Objects.MuleGame;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -43,6 +45,9 @@ public class MapController implements Initializable {
     private int numSkipped = 0;
     private Stage stage;
     private int currentPrice;
+
+    private Image image;
+    private String colorName;
 
 //    @FXML //fx: id display
 //    private Label display;
@@ -90,6 +95,31 @@ public class MapController implements Initializable {
                 if (button.getTile().isOwned()) {
                     String color = button.getTile().getOwner().getColor();
                     button.setStyle("-fx-background-color: " + color);
+                    if (color == "#FF6600") {
+                        colorName = "orange";
+                    }
+                    else if (color == "#FF66FF") {
+                        colorName = "purple";
+                    }
+                    else if (color == "#FFFFFF") {
+                        colorName = "white";
+                    }
+                    else if (color == "#FF5050") {
+                        colorName = "red";
+                    }
+                    else if (color == "#33CCCC") {
+                        colorName = "blue";
+                    }
+                    else if (color == "#FFFF99") {
+                        colorName = "yellow";
+                    } else {
+                        colorName = "black";
+                    }
+                    image = new Image("images/flags/animated_" + colorName + "_flag.gif");
+                    button.setGraphic(new ImageView(image));
+
+                } else {
+                    image = null;
                 }
                 if (button.getTile().getMule() != null) {
                     button.setText("M U              L E");
@@ -108,7 +138,7 @@ public class MapController implements Initializable {
                             stage.getScene().setCursor(Cursor.DEFAULT);
                             muleGame.getCurrentPlayerObject().setMuleInHand(null);
                         } else if (muleGame.getCurrentPlayerObject().getMuleInHand() != null
-                                && button.getTile().getMule() != null){
+                                && button.getTile().getMule() != null) {
                             System.out.println("You lost that mule, dummie. already has a mule");
                             stage.getScene().setCursor(Cursor.DEFAULT);
                             muleGame.getCurrentPlayerObject().setMuleInHand(null);
@@ -405,6 +435,28 @@ public class MapController implements Initializable {
             currentPlayerLabel.setText("LS: " + muleGame.getPlayers()[selectingPlayer].getName()
                     + " Money Remaining: " + muleGame.getPlayers()[selectingPlayer].getMoney());
             String playerColor = muleGame.getPlayers()[selectingPlayer].getColor();
+            if (color == "#FF6600") {
+                colorName = "orange";
+            }
+            else if (color == "#FF66FF") {
+                colorName = "purple";
+            }
+            else if (color == "#FFFFFF") {
+                colorName = "white";
+            }
+            else if (color == "#FF5050") {
+                colorName = "red";
+            }
+            else if (color == "#33CCCC") {
+                colorName = "blue";
+            }
+            else if (color == "#FFFF99") {
+                colorName = "yellow";
+            } else {
+                colorName = "black";
+            }
+            image = new Image("images/flags/animated_" + colorName + "_flag.gif");
+            button.setGraphic(new ImageView(image));
             bottomBar.setStyle("-fx-background-color: " + playerColor);
         } else {
             button.getTile().setOwner(player);
