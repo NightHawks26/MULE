@@ -5,21 +5,33 @@ package Java.Controllers; /**
 import Java.Objects.MuleGame;
 import Java.Objects.Player;
 import Java.Objects.RandomEventGenerator;
+import Java.WriteXMLFile;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -108,6 +120,9 @@ public class RoundController implements Initializable {
 
     @FXML
     private Label randomEventLabel;
+
+    @FXML
+    private MenuItem saveGame;
 
     // private int current = -1;
     private MapController mapController;
@@ -207,5 +222,33 @@ public class RoundController implements Initializable {
     private void updatePlayerScores() {
         //display money, score, and energy on screen
 
+    }
+
+    public void saveGame(ActionEvent event) {
+        System.out.println("save game");
+       //String fileName = "";
+        WriteXMLFile xmlGenerator = new WriteXMLFile();
+        Button closer = new Button("SAVE");
+        Label message = new Label("Type the name of you saved game.");
+        Pane poppane1 = new Pane(message);
+        poppane1.setMinSize(100, 50);
+        Pane poppane2 = new Pane(closer);
+        poppane2.setMinSize(100, 50);
+        TextField fileName = new TextField();
+        VBox box = new VBox(message, fileName, closer);
+        box.setPadding(new Insets(10, 0, 10, 50));
+        Scene popScene = new Scene(box, 300, 100);
+        Stage popStage = new Stage();
+        popStage.setScene(popScene);
+        popStage.initModality(Modality.APPLICATION_MODAL);
+        popStage.show();
+        closer.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                String fileNameFinal = fileName.getText().trim().replaceAll(" ", "");
+                xmlGenerator.saveGame(muleGame, fileNameFinal);
+                popStage.close();
+            }
+        });
     }
 }

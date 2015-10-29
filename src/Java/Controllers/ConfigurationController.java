@@ -59,7 +59,7 @@ public class ConfigurationController implements Initializable{
 
     public void switchToPlayers(ActionEvent event) throws IOException {
 
-        sound.playSoundEffect(0);
+        sound.playSoundEffect(16);
         Player[] players = new Player[selectPlayers.getValue()];
         Map map = new Map(selectMap.getValue());
         MuleGame muleGame = new MuleGame(selectDifficulty.getValue(), map, players, sound);
