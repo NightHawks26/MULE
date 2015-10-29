@@ -136,7 +136,6 @@ public class FinalScoresController implements Initializable {
                 magicStage.setScene(magicScene);
                 magicStage.initModality(Modality.APPLICATION_MODAL);
                 magicStage.show();
-
             }
         });
     }
