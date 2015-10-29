@@ -79,40 +79,35 @@ public class StartScreenController implements Initializable {
                 fileChooser.setTitle("Open Resource File");
                 File savedGameXML = fileChooser.showOpenDialog(stage);
                 if (savedGameXML != null) {
-                        System.out.println(savedGameXML.getAbsolutePath());
+                    System.out.println(savedGameXML.getAbsolutePath());
                     XMLParser xmlParser = new XMLParser();
                     xmlParser.setSound(sound);
                     String fileLocation = savedGameXML.getAbsolutePath();
                     muleGame = xmlParser.loadGame(fileLocation);
+                    //switch screen to round controller
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
+                    try {
+                        loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Parent p = loader.getRoot();
+                    stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(p));
+                    roundController = loader.getController();
+                    roundController.setMuleGame(muleGame);
+                    roundController.setStage(stage);
+                    stage.getScene().getWindow().sizeToScene();
+                    roundController.start();
+                    stage.show();
                 }
-
-                //switch screen to round controller
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
-                try {
-                    loader.load();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                Parent p = loader.getRoot();
-                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                stage.setScene(new Scene(p));
-                roundController = loader.getController();
-                roundController.setMuleGame(muleGame);
-                roundController.setStage(stage);
-                stage.getScene().getWindow().sizeToScene();
-                roundController.start();
-                stage.show();
-
-
-
-
-
             }
         });
     }
 
     public void switchToConfiguration(ActionEvent event) throws IOException {
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/Configuration.fxml"));
         loader.load();
@@ -123,6 +118,7 @@ public class StartScreenController implements Initializable {
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(p));
         stage.show();
+
     }
 
 }
