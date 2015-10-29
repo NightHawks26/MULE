@@ -1,6 +1,4 @@
-package Java.Controllers; /**
- * Sample Skeleton for 'Round.fxml' Controller Class
- */
+package Java.Controllers;
 
 import Java.Objects.MuleGame;
 import Java.Objects.Player;
@@ -24,14 +22,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -124,7 +117,6 @@ public class RoundController implements Initializable {
     @FXML
     private MenuItem saveGame;
 
-    // private int current = -1;
     private MapController mapController;
     private MuleGame muleGame;
     private Stage stage;
@@ -134,15 +126,11 @@ public class RoundController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }
 
-    public void setSkips(int skips) { this.skips = skips; }
-
     public void setStage(Stage stage) { this.stage =stage;}
 
     public void setMuleGame(MuleGame mulegame) {
         this.muleGame = mulegame;
     }
-
-    // public void setCurrent(int current) { this.current = current % muleGame.getPlayers().length; }
 
     public void start() {
         RandomEventGenerator events = new RandomEventGenerator();
@@ -166,7 +154,6 @@ public class RoundController implements Initializable {
             muleGame.map.calculateProduction();
             nextAction.setText("Next is a land selection!");
         }
-        //Image human = new Image(".." + File.separator + ".." + File.separator + "resources" + File.separator + "images" + File.separator + "human.jpg");
         Image human = new Image("/images/human.jpg");
         Image flapper = new Image("/images/flapper.jpg");
         Image other = new Image("/images/other.gif");
@@ -192,7 +179,6 @@ public class RoundController implements Initializable {
             playerEnergy[x].setText("ENERGY: " + players[x].getEnergy());
             playerFood[x].setText("FOOD: " + players[x].getFood());
         }
-        updatePlayerScores();
         continueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -216,17 +202,8 @@ public class RoundController implements Initializable {
         });
     }
 
-    private void updatePlayerResources() {
-        //calculate player
-    }
-    private void updatePlayerScores() {
-        //display money, score, and energy on screen
-
-    }
-
     public void saveGame(ActionEvent event) {
         System.out.println("save game");
-       //String fileName = "";
         WriteXMLFile xmlGenerator = new WriteXMLFile();
         Button closer = new Button("SAVE");
         Label message = new Label("Type the name of you saved game.");

@@ -1,8 +1,6 @@
 package Java.Controllers;
 
-import Java.Objects.Map;
 import Java.Objects.MuleGame;
-import Java.Objects.Player;
 import Java.XMLParser;
 import io.github.jgkamat.JayLayer.JayLayer;
 import javafx.event.ActionEvent;
@@ -18,7 +16,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -43,8 +40,6 @@ public class StartScreenController implements Initializable {
         //http://jgkamat.github.io/JayLayer/doc/jay/jaysound/JayLayer.html
         sound = new JayLayer("/audio/", "/audio/");
         int playlistNum = sound.createPlaylist(true);
-        // sound.addToPlaylist(playlistNum, "Boyfriend.mp3");
-        // sound.addToPlaylist(playlistNum, "No Tellin'.mp3");
         sound.addSoundEffect("round1.mp3"); //0
         sound.addSoundEffect("round2.mp3"); //1
         sound.addSoundEffect("round3.mp3"); //2
@@ -115,7 +110,6 @@ public class StartScreenController implements Initializable {
         loader.setLocation(getClass().getResource("/fxml/Configuration.fxml"));
         loader.load();
         Parent p = loader.getRoot();
-        //((Node)event.getSource()).getScene().getWindow();
         configurationController = loader.getController();
         configurationController.setSound(sound);
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

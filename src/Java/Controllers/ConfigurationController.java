@@ -1,9 +1,5 @@
 package Java.Controllers;
 
-/**
- * Sample Skeleton for 'Configuration.fxml' Controller Class
- */
-
 import Java.Objects.MuleGame;
 import Java.Objects.Player;
 import Java.Objects.Map;
@@ -23,12 +19,6 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 
 public class ConfigurationController implements Initializable{
-
-//    @FXML // ResourceBundle that was given to the FXMLLoader
-//    private ResourceBundle resources;
-//
-//    @FXML // URL location of the FXML file that was given to the FXMLLoader
-//    private URL location;
 
     @FXML // fx:id="selectPlayers"
     private ChoiceBox<Integer> selectPlayers; // Value injected by FXMLLoader
@@ -63,13 +53,10 @@ public class ConfigurationController implements Initializable{
         Player[] players = new Player[selectPlayers.getValue()];
         Map map = new Map(selectMap.getValue());
         MuleGame muleGame = new MuleGame(selectDifficulty.getValue(), map, players, sound);
-
-        //((Node)event.getSource()).getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/AddPlayer.fxml"));
         loader.load();
         Parent p = loader.getRoot();
-        //((Node)event.getSource()).getScene().getWindow();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(p));
         AddPlayerController addPlayerController = loader.getController();

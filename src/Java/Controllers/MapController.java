@@ -9,7 +9,6 @@ import java.util.TimerTask;
 import Java.Objects.TileButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,7 +30,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.Popup;
 
 /**
  * Created by AveryDingler on 9/10/15.
@@ -49,9 +47,6 @@ public class MapController implements Initializable {
     private Image image;
     private String colorName;
 
-//    @FXML //fx: id display
-//    private Label display;
-
     @FXML private GridPane thePane;
     @FXML private Label currentPlayerLabel;
     @FXML private Button skipButton;
@@ -67,10 +62,6 @@ public class MapController implements Initializable {
     public void setMuleGame(MuleGame mulegame) {
         this.muleGame = mulegame;
     }
-
-//    public void displayTile() {
-//        display.setText(muleGame.map.getTileValues(0,0));
-//    }
 
     public void start(boolean startOfTurn) {
         muleGame.setPrice();
@@ -174,20 +165,8 @@ public class MapController implements Initializable {
                                     }
                                 }
                             } else if (!button.getTile().isOwned() && muleGame.isSelectionRound()) {
-//                        StackPane pane = new StackPane();
-//                        Rectangle r = new Rectangle();
-//                        r.setX(100);
-//                        r.setY(100);
-//                        r.setWidth(100);
-//                        r.setHeight(100);
-//                        pane.getChildren().add(r);
-//                        thePane.getChildren().add(pane);
+
                                 Button accept = new Button();
-//                            if (muleGame.selectionRound) {
-//                                muleGame.setPrice(muleGame.getRound(), muleGame.getPlayers()[selectingPlayer]);
-//                            } else {
-//                                muleGame.setPrice(muleGame.getRound(), muleGame.getCurrentPlayerObject());
-//                            }
                                 accept.setText("Accept");
                                 Button decline = new Button();
                                 decline.setText("Return");
@@ -201,15 +180,7 @@ public class MapController implements Initializable {
                                 VBox vbox = new VBox(popPane1, popPane2);
                                 vbox.setPadding(new Insets(10, 0, 10, 50));
                                 vbox.setStyle("-fx-background-color: #54CC94;");
-                                //vbox.getChildren().setAll(vbox);
-//                            Popup popup = new Popup();
-//                            popup.setX(200);
-//                            popup.setY(200);
-//                            popup.setAnchorX(event.getScreenX());
-//                            popup.setAnchorY(event.getScreenY());
-//                            popup.getContent().addAll(vbox);
                                 Scene popScene = new Scene(vbox, 200, 100);
-                                //popup.show(stage);
                                 Stage popStage = new Stage();
                                 popStage.setScene(popScene);
                                 popStage.initModality(Modality.APPLICATION_MODAL);
@@ -228,10 +199,8 @@ public class MapController implements Initializable {
                                     @Override
                                     public void handle(MouseEvent event) {
                                         if (muleGame.selectionRound) {
-                                            //muleGame.setPrice(muleGame.getRound(), muleGame.getPlayers()[selectingPlayer]);
                                             if (muleGame.getPlayers()[selectingPlayer].getMoney() >= currentPrice) {
                                                 purchaseLand(muleGame.getPlayers()[selectingPlayer], button, muleGame.selectionRound);
-                                                //popup.hide();
                                                 popStage.close();
                                             } else {
                                                 TextField failText = new TextField();
@@ -239,7 +208,6 @@ public class MapController implements Initializable {
                                                 vbox.getChildren().setAll(accept, decline, failText);
                                             }
                                         } else {
-                                            //muleGame.setPrice(muleGame.getRound(), muleGame.getCurrentPlayerObject());
                                             if (muleGame.getCurrentPlayerObject().getMoney() >= currentPrice) {
                                                 purchaseLand(muleGame.getCurrentPlayerObject(), button, muleGame.selectionRound);
                                             } else {
@@ -353,7 +321,7 @@ public class MapController implements Initializable {
                         });
                     }
                 },
-                1000,      // run first occurrence after 1 second
+                1000,   // run first occurrence after 1 second
                 1000);  // run every one seconds
 
     }
@@ -363,7 +331,7 @@ public class MapController implements Initializable {
             return;
         }
         muleGame.sound.playSoundEffect(muleGame.getRound() - 1);
-        if (selectingRound <=2 && muleGame.getRound() == 1) {
+        if (selectingRound <= 2 && muleGame.getRound() == 1) {
             numSkipped = 0;
         } else {
             numSkipped++;
@@ -430,7 +398,6 @@ public class MapController implements Initializable {
             } else {
                 selectingPlayer++;
             }
-            //}
 
             currentPlayerLabel.setText("LS: " + muleGame.getPlayers()[selectingPlayer].getName()
                     + " Money Remaining: " + muleGame.getPlayers()[selectingPlayer].getMoney());

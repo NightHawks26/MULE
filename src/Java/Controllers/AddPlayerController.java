@@ -45,8 +45,6 @@ public class AddPlayerController implements Initializable{
     private MuleGame muleGame;
 
     private Stage stage;
-
-   // private MapController mapController;
     private RoundController roundController;
 
     @FXML
@@ -68,7 +66,7 @@ public class AddPlayerController implements Initializable{
         this.stage = stage;
     }
 
-    public void addPlayer(ActionEvent event) {//throws IOException {
+    public void addPlayer(ActionEvent event) {
         try {
             muleGame.sound.playSoundEffect(18);
             int x = nextNull(muleGame.getPlayers());
@@ -174,9 +172,6 @@ public class AddPlayerController implements Initializable{
                     popStage.close();
                 }
             });
-
-
-            //System.out.println("Error with Loader");
         }
     }
 
