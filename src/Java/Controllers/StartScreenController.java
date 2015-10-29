@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -77,6 +78,8 @@ public class StartScreenController implements Initializable {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setInitialDirectory(new File(System.getProperty("user.dir") + "/src/resources/xml"));
                 fileChooser.setTitle("Open Resource File");
+                FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("MULE Games", "*.xml");
+                fileChooser.getExtensionFilters().add(filter);
                 File savedGameXML = fileChooser.showOpenDialog(stage);
                 if (savedGameXML != null) {
                     System.out.println(savedGameXML.getAbsolutePath());
