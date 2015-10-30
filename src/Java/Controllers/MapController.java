@@ -109,17 +109,13 @@ public class MapController implements Initializable {
                     }
                     else if (color.equals("#C000FF")) {
                         colorName = "purple";
-                    }
-                    else if (color.equals("#FFFFFF")) {
+                    } else if (color.equals("#FFFFFF")) {
                         colorName = "white";
-                    }
-                    else if (color.equals("FF0000")) {
+                    } else if (color.equals("#FF0000")) {
                         colorName = "red";
-                    }
-                    else if (color.equals("#000AFF")) {
+                    } else if (color.equals("#000AFF")) {
                         colorName = "blue";
-                    }
-                    else if (color.equals("#FFFC00")) {
+                    } else if (color.equals("#FFFC00")) {
                         colorName = "yellow";
                     } else if (color.equals("#FF6EB2")) {
                         colorName = "pink";
@@ -501,20 +497,15 @@ public class MapController implements Initializable {
                     muleGame.getPlayers()[selectingPlayer].getColor();
             if (color.equals("#FF9600")) {
                 colorName = "orange";
-            }
-            else if (color.equals("#C000FF")) {
+            } else if (color.equals("#C000FF")) {
                 colorName = "purple";
-            }
-            else if (color.equals("#FFFFFF")) {
+            } else if (color.equals("#FFFFFF")) {
                 colorName = "white";
-            }
-            else if (color.equals("FF0000")) {
+            } else if (color.equals("#FF0000")) {
                 colorName = "red";
-            }
-            else if (color.equals("#000AFF")) {
+            } else if (color.equals("#000AFF")) {
                 colorName = "blue";
-            }
-            else if (color.equals("#FFFC00")) {
+            } else if (color.equals("#FFFC00")) {
                 colorName = "yellow";
             } else if (color.equals("#FF6EB2")) {
                 colorName = "pink";

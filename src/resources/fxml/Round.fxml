@@ -14,23 +14,23 @@
         <ImageView fx:id="p1Image" fitHeight="150.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true" />
         <VBox prefHeight="132.0" prefWidth="184.0">
           <children>
-            <Label fx:id="player1Name" prefHeight="37.0" prefWidth="184.0" />
-                  <Label fx:id="p1Food" prefHeight="26.0" prefWidth="340.0" text="Label">
+            <Label fx:id="player1Name" prefHeight="37.0" prefWidth="184.0" text="player1name" />
+                  <Label fx:id="p1Food" prefHeight="26.0" prefWidth="340.0" text="player1food">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p1Energy" prefHeight="26.0" prefWidth="279.0" text="Label">
+                  <Label fx:id="p1Energy" prefHeight="26.0" prefWidth="279.0" text="player1energy">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p1Ore" prefHeight="26.0" prefWidth="312.0" text="Label">
+                  <Label fx:id="p1Ore" prefHeight="26.0" prefWidth="312.0" text="player1ore">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p1Money" prefHeight="26.0" prefWidth="302.0" text="Label">
+                  <Label fx:id="p1Money" prefHeight="26.0" prefWidth="302.0" text="player1money">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
@@ -44,23 +44,23 @@
         <ImageView fx:id="p3Image" fitHeight="150.0" fitWidth="129.0" pickOnBounds="true" preserveRatio="true" />
         <VBox prefHeight="150.0" prefWidth="202.0">
           <children>
-            <Label fx:id="player3Name" prefHeight="30.0" prefWidth="171.0" />
-                  <Label fx:id="p3Food" prefHeight="26.0" prefWidth="219.0">
+            <Label fx:id="player3Name" prefHeight="30.0" prefWidth="171.0" text="player3name" />
+                  <Label fx:id="p3Food" prefHeight="26.0" prefWidth="219.0" text="player3food">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p3Energy" prefHeight="26.0" prefWidth="243.0">
+                  <Label fx:id="p3Energy" prefHeight="26.0" prefWidth="243.0" text="player3energy">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p3Ore" prefHeight="26.0" prefWidth="235.0">
+                  <Label fx:id="p3Ore" prefHeight="26.0" prefWidth="235.0" text="player3ore">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p3Money" prefHeight="26.0" prefWidth="217.0">
+                  <Label fx:id="p3Money" prefHeight="26.0" prefWidth="217.0" text="player3money">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
@@ -73,23 +73,23 @@
       <children>
         <VBox alignment="TOP_RIGHT" prefHeight="150.0" prefWidth="230.0">
           <children>
-            <Label fx:id="player2Name" alignment="CENTER_RIGHT" contentDisplay="TOP" prefHeight="42.0" prefWidth="256.0" />
-                  <Label fx:id="p2Food" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="234.0" text="Label">
+            <Label fx:id="player2Name" alignment="CENTER_RIGHT" contentDisplay="TOP" prefHeight="42.0" prefWidth="256.0" text="player2name" />
+                  <Label fx:id="p2Food" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="234.0" text="player2food">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p2Energy" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="203.0" text="Label">
+                  <Label fx:id="p2Energy" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="203.0" text="player2energy">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p2Ore" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="235.0" text="Label">
+                  <Label fx:id="p2Ore" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="235.0" text="player2ore">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p2Money" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="200.0" text="Label">
+                  <Label fx:id="p2Money" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="200.0" text="player2money">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
@@ -103,23 +103,23 @@
       <children>
         <VBox prefHeight="150.0" prefWidth="194.0">
           <children>
-            <Label fx:id="player4Name" alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="181.0" />
-                  <Label fx:id="p4Food" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="186.0">
+            <Label fx:id="player4Name" alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="181.0" text="player4Name" />
+                  <Label fx:id="p4Food" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="26.0" prefWidth="186.0" text="player4food">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p4Energy" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="203.0">
+                  <Label fx:id="p4Energy" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="203.0" text="player4energy">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p4Ore" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="235.0">
+                  <Label fx:id="p4Ore" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="235.0" text="player4ore">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="p4Money" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="200.0">
+                  <Label fx:id="p4Money" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="200.0" text="player4money">
                      <padding>
                         <Insets bottom="5.0" top="5.0" />
                      </padding>

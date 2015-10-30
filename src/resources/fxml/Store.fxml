@@ -29,7 +29,7 @@
          <children>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/ore.jpg" />
+                  <Image url="@../images/ore.png" />
                </image>
             </ImageView>
             <VBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="123.0">
@@ -48,7 +48,7 @@
          <children>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/food.jpg" />
+                  <Image url="@../images/food.png" />
                </image>
             </ImageView>
             <VBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="155.0">
@@ -67,7 +67,7 @@
          <children>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/energy.jpg" />
+                  <Image url="@../images/energy.png" />
                </image>
             </ImageView>
             <VBox alignment="CENTER_RIGHT" prefHeight="59.0" prefWidth="117.0">
@@ -86,7 +86,7 @@
          <children>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/crystite.jpg" />
+                  <Image url="@../images/crystite.png" />
                </image>
             </ImageView>
             <VBox alignment="CENTER_RIGHT">
@@ -128,7 +128,7 @@
             </VBox>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/ore.jpg" />
+                  <Image url="@../images/ore.png" />
                </image>
             </ImageView>
          </children>
@@ -147,7 +147,7 @@
             </VBox>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/food.jpg" />
+                  <Image url="@../images/food.png" />
                </image>
             </ImageView>
          </children>
@@ -166,7 +166,7 @@
             </VBox>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/energy.jpg" />
+                  <Image url="@../images/energy.png" />
                </image>
             </ImageView>
          </children>
@@ -185,7 +185,7 @@
             </VBox>
             <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/crystite.jpg" />
+                  <Image url="@../images/crystite.png" />
                </image>
             </ImageView>
          </children>
@@ -221,7 +221,7 @@
             <Insets left="50.0" />
          </GridPane.margin>
          <image>
-            <Image url="@../images/mule.jpg" />
+            <Image url="@../images/mule.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
@@ -229,12 +229,13 @@
             <Insets left="50.0" />
          </GridPane.margin>
          <image>
-            <Image url="@../images/mule.jpg" />
+            <Image url="@../images/mule.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
          <image>
-            <Image url="@../images/mule.jpg" />
+            <Image url="@../images/mule.png" />
+            <Image url="@../images/mule.png" />
          </image>
          <GridPane.margin>
             <Insets left="50.0" />
