@@ -243,50 +243,22 @@ public class MapController implements Initializable {
                                         @Override
                                 public void handle(MouseEvent event) {
                                             if (muleGame.selectionRound) {
-                                                if (muleGame.
-                                                        getPlayers()
-                                                        [selectingPlayer].
-                                                        getMoney()
-                                                        >= currentPrice) {
-                                                    purchaseLand(
-                                                        muleGame.getPlayers()
-                                                        [selectingPlayer],
-                                                        button,
-                                                        muleGame.
-                                                        selectionRound);
+                                                if (muleGame.getPlayers()[selectingPlayer].getMoney() >= currentPrice) {
+                                                    purchaseLand(muleGame.getPlayers()
+                                                        [selectingPlayer], button, muleGame.selectionRound);
                                                      popStage.close();
                                                 } else {
-                                                    TextField failText
-                                                            = new TextField();
-                                                    failText.setText(
-                                                            "Not enough"
-                                                            + "Money!");
-                                                    vbox.getChildren().
-                                                            setAll(
-                                                            accept,
-                                                            decline,
-                                                            failText);
+                                                    TextField failText = new TextField();
+                                                    failText.setText("Not enough Money!");
+                                                    vbox.getChildren().setAll(accept, decline, failText);
                                                 }
                                             } else {
                                                 if (muleGame.
-                                                        getCurrentPlayerObject().
-                                                        getMoney()
-                                                        >= currentPrice) {
-                                                    purchaseLand(
-                                                        muleGame.
-                                                        getCurrentPlayerObject(),
-                                                        button,
-                                                        muleGame.
-                                                        selectionRound);
+                                                        getCurrentPlayerObject().getMoney() >= currentPrice) {purchaseLand(
+                                                        muleGame.getCurrentPlayerObject(), button, muleGame.selectionRound);
                                                 } else {
-                                                    TextField failText
-                                                            = new TextField();
-                                                    failText.setText(
-                                                            "Not enough Money!");
-                                                    vbox.getChildren().
-                                                            setAll(accept,
-                                                                    decline,
-                                                                    failText);
+                                                    TextField failText = new TextField();
+                                                    failText.setText("Not enough Money!");vbox.getChildren().setAll(accept, decline, failText);
                                                     }
                                                 }
 

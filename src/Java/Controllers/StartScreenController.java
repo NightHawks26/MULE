@@ -34,7 +34,15 @@ public class StartScreenController implements Initializable {
     @FXML
     private Button newGame;
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    //@FXML // This method is called by the FXMLLoader
+    // when initialization is complete
+
+    /**
+     * this method imports/sets up all of the in game audio
+     * also allows a user to start a new game or load a game from a saved file
+     * @param url url for initialization
+     * @param rb resouce bundle for initialization
+     */
     public void initialize(URL url, ResourceBundle rb) {
         //javadoc
         //http://jgkamat.github.io/JayLayer/doc/jay/jaysound/JayLayer.html
@@ -60,38 +68,52 @@ public class StartScreenController implements Initializable {
         sound.addSoundEffect("trick.mp3"); //17
         sound.addSoundEffect("encouragement.mp3"); //18
         sound.addSoundEffect("fart.mp3"); //19
-        sound.addToPlaylist(playlistNum, "bensound-littleidea.mp3"); //playlist 0
+        //start playlist numbering
+        sound.addToPlaylist(playlistNum, "bensound-littleidea.mp3"); //0
         sound.addToPlaylist(playlistNum, "bensound-scifi.mp3"); //1
-        sound.addToPlaylist(playlistNum, "bensound-sweet.mp3"); // 2         got all of these from www.bensound.com
-        sound.addToPlaylist(playlistNum, "bensound-theelevatorbossanova.mp3"); //3      waiting/background music
-        sound.addToPlaylist(playlistNum, "bensound-sadday.mp3"); //4        could be used when a mule is lost
+        sound.addToPlaylist(playlistNum, "bensound-sweet.mp3"); // 2
+        //  got all of these from www.bensound.com
+        sound.addToPlaylist(playlistNum,
+                "bensound-theelevatorbossanova.mp3"); //3
+        //    waiting/background music
+        sound.addToPlaylist(playlistNum, "bensound-sadday.mp3"); //4
+        //    could be used when a mule is lost
 
         sound.startPlaylist(0);
         loadGame.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 FileChooser fileChooser = new FileChooser();
-                fileChooser.setInitialDirectory(new File(System.getProperty("user.dir") + "/src/resources/xml"));
+                fileChooser.setInitialDirectory(new File(
+                        System.getProperty("user.dir")
+                                + "/src/resources/xml"));
                 fileChooser.setTitle("Open Resource File");
-                FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("MULE Games", "*.xml");
+                FileChooser.ExtensionFilter filter
+                        = new FileChooser.ExtensionFilter(
+                        "MULE Games", "*.xml");
                 fileChooser.getExtensionFilters().add(filter);
-                File savedGameXML = fileChooser.showOpenDialog(stage);
+                File savedGameXML
+                        = fileChooser.showOpenDialog(stage);
                 if (savedGameXML != null) {
-                    System.out.println(savedGameXML.getAbsolutePath());
+                    System.out.println(
+                            savedGameXML.getAbsolutePath());
                     XMLParser xmlParser = new XMLParser();
                     xmlParser.setSound(sound);
-                    String fileLocation = savedGameXML.getAbsolutePath();
+                    String fileLocation
+                            = savedGameXML.getAbsolutePath();
                     muleGame = xmlParser.loadGame(fileLocation);
                     //switch screen to round controller
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
+                    loader.setLocation(getClass().getResource(
+                            "/fxml/Round.fxml"));
                     try {
                         loader.load();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     Parent p = loader.getRoot();
-                    stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                    stage = (Stage) ((Node) event.
+                            getSource()).getScene().getWindow();
                     stage.setScene(new Scene(p));
                     roundController = loader.getController();
                     roundController.setMuleGame(muleGame);
@@ -104,6 +126,12 @@ public class StartScreenController implements Initializable {
         });
     }
 
+    /**
+     * Goes to the configuration screen
+     * @param event event taht triggers this switch
+     * @throws IOException throws an io exception of configuration screen
+     * doesn't exist
+     */
     public void switchToConfiguration(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -112,7 +140,7 @@ public class StartScreenController implements Initializable {
         Parent p = loader.getRoot();
         configurationController = loader.getController();
         configurationController.setSound(sound);
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(p));
         stage.show();
 

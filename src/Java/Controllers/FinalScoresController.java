@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created by anthonybonitatibus on 10/22/15.
+ * Created by anthony bonitatibus on 10/22/15.
  */
 public class FinalScoresController implements Initializable {
 
@@ -79,18 +79,35 @@ public class FinalScoresController implements Initializable {
     private Player third;
     private Player fourth;
 
+    /**
+     * empty method
+     * @param url url
+     * @param rb resouce bundle
+     */
     public void initialize(URL url, ResourceBundle rb) {
 
     }
 
+    /**
+     * sets the mule game to current instance
+     * @param muleGame the mule game instance
+     */
     public void setMuleGame(MuleGame muleGame) {
         this.muleGame = muleGame;
     }
 
+    /**
+     * sets stage to be displayed
+     * @param stage stage to be dispalyed
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    /**
+     * Displays user end game scores
+     * houses easter egg code
+     */
     public void start() {
         for (Player p: muleGame.getPlayers()) {
             p.refreshScore();
@@ -125,18 +142,20 @@ public class FinalScoresController implements Initializable {
             fourthTotalScoreLabel.setText("");
         }
 
-        secretSurpriseButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                Pane magic = new Pane(new ImageView(new Image("/resources/images/magicword.gif")));
-                PasswordField word = new PasswordField();
-                VBox vbox = new VBox(magic, word);
-                Scene magicScene = new Scene(magic, 620, 400);
-                Stage magicStage = new Stage();
-                magicStage.setScene(magicScene);
-                magicStage.initModality(Modality.APPLICATION_MODAL);
-                magicStage.show();
-            }
-        });
+        secretSurpriseButton.setOnMouseClicked(
+                new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    Pane magic = new Pane(new ImageView(
+                            new Image("/resources/images/magicword.gif")));
+                    PasswordField word = new PasswordField();
+                    VBox vbox = new VBox(magic, word);
+                    Scene magicScene = new Scene(magic, 620, 400);
+                    Stage magicStage = new Stage();
+                    magicStage.setScene(magicScene);
+                    magicStage.initModality(Modality.APPLICATION_MODAL);
+                    magicStage.show();
+                }
+            });
     }
 }

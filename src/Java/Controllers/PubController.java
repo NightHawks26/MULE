@@ -37,7 +37,15 @@ public class PubController implements Initializable{
     private Stage stage;
     private MapController mapController;
     private MuleGame muleGame;
-    @FXML
+    //@FXML
+
+    /**
+     * initializes pub, gambles using a combination of
+     * time remaining in a players turn and the current round
+     * after gambling, a player's turn ends
+     * @param url the url
+     * @param rb the resource bundle
+     */
     public void initialize(URL url, ResourceBundle rb) {
 //        Image img = new Image("/images/bar.jpg");
 //        ImageView imgView = new ImageView(img);
@@ -52,19 +60,23 @@ public class PubController implements Initializable{
                 muleGame.t.cancel();
                 Pub p = new Pub();
                 System.out.println(muleGame.timeRemaining);
-                int bonus = p.gamble(muleGame.timeRemaining, muleGame.getRound());
+                int bonus = p.gamble(muleGame.timeRemaining,
+                        muleGame.getRound());
                 muleGame.sound.playSoundEffect(14);
                 muleGame.getCurrentPlayerObject().addMoney(bonus);
                 System.out.println("Gambled for: " + bonus);
                 try {
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
+                    loader.setLocation(getClass().getResource(
+                            "/fxml/Round.fxml"));
                     loader.load();
                     Parent par = loader.getRoot();
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage = (Stage) ((Node)
+                            event.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(par));
                     RoundController roundController = loader.getController();
-                    if (muleGame.getCurrentPlayer() == (muleGame.getPlayers().length - 1)) {
+                    if (muleGame.getCurrentPlayer()
+                            == (muleGame.getPlayers().length - 1)) {
                         muleGame.setCurrentPlayer(0);
                         muleGame.selectionRound = true;
                         muleGame.incRound();
@@ -72,18 +84,23 @@ public class PubController implements Initializable{
                         if (muleGame.getRound() > 12) {
                             try {
                                 FXMLLoader endLoader = new FXMLLoader();
-                                endLoader.setLocation(getClass().getResource("/fxml/FinalScores.fxml"));
+                                endLoader.setLocation(getClass().getResource(
+                                        "/fxml/FinalScores.fxml"));
                                 endLoader.load();
-                                System.out.println(endLoader.getRoot() == null);
+                                System.out.println(endLoader.getRoot()
+                                        == null);
                                 Parent endP = endLoader.getRoot();
                                 stage.setScene(new Scene(endP));
-                                FinalScoresController finals = endLoader.getController();
+                                FinalScoresController finals
+                                        = endLoader.getController();
                                 finals.setMuleGame(muleGame);
                                 finals.setStage(stage);
                                 finals.start();
                                 stage.show();
                             } catch (Exception e) {
-                                System.out.println(e + "Oh no, the final scores don't want to work!");
+                                System.out.println(e
+                                        + "Oh no, the final"
+                                        + "scores don't want to work!");
                             }
                         }
                     } else {
@@ -94,13 +111,20 @@ public class PubController implements Initializable{
                     roundController.start();
                     stage.show();
                 } catch (Exception e) {
-                    System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER in the pub");
+                    System.out.println(e + "THERE WAS AN ERROR "
+                            + "WITH THE LOADER in the pub");
                 }
 
             }
         });
     }
 
+    /**
+     * This starts the pub controller
+     * @param dGCC the map controller instance
+     * @param mG the mule game instance
+     * @param s the stage being displayed
+     */
     public void start(MapController dGCC, MuleGame mG, Stage s) {
         this.mapController = dGCC;
         this.muleGame = mG;

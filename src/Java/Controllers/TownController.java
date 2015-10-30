@@ -47,7 +47,13 @@ public class TownController implements Initializable {
    // private int current;
 
 
-    @FXML
+    //@FXML
+
+    /**
+     * empty method
+     * @param url url
+     * @param rb resource bundle
+     */
     public void initialize(URL url, ResourceBundle rb) {
     }
 
@@ -55,6 +61,14 @@ public class TownController implements Initializable {
    //     this.current = current;
   //  }
 
+    /**
+     * starts the town by loading in town buttons
+     * can also go to pub, via mouse click. pub initializes in this method
+     * store also works the same way
+     * @param dGCC the mapcontroller being used
+     * @param mG the mule game instance being used
+     * @param s the current stage being displayed
+     */
     public void start(MapController dGCC, MuleGame mG, Stage s) {
         this.mapController = dGCC;
         this.muleGame = mG;
@@ -75,14 +89,14 @@ public class TownController implements Initializable {
                 try {
                     loader.load();
                     Parent p = loader.getRoot();
-                    ((Node)event.getSource()).getScene().getWindow();
+                    ((Node) event.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(p));
                     mapController = loader.getController();
                     mapController.setMuleGame(muleGame);
                     mapController.setStage(stage);
                     mapController.start(false);
                     stage.show();
-                } catch(Exception e) {
+                } catch (Exception e) {
                 }
 
             }
@@ -92,48 +106,54 @@ public class TownController implements Initializable {
             public void handle(MouseEvent event) {
                 try {
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/Pub.fxml"));
+                    loader.setLocation(getClass().getResource(
+                            "/fxml/Pub.fxml"));
                     loader.load();
                     Parent p = loader.getRoot();
-                    //((Node)event.getSource()).getScene().getWindow();
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    //((Node)event.getSource()).getScene().
+                    // getWindow();
+                    stage = (Stage) ((Node) event.getSource()).
+                            getScene().getWindow();
                     stage.setScene(new Scene(p));
-                    PubController pubController = loader.getController();
-                    pubController.start(mapController, muleGame, stage);
+                    PubController pubController = loader.
+                            getController();
+                    pubController.start(mapController, muleGame,
+                            stage);
                     stage.show();
                 } catch (Exception e) {
-                    System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+                    System.out.println(e
+                            + "THERE WAS AN ERROR WITH THE LOADER");
                 }
-//                muleGame.t.cancel();
-//                Pub p = new Pub();
-//                System.out.println(muleGame.timeRemaining);
-//                int bonus = p.gamble(muleGame.timeRemaining, muleGame.getRound());
-//                muleGame.getPlayers()[muleGame.getCurrentPlayer()].addMoney(bonus);
-//                System.out.println("Gambled for: " + bonus);
-//                try {
-//                    FXMLLoader loader = new FXMLLoader();
-//                    loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
-//                    loader.load();
-//                    Parent par = loader.getRoot();
-//                    //((Node)event.getSource()).getScene().getWindow();
-//                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//                    stage.setScene(new Scene(par));
-//                    RoundController roundController = loader.getController();
-//                    if (muleGame.getCurrentPlayer() == (muleGame.getPlayers().length - 1)) {
-//                        muleGame.setCurrentPlayer(0);
-//                        muleGame.selectionRound = true;
-//                        muleGame.incRound();
-//                    } else {
-//                        muleGame.incCurrentPlayer();
-//                    }
-//                    roundController.setMuleGame(muleGame);
-//                  //  roundController.setCurrent(current++);
-//                    roundController.setStage(stage);
-//                    roundController.start();
-//                    stage.show();
-//                } catch (Exception e) {
-//                    System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
-//                }
+//muleGame.t.cancel();
+//Pub p = new Pub();
+//System.out.println(muleGame.timeRemaining);
+//int bonus = p.gamble(muleGame.timeRemaining, muleGame.getRound());
+//muleGame.getPlayers()[muleGame.getCurrentPlayer()].addMoney(bonus);
+//System.out.println("Gambled for: " + bonus);
+//try {
+//FXMLLoader loader = new FXMLLoader();
+//loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
+//loader.load();
+//Parent par = loader.getRoot();
+////((Node)event.getSource()).getScene().getWindow();
+//stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//stage.setScene(new Scene(par));
+//RoundController roundController = loader.getController();
+//if (muleGame.getCurrentPlayer() == (muleGame.getPlayers().length - 1)) {
+//muleGame.setCurrentPlayer(0);
+//muleGame.selectionRound = true;
+//muleGame.incRound();
+//} else {
+//muleGame.incCurrentPlayer();
+//}
+//roundController.setMuleGame(muleGame);
+////  roundController.setCurrent(current++);
+//roundController.setStage(stage);
+//roundController.start();
+//stage.show();
+//} catch (Exception e) {
+//System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+//}
             }
         });
 
@@ -142,17 +162,20 @@ public class TownController implements Initializable {
             public void handle(MouseEvent event) {
                 try {
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/Store.fxml"));
+                    loader.setLocation(getClass().getResource(
+                            "/fxml/Store.fxml"));
                     loader.load();
                     Parent p = loader.getRoot();
                     //((Node)event.getSource()).getScene().getWindow();
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage = (Stage) ((Node) event.getSource()).getScene().
+                            getWindow();
                     stage.setScene(new Scene(p));
                     StoreController storeController = loader.getController();
                     storeController.start(mapController, muleGame, stage);
                     stage.show();
                 } catch (Exception e) {
-                    System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+                    System.out.println(e
+                            + "THERE WAS AN ERROR WITH THE LOADER");
                 }
             }
         });

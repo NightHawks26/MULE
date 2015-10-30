@@ -36,7 +36,14 @@ public class ConfigurationController implements Initializable{
 
     private JayLayer sound;
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    //@FXML // This method is called by the
+    // FXMLLoader when initialization is complete
+
+    /**
+     * initializes configuration screen options and displays stage
+     * @param url url
+     * @param rb resource bundle
+     */
     public void initialize(URL url, ResourceBundle rb) {
         selectMap.getItems().addAll("default", "random");
         selectPlayers.getItems().addAll(2, 3, 4);
@@ -47,6 +54,11 @@ public class ConfigurationController implements Initializable{
         stage = new Stage();
     }
 
+    /**
+     * method that switches to the add player screen
+     * @param event event that triggers this (button click)
+     * @throws IOException if add player screen doesn't exist
+     */
     public void switchToPlayers(ActionEvent event) throws IOException {
 
         sound.playSoundEffect(16);
@@ -65,6 +77,10 @@ public class ConfigurationController implements Initializable{
         stage.show();
     }
 
+    /**
+     * sets the sound for the screen
+     * @param sound the sound to be played
+     */
     public void setSound(JayLayer sound) {
         this.sound = sound;
     }
