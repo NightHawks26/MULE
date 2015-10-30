@@ -55,14 +55,28 @@ public class MapController implements Initializable {
 
     MapController mapController = this;
 
-
+    /**
+     * Empty method needed for jay layer
+     * @param url the url needed for initialization
+     * @param rb The resource bundle needed for initialization
+     * */
     public void initialize(URL url, ResourceBundle rb) {
     }
-
+    /**
+     * Sets the mule game to the current instance
+     * @param mulegame current instance of mulegame
+     */
     public void setMuleGame(MuleGame mulegame) {
         this.muleGame = mulegame;
     }
 
+    /**
+     * This starts the map by assigning button sizes, elements, etc.
+     *
+     * Also handles when a player selects to purchase a land tile
+     * Also handles when a player tries to place a mule on a land tile
+     * @param startOfTurn determines actions. if false, don't start
+     */
     public void start(boolean startOfTurn) {
         muleGame.setPrice();
         if (!muleGame.selectionRound) {
@@ -71,42 +85,42 @@ public class MapController implements Initializable {
             bottomBar.setStyle("-fx-background-color: " + playerColor);
 
         } else {
-            String playerColor = muleGame.getPlayers()[selectingPlayer].getColor();
+            String playerColor = muleGame.
+                    getPlayers()[selectingPlayer].getColor();
             bottomBar.setStyle("-fx-background-color: " + playerColor);
         }
         for (int i = 0; i < 5; i++) {
             for (int k = 0; k < 9; k++) {
-                TileButton button = new TileButton(muleGame.getMap().getTile(i,k));
+                TileButton button = new TileButton(muleGame.getMap().
+                        getTile(i, k));
                 button.setPrefWidth(Double.MAX_VALUE);
                 button.setPrefHeight(Double.MAX_VALUE);
-                button.setId(muleGame.getMap().getTile(i, k).getTerrain().getName());
+                button.setId(muleGame.getMap().getTile(i, k).getTerrain().
+                        getName());
                 button.setCol(i);
                 button.setRow(k);
-                button.getStylesheets().addAll(this.getClass().getResource("../../resources/style/style.css").toExternalForm());
+                button.getStylesheets().addAll(this.getClass().getResource(
+                        "../../resources/style/style.css").toExternalForm());
                 if (button.getTile().isOwned()) {
                     String color = button.getTile().getOwner().getColor();
                     button.setStyle("-fx-background-color: " + color);
                     if (color == "#FF6600") {
                         colorName = "orange";
-                    }
-                    else if (color == "#FF66FF") {
+                    } else if (color == "#FF66FF") {
                         colorName = "purple";
-                    }
-                    else if (color == "#FFFFFF") {
+                    } else if (color == "#FFFFFF") {
                         colorName = "white";
-                    }
-                    else if (color == "#FF5050") {
+                    } else if (color == "#FF5050") {
                         colorName = "red";
-                    }
-                    else if (color == "#33CCCC") {
+                    } else if (color == "#33CCCC") {
                         colorName = "blue";
-                    }
-                    else if (color == "#FFFF99") {
+                    } else if (color == "#FFFF99") {
                         colorName = "yellow";
                     } else {
                         colorName = "black";
                     }
-                    image = new Image("images/flags/animated_" + colorName + "_flag.gif");
+                    image = new Image("images/flags/animated_" + colorName
+                            + "_flag.gif");
                     button.setGraphic(new ImageView(image));
 
                 } else {
@@ -118,53 +132,77 @@ public class MapController implements Initializable {
 
 
 
-                // attempting to make a menu appear when a tile is clicked - would be best to made a pane (or new window)
+                // attempting to make a menu appear when a tile is clicked
+                // - would be best to made a pane (or new window)
                 // for each tile, and then this method calls to it
                 button.setOnMouseClicked(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
-                        if (muleGame.getCurrentPlayerObject().getMuleInHand() != null
-                                && !button.getTile().isOwned()) {
-                            System.out.println("you lost that mule, dummie. tile not owned");
+                        if (muleGame.getCurrentPlayerObject().getMuleInHand()
+                                != null && !button.getTile().isOwned()) {
+                            System.out.println(
+                                    "you lost that mule, dummy."
+                                    + "tile not owned");
                             stage.getScene().setCursor(Cursor.DEFAULT);
-                            muleGame.getCurrentPlayerObject().setMuleInHand(null);
-                        } else if (muleGame.getCurrentPlayerObject().getMuleInHand() != null
-                                && button.getTile().getMule() != null) {
-                            System.out.println("You lost that mule, dummie. already has a mule");
+                            muleGame.getCurrentPlayerObject().setMuleInHand(
+                                    null);
+                        } else if (muleGame.getCurrentPlayerObject().
+                                getMuleInHand()
+                                != null && button.getTile().getMule()
+                                != null) {
+                            System.out.println(
+                                    "You lost that mule, dummy."
+                                    + "already has a mule");
                             stage.getScene().setCursor(Cursor.DEFAULT);
-                            muleGame.getCurrentPlayerObject().setMuleInHand(null);
-                        } else if (muleGame.getCurrentPlayerObject().getMuleInHand() != null
-                                && !(button.getId().equals("t"))) {
-                            if (button.getTile().getOwner().equals(muleGame.getCurrentPlayerObject())) {
+                            muleGame.getCurrentPlayerObject().
+                                    setMuleInHand(null);
+                        } else if (muleGame.getCurrentPlayerObject().
+                                getMuleInHand()
+                                != null && !(button.getId().equals("t"))) {
+                            if (button.getTile().getOwner().equals(
+                                    muleGame.getCurrentPlayerObject())) {
                                 System.out.println("CORRECT OWNER");
                                 button.setText("M U              L E");
-                                button.getTile().setMule(muleGame.getCurrentPlayerObject().getMuleInHand());
+                                button.getTile().setMule(
+                                        muleGame.getCurrentPlayerObject().
+                                                getMuleInHand());
                             } else {
-                                System.out.println("You lost that mule, dummie");
+                                System.out.println(
+                                        "You lost that mule, dummy");
                             }
                             stage.getScene().setCursor(Cursor.DEFAULT);
-                            muleGame.getCurrentPlayerObject().setMuleInHand(null);
+                            muleGame.getCurrentPlayerObject().setMuleInHand(
+                                    null);
                         } else {
                             if (button.getId().equals("t")) {
                                 if (!muleGame.selectionRound) {
                                     try {
                                         FXMLLoader loader = new FXMLLoader();
-                                        loader.setLocation(getClass().getResource("/fxml/Town.fxml"));
+                                        loader.setLocation(getClass().
+                                                getResource(
+                                                        "/fxml/Town.fxml"));
                                         loader.load();
                                         Parent p = loader.getRoot();
-                                        //((Node)event.getSource()).getScene().getWindow();
-                                        Cursor tempCursor = stage.getScene().getCursor();
-                                        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                        Cursor tempCursor = stage.getScene().
+                                                getCursor();
+                                        stage = (Stage) ((Node) event.
+                                                getSource()).getScene().
+                                                getWindow();
                                         stage.setScene(new Scene(p));
                                         stage.getScene().setCursor(tempCursor);
-                                        TownController townController = loader.getController();
-                                        townController.start(mapController, muleGame, stage);
+                                        TownController townController = loader.
+                                                getController();
+                                        townController.start(mapController,
+                                                muleGame, stage);
                                         stage.show();
                                     } catch (Exception e) {
-                                        System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+                                        System.out.println(e
+                                                + "THERE WAS AN ERROR"
+                                                + "WITH THE LOADER");
                                     }
                                 }
-                            } else if (!button.getTile().isOwned() && muleGame.isSelectionRound()) {
+                            } else if (!button.getTile().isOwned()
+                                    && muleGame.isSelectionRound()) {
 
                                 Button accept = new Button();
                                 accept.setText("Accept");
@@ -179,51 +217,86 @@ public class MapController implements Initializable {
                                 popPane2.getChildren().addAll(decline);
                                 VBox vbox = new VBox(popPane1, popPane2);
                                 vbox.setPadding(new Insets(10, 0, 10, 50));
-                                vbox.setStyle("-fx-background-color: #54CC94;");
+                                vbox.setStyle("-fx-background-color:"
+                                    + " #54CC94;");
                                 Scene popScene = new Scene(vbox, 200, 100);
                                 Stage popStage = new Stage();
                                 popStage.setScene(popScene);
-                                popStage.initModality(Modality.APPLICATION_MODAL);
-                                if (muleGame.selectionRound && selectingRound <= 2 && muleGame.getRound() == 1) {
+                                popStage.initModality(
+                                        Modality.APPLICATION_MODAL);
+                                if (muleGame.selectionRound
+                                        && selectingRound <= 2
+                                        && muleGame.getRound() == 1) {
                                     currentPrice = muleGame.getGrantPrice();
                                 } else if (muleGame.selectionRound) {
                                     currentPrice = muleGame.getSelectPrice();
                                 } else {
                                     currentPrice = muleGame.getPurchasePrice();
                                 }
-                                popStage.setTitle("Purchase for: " + currentPrice);
+                                popStage.setTitle("Purchase for: "
+                                        + currentPrice);
                                 popStage.setX(event.getScreenX());
                                 popStage.setY(event.getScreenY());
                                 popStage.show();
-                                accept.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                    @Override
-                                    public void handle(MouseEvent event) {
-                                        if (muleGame.selectionRound) {
-                                            if (muleGame.getPlayers()[selectingPlayer].getMoney() >= currentPrice) {
-                                                purchaseLand(muleGame.getPlayers()[selectingPlayer], button, muleGame.selectionRound);
-                                                popStage.close();
+                                accept.setOnMouseClicked(
+                                        new EventHandler<MouseEvent>() {
+                                        @Override
+                                public void handle(MouseEvent event) {
+                                            if (muleGame.selectionRound) {
+                                                if (muleGame.
+                                                        getPlayers()
+                                                        [selectingPlayer].
+                                                        getMoney()
+                                                        >= currentPrice) {
+                                                    purchaseLand(
+                                                        muleGame.getPlayers()
+                                                        [selectingPlayer],
+                                                        button,
+                                                        muleGame.
+                                                        selectionRound);
+                                                     popStage.close();
+                                                } else {
+                                                    TextField failText
+                                                            = new TextField();
+                                                    failText.setText(
+                                                            "Not enough"
+                                                            + "Money!");
+                                                    vbox.getChildren().
+                                                            setAll(
+                                                            accept,
+                                                            decline,
+                                                            failText);
+                                                }
                                             } else {
-                                                TextField failText = new TextField();
-                                                failText.setText("Not enough Money!");
-                                                vbox.getChildren().setAll(accept, decline, failText);
-                                            }
-                                        } else {
-                                            if (muleGame.getCurrentPlayerObject().getMoney() >= currentPrice) {
-                                                purchaseLand(muleGame.getCurrentPlayerObject(), button, muleGame.selectionRound);
-                                            } else {
-                                                TextField failText = new TextField();
-                                                failText.setText("Not enough Money!");
-                                                vbox.getChildren().setAll(accept, decline, failText);
-                                            }
-                                        }
+                                                if (muleGame.
+                                                        getCurrentPlayerObject().
+                                                        getMoney()
+                                                        >= currentPrice) {
+                                                    purchaseLand(
+                                                        muleGame.
+                                                        getCurrentPlayerObject(),
+                                                        button,
+                                                        muleGame.
+                                                        selectionRound);
+                                                } else {
+                                                    TextField failText
+                                                            = new TextField();
+                                                    failText.setText(
+                                                            "Not enough Money!");
+                                                    vbox.getChildren().
+                                                            setAll(accept,
+                                                                    decline,
+                                                                    failText);
+                                                    }
+                                                }
 
                                     }
                                 });
-
-                                decline.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                    @Override
+                                    decline.setOnMouseClicked(
+                                    new EventHandler<MouseEvent>() {
+                                        @Override
                                     public void handle(MouseEvent event) {
-                                        //popup.hide();
+                                    //popup.hide();
                                         popStage.close();
                                     }
                                 });
@@ -237,11 +310,15 @@ public class MapController implements Initializable {
             }
         }
         if (muleGame.selectionRound) {
-            currentPlayerLabel.setText("LS: " + muleGame.getPlayers()[selectingPlayer].getName()
-                    + " Money Remaining: " + muleGame.getPlayers()[selectingPlayer].getMoney());
+            currentPlayerLabel.setText("LS: "
+                    + muleGame.getPlayers()[selectingPlayer].getName()
+                    + " Money Remaining: "
+                    + muleGame.getPlayers()[selectingPlayer].getMoney());
         } else {
-            currentPlayerLabel.setText("TURN: " + muleGame.getCurrentPlayerObject().getName()
-                    + " Money Remaining: " + muleGame.getCurrentPlayerObject().getMoney());
+            currentPlayerLabel.setText("TURN: "
+                    + muleGame.getCurrentPlayerObject().getName()
+                    + " Money Remaining: "
+                    + muleGame.getCurrentPlayerObject().getMoney());
             if (startOfTurn) {
                 startTimer(muleGame.getTimeForTurn());
             }
@@ -249,8 +326,18 @@ public class MapController implements Initializable {
 
     }
 
-    public void setStage(Stage stage) { this.stage =stage;}
+    /**
+     * Sets stage
+     * @param stage The stage to be displayed
+     */
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 
+    /**
+     * Starts the timer
+     * @param turnTime determines how much time to count down from
+     */
     public void startTimer(int turnTime) {
         muleGame.timeRemaining = turnTime;
         int startTime = turnTime;
@@ -264,27 +351,33 @@ public class MapController implements Initializable {
                     public void run() {
                         try {
                             FXMLLoader loader = new FXMLLoader();
-                            loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
+                            loader.setLocation(getClass().getResource(
+                                    "/fxml/Round.fxml"));
                             loader.load();
                             Parent p = loader.getRoot();
                             //stage = new Stage();
                             Cursor tempCursor = stage.getScene().getCursor();
                             stage.setScene(new Scene(p));
                             stage.getScene().setCursor(tempCursor);
-                            RoundController roundController = loader.getController();
-                            if (muleGame.getCurrentPlayer() == (muleGame.getPlayers().length - 1)) {
+                            RoundController roundController
+                                    = loader.getController();
+                            if (muleGame.getCurrentPlayer()
+                                    == (muleGame.getPlayers().length - 1)) {
                                 muleGame.setCurrentPlayer(0);
                                 muleGame.selectionRound = true;
                                 muleGame.incRound();
                                 if (muleGame.getRound() > 12) {
                                     FXMLLoader endLoader = new FXMLLoader();
-                                    endLoader.setLocation(getClass().getResource("/fxml/FinalScores.fxml"));
+                                    endLoader.setLocation(
+                                            getClass().getResource(
+                                                    "/fxml/FinalScores.fxml"));
                                     endLoader.load();
                                     Parent endP = endLoader.getRoot();
                                     Cursor tmp = stage.getScene().getCursor();
                                     stage.setScene(new Scene(endP));
                                     stage.getScene().setCursor(tmp);
-                                    FinalScoresController finals = endLoader.getController();
+                                    FinalScoresController finals
+                                            = endLoader.getController();
                                     finals.setMuleGame(muleGame);
                                     finals.setStage(stage);
                                     finals.start();
@@ -294,29 +387,28 @@ public class MapController implements Initializable {
                                 muleGame.incCurrentPlayer();
                             }
                             roundController.setMuleGame(muleGame);
-                            //  roundController.setCurrent(current++);
                             roundController.setStage(stage);
                             roundController.start();
                             stage.show();
                         } catch (Exception e) {
-                            System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+                            System.out.println(e
+                                    + "THERE WAS AN ERROR WITH THE LOADER");
                         }
                     }
                 });
             }
         }, startTime * 1000);
         muleGame.t.scheduleAtFixedRate(
-                new TimerTask()
-                {
-                    public void run()
-                    {
+                new TimerTask() {
+                    public void run() {
                         //if (muleGame.timeRemaining > 0) {
                         muleGame.timeRemaining--;
                         System.out.println(muleGame.timeRemaining);
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
-                                skipButton.setText(Integer.toString(muleGame.timeRemaining));
+                                skipButton.setText(Integer.toString(
+                                        muleGame.timeRemaining));
                             }
                         });
                     }
@@ -326,6 +418,11 @@ public class MapController implements Initializable {
 
     }
 
+    /**
+     * This method happens when the player presses the skip button
+     * in the land selection/map area
+     * @param event the action event needed to trigger skipSelection
+     */
     public void skipSelection(ActionEvent event) {
         if (!muleGame.selectionRound) {
             return;
@@ -345,12 +442,14 @@ public class MapController implements Initializable {
                 muleGame.selectionRound = false;
                 try {
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
+                    loader.setLocation(getClass().getResource(
+                            "/fxml/Round.fxml"));
                     loader.load();
                     Parent p = loader.getRoot();
                     //((Node)event.getSource()).getScene().getWindow();
                     Cursor tempCursor = stage.getScene().getCursor();
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage = (Stage) ((Node)
+                            event.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(p));
                     stage.getScene().setCursor(tempCursor);
                     RoundController roundController = loader.getController();
@@ -360,7 +459,8 @@ public class MapController implements Initializable {
                     roundController.start();
                     stage.show();
                 } catch (Exception e) {
-                    System.out.println(e + "THERE WAS AN ERROR WITH THE LOADER");
+                    System.out.println(e
+                            + "THERE WAS AN ERROR WITH THE LOADER");
                 }
             } else {
                 numSkipped = 0;
@@ -368,17 +468,31 @@ public class MapController implements Initializable {
         } else {
             selectingPlayer++;
         }
-        currentPlayerLabel.setText("LS: " + muleGame.getPlayers()[selectingPlayer].getName()
-                + " Money Remaining: " + muleGame.getPlayers()[selectingPlayer].getMoney());
+        currentPlayerLabel.setText("LS: "
+                + muleGame.getPlayers()[selectingPlayer].getName()
+                + " Money Remaining: "
+                + muleGame.getPlayers()[selectingPlayer].getMoney());
         String playerColor = muleGame.getPlayers()[selectingPlayer].getColor();
         bottomBar.setStyle("-fx-background-color: " + playerColor);
     }
 
+    /**
+     * Sets the number of skips
+     * @param skips the number of skips to be set
+     */
     public void setSkips(int skips) {
         this.numSkipped = skips;
     }
 
-    public void purchaseLand(Player player, TileButton button, boolean selectionRound) {
+    /**
+     * This allows a player to purchase land
+     * assigns land to player. updates tile color to reflect owner
+     * @param player the player purchasing land
+     * @param button the land tile being purchased
+     * @param selectionRound the round of selection
+     */
+    public void purchaseLand(Player player, TileButton button,
+                             boolean selectionRound) {
         if (selectionRound) {
             button.getTile().setOwner(player);
             player.incLandCounter();
@@ -391,7 +505,8 @@ public class MapController implements Initializable {
             player.setMoney(player.getMoney() - currentPrice);
             //set the tile to be owned by player
             //if (muleGame.selectionRound) {
-            if (selectingPlayer == muleGame.getPlayers().length - 1) {
+            if (selectingPlayer
+                    == muleGame.getPlayers().length - 1) {
                 selectingRound++;
                 selectingPlayer = 0;
                 numSkipped = 0;
@@ -399,32 +514,32 @@ public class MapController implements Initializable {
                 selectingPlayer++;
             }
 
-            currentPlayerLabel.setText("LS: " + muleGame.getPlayers()[selectingPlayer].getName()
-                    + " Money Remaining: " + muleGame.getPlayers()[selectingPlayer].getMoney());
-            String playerColor = muleGame.getPlayers()[selectingPlayer].getColor();
+            currentPlayerLabel.setText("LS: "
+                    + muleGame.getPlayers()[selectingPlayer].getName()
+                    + " Money Remaining: "
+                    + muleGame.getPlayers()[selectingPlayer].getMoney());
+            String playerColor =
+                    muleGame.getPlayers()[selectingPlayer].getColor();
             if (color == "#FF6600") {
                 colorName = "orange";
-            }
-            else if (color == "#FF66FF") {
+            } else if (color == "#FF66FF") {
                 colorName = "purple";
-            }
-            else if (color == "#FFFFFF") {
+            } else if (color == "#FFFFFF") {
                 colorName = "white";
-            }
-            else if (color == "#FF5050") {
+            } else if (color == "#FF5050") {
                 colorName = "red";
-            }
-            else if (color == "#33CCCC") {
+            } else if (color == "#33CCCC") {
                 colorName = "blue";
-            }
-            else if (color == "#FFFF99") {
+            } else if (color == "#FFFF99") {
                 colorName = "yellow";
             } else {
                 colorName = "black";
             }
-            image = new Image("images/flags/animated_" + colorName + "_flag.gif");
+            image = new Image("images/flags/animated_"
+                    + colorName + "_flag.gif");
             button.setGraphic(new ImageView(image));
-            bottomBar.setStyle("-fx-background-color: " + playerColor);
+            bottomBar.setStyle("-fx-background-color: "
+                    + playerColor);
         } else {
             button.getTile().setOwner(player);
             player.incLandCounter();
@@ -432,8 +547,10 @@ public class MapController implements Initializable {
             String color = player.getColor();
             button.setStyle("-fx-background-color: " + color);
             player.setMoney(player.getMoney() - currentPrice);
-            currentPlayerLabel.setText("TURN: " + muleGame.getCurrentPlayerObject().getName()
-                    + " Money Remaining: " + muleGame.getCurrentPlayerObject().getMoney());
+            currentPlayerLabel.setText("TURN: "
+                    + muleGame.getCurrentPlayerObject().getName()
+                    + " Money Remaining: "
+                    + muleGame.getCurrentPlayerObject().getMoney());
 
         }
 
