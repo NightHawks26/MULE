@@ -104,18 +104,25 @@ public class MapController implements Initializable {
                 if (button.getTile().isOwned()) {
                     String color = button.getTile().getOwner().getColor();
                     button.setStyle("-fx-background-color: " + color);
-                    if (color == "#FF6600") {
+                    if (color.equals("#FF9600")) {
                         colorName = "orange";
-                    } else if (color == "#FF66FF") {
+                    }
+                    else if (color.equals("#C000FF")) {
                         colorName = "purple";
-                    } else if (color == "#FFFFFF") {
+                    }
+                    else if (color.equals("#FFFFFF")) {
                         colorName = "white";
-                    } else if (color == "#FF5050") {
+                    }
+                    else if (color.equals("FF0000")) {
                         colorName = "red";
-                    } else if (color == "#33CCCC") {
+                    }
+                    else if (color.equals("#000AFF")) {
                         colorName = "blue";
-                    } else if (color == "#FFFF99") {
+                    }
+                    else if (color.equals("#FFFC00")) {
                         colorName = "yellow";
+                    } else if (color.equals("#FF6EB2")) {
+                        colorName = "pink";
                     } else {
                         colorName = "black";
                     }
@@ -127,7 +134,7 @@ public class MapController implements Initializable {
                     image = null;
                 }
                 if (button.getTile().getMule() != null) {
-                    button.setText("M U              L E");
+                    button.setText("MULE");
                 }
 
 
@@ -162,7 +169,7 @@ public class MapController implements Initializable {
                             if (button.getTile().getOwner().equals(
                                     muleGame.getCurrentPlayerObject())) {
                                 System.out.println("CORRECT OWNER");
-                                button.setText("M U              L E");
+                                button.setText("MULE");
                                 button.getTile().setMule(
                                         muleGame.getCurrentPlayerObject().
                                                 getMuleInHand());
@@ -492,18 +499,25 @@ public class MapController implements Initializable {
                     + muleGame.getPlayers()[selectingPlayer].getMoney());
             String playerColor =
                     muleGame.getPlayers()[selectingPlayer].getColor();
-            if (color == "#FF6600") {
+            if (color.equals("#FF9600")) {
                 colorName = "orange";
-            } else if (color == "#FF66FF") {
+            }
+            else if (color.equals("#C000FF")) {
                 colorName = "purple";
-            } else if (color == "#FFFFFF") {
+            }
+            else if (color.equals("#FFFFFF")) {
                 colorName = "white";
-            } else if (color == "#FF5050") {
+            }
+            else if (color.equals("FF0000")) {
                 colorName = "red";
-            } else if (color == "#33CCCC") {
+            }
+            else if (color.equals("#000AFF")) {
                 colorName = "blue";
-            } else if (color == "#FFFF99") {
+            }
+            else if (color.equals("#FFFC00")) {
                 colorName = "yellow";
+            } else if (color.equals("#FF6EB2")) {
+                colorName = "pink";
             } else {
                 colorName = "black";
             }

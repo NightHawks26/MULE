@@ -182,7 +182,7 @@ public class RoundController implements Initializable {
             nextAction.setText("Next is a land selection!");
         }
         Image human = new Image("/images/human.jpg");
-        Image flapper = new Image("/images/flapper.jpg");
+        Image flapper = new Image("/images/flapper.png");
         Image other = new Image("/images/other.gif");
         roundNumber.setText("ROUND: " + Integer.toString(muleGame.getRound()));
         ImageView[] images = {p1Image, p2Image, p3Image, p4Image};
