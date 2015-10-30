@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 /**
  * Created by AveryDingler on 9/9/15.
  */
-public class AddPlayerController implements Initializable{
+public class AddPlayerController implements Initializable {
     @FXML
     private ToggleGroup raceGroup;
     @FXML
@@ -47,25 +47,46 @@ public class AddPlayerController implements Initializable{
     private Stage stage;
     private RoundController roundController;
 
-    @FXML
+    //@FXML this tag was here, causing problems, so I removed it
+    //place back in if it causes your game to crash somehow?
+    /**
+     * empty method
+     * @param url the url
+     * @param rb the resource bundle
+     */
     public void initialize(URL url, ResourceBundle rb) {
     }
 
+    /**
+     * sets the mule game window, assigns map type, difficulty, colors
+     * @param muleGame the mule game to use as a basis
+     */
     public void setMuleGame(MuleGame muleGame) {
         //Helpful Video https://www.youtube.com/watch?v=Vh7XDjWlm_w
         currentDifficulty.setText(muleGame.getDifficulty());
         currentMap.setText(muleGame.getMap().getName());
         playerNumber.setText("PLAYER 1");
         this.muleGame = muleGame;
-        colorPicker.getItems().addAll("Orange", "Purple", "Blue", "Yellow", "Red", "White", "Black", "Pink");
+        colorPicker.getItems().addAll("Orange", "Purple", "Blue",
+                "Yellow", "Red", "White", "Black", "Pink");
         //delete the following after done testing
         newName.setText("Player 1");
     }
 
+    /**
+     * sets the display window to the current stage
+     * @param stage stage to be displayed
+     */
     public void setStage(Stage stage) {
+
         this.stage = stage;
     }
 
+    /**
+     * Adds player to the game with appropriate color, race, name
+     * moves to round controller if all players have been created
+     * @param event the event that triggers add player
+     */
     public void addPlayer(ActionEvent event) {
         try {
             muleGame.sound.playSoundEffect(18);
@@ -73,6 +94,7 @@ public class AddPlayerController implements Initializable{
             if (x == 10) {
                 return;
             } else {
+                //color selection
                 String color = null;
                 if (colorPicker.getValue() == null) {
                     throw new IOException("color");
@@ -96,6 +118,7 @@ public class AddPlayerController implements Initializable{
                 } else {
                     System.out.println("DIDN'T PICK A COLOR??");
                 }
+                //IO exceptions that are handled around line 160
                 if (newName.getText().equals("")) {
                     throw new IOException("noname");
                 } else if (raceGroup.getSelectedToggle() == null) {
@@ -111,17 +134,23 @@ public class AddPlayerController implements Initializable{
                         }
                     }
                 }
-                muleGame.players[x] = new Player(newName.getText(), raceGroup.getSelectedToggle().toString(), muleGame.getDifficulty(), color);
+                muleGame.players[x] = new Player(newName.getText(),
+                        raceGroup.getSelectedToggle().toString(),
+                        muleGame.getDifficulty(), color);
                 System.out.println(Arrays.toString(muleGame.getPlayers()));
 
                 colorPicker.getItems().removeAll(colorPicker.getValue());
                 colorPicker.setValue(null);
-                if (muleGame.players[(muleGame.getPlayers().length) - 1] != null) {
+                //if all players have been created, go to round controller
+                if (muleGame.players[(muleGame.getPlayers().length) - 1]
+                        != null) {
 
                     muleGame.arrangePlayers();
-                    muleGame.getPlayers()[muleGame.getPlayers().length - 1].setIsLast(true);
+                    muleGame.getPlayers()[muleGame.getPlayers().length - 1].
+                            setIsLast(true);
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/fxml/Round.fxml"));
+                    loader.setLocation(getClass().getResource(
+                            "/fxml/Round.fxml"));
                     loader.load();
                     Parent p = loader.getRoot();
                     ((Node) event.getSource()).getScene().getWindow();
@@ -131,6 +160,7 @@ public class AddPlayerController implements Initializable{
                     roundController.setStage(stage);
                     startGame();
                     stage.show();
+                    //else keep adding
                 } else {
                     newName.clear();
                     playerNumber.setText("PLAYER " + (x + 2));
@@ -138,6 +168,7 @@ public class AddPlayerController implements Initializable{
                     newName.setText("Player " + (x + 2));
                 }
             }
+            //handling IO exceptions from above.
         } catch (IOException e) {
             String errorMsg;
             if (e.getMessage().equals("norace")) {
@@ -153,6 +184,7 @@ public class AddPlayerController implements Initializable{
             } else {
                 errorMsg = "Wow you really goofed up";
             }
+            //displaying error messages from the io exceptionss
             Button closer = new Button("Try again");
             Label errMsg = new Label(errorMsg);
             Pane poppane1 = new Pane(errMsg);
@@ -175,10 +207,19 @@ public class AddPlayerController implements Initializable{
         }
     }
 
+    /**
+     * Starts the round controller
+     */
     public void startGame() {
         roundController.start();
     }
 
+    /**
+     * determines how many players are null/not created
+     * for use in add player
+     * @param players the number of players in the game
+     * @return the number of currently null players
+     */
     private int nextNull(Player[] players) {
         for (int x = 0; x < players.length; x++) {
             if (players[x] == null) {
