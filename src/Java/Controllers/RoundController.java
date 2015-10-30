@@ -123,30 +123,57 @@ public class RoundController implements Initializable {
     private int skips;
 
     @FXML
+    /**
+     * Empty method needed for jay layer
+     * @param url the url needed for initialization
+     * @param rb The resource bundle needed for initialization
+     */
     public void initialize(URL url, ResourceBundle rb) {
     }
 
-    public void setStage(Stage stage) { this.stage =stage;}
+    /**
+     * Sets the viewable stage to the current area
+     * @param stage the viewable area of the game
+     */
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 
+    /**
+     * Sets the mule game to the current instance
+     * @param mulegame current instance of mulegame
+     */
     public void setMuleGame(MuleGame mulegame) {
         this.muleGame = mulegame;
     }
 
+    /**
+     * Start assigns all images, and values to the appropriate labels and
+     * sections of the round controller screen.
+     * Once a button is clicked, the game will move to the map screen
+     */
     public void start() {
         RandomEventGenerator events = new RandomEventGenerator();
         boolean isLastPlace;
         if (!muleGame.selectionRound) {
-            System.out.println("It is " + muleGame.getCurrentPlayerObject().toString() + "'s turn!");
+            System.out.println("It is "
+                    + muleGame.getCurrentPlayerObject().toString()
+                    + "'s turn!");
             if (muleGame.getCurrentPlayer() == 0) {
                 isLastPlace = true;
             } else {
                 isLastPlace = false;
             }
-            String randomEventText = events.getRandomEvent(muleGame.getCurrentPlayerObject(), isLastPlace, muleGame.getRound());
+            String randomEventText = events.getRandomEvent(
+                    muleGame.getCurrentPlayerObject(),
+                    isLastPlace, muleGame.getRound());
             System.out.println(randomEventText);
             randomEventLabel.setText(randomEventText);
-            muleGame.setTimeForTurn(muleGame.getCurrentPlayerObject().calculateTimeForTurn(muleGame.getRound()));
-            nextAction.setText("TURN: " + muleGame.getCurrentPlayerObject().toString()
+            muleGame.setTimeForTurn(
+                    muleGame.getCurrentPlayerObject()
+                            .calculateTimeForTurn(muleGame.getRound()));
+            nextAction.setText("TURN: "
+                    + muleGame.getCurrentPlayerObject().toString()
                     + "\nTIME FOR TURN: " + muleGame.getTimeForTurn());
         } else {
             System.out.println("Next is a land selection");
@@ -160,7 +187,8 @@ public class RoundController implements Initializable {
         roundNumber.setText("ROUND: " + Integer.toString(muleGame.getRound()));
         ImageView[] images = {p1Image, p2Image, p3Image, p4Image};
         Player[] players = muleGame.getPlayers();
-        Label[] playerNames = {player1Name, player2Name, player3Name, player4Name};
+        Label[] playerNames = {player1Name, player2Name, player3Name,
+            player4Name};
         Label[] playerMoney = {p1Money, p2Money, p3Money, p4Money};
         Label[] playerOre = {p1Ore, p2Ore, p3Ore, p4Ore};
         Label[] playerEnergy = {p1Energy, p2Energy, p3Energy, p4Energy};
@@ -179,6 +207,7 @@ public class RoundController implements Initializable {
             playerEnergy[x].setText("ENERGY: " + players[x].getEnergy());
             playerFood[x].setText("FOOD: " + players[x].getFood());
         }
+        //loads map, displays to screen
         continueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -202,6 +231,12 @@ public class RoundController implements Initializable {
         });
     }
 
+    /**
+     *Sets up save file dialog. once file name is chosen
+     *  Saves the game by storing all attributes from
+     * the muleGame object. Closes dialog after save completes
+     * @param event The event that triggers the save game
+     */
     public void saveGame(ActionEvent event) {
         System.out.println("save game");
         WriteXMLFile xmlGenerator = new WriteXMLFile();
@@ -222,7 +257,8 @@ public class RoundController implements Initializable {
         closer.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                String fileNameFinal = fileName.getText().trim().replaceAll(" ", "");
+                String fileNameFinal = fileName.getText().trim().
+                        replaceAll(" ", "");
                 xmlGenerator.saveGame(muleGame, fileNameFinal);
                 popStage.close();
             }
