@@ -402,7 +402,6 @@ public class MapController implements Initializable {
         if (!muleGame.selectionRound) {
             return;
         }
-        muleGame.sound.playSoundEffect(muleGame.getRound() - 1);
         if (selectingRound <= 2 && muleGame.getRound() == 1) {
             numSkipped = 0;
         } else {

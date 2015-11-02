@@ -176,6 +176,8 @@ public class RoundController implements Initializable {
                     + muleGame.getCurrentPlayerObject().toString()
                     + "\nTIME FOR TURN: " + muleGame.getTimeForTurn());
         } else {
+            randomEventLabel.setText("");
+            muleGame.sound.playSoundEffect(muleGame.getRound() - 1);
             System.out.println("Next is a land selection");
             muleGame.arrangePlayers();
             muleGame.map.calculateProduction();
