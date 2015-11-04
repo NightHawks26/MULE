@@ -93,6 +93,14 @@ public class FinalScoresController implements Initializable {
     }
 
     /**
+     * sets stage to be displayed
+     * @param stage stage to be dispalyed
+     */
+    public void setStage(Stage stage) {
+        Stage stage1 = stage;
+    }
+
+    /**
      * Displays user end game scores
      * houses easter egg code
      */
