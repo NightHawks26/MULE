@@ -82,7 +82,7 @@ public class FinalScoresController implements Initializable {
     /**
      * empty method
      * @param url url
-     * @param rb resouce bundle
+     * @param rb resource bundle
      */
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -98,7 +98,7 @@ public class FinalScoresController implements Initializable {
 
     /**
      * sets stage to be displayed
-     * @param stage stage to be dispalyed
+     * @param stage stage to be displayed
      */
     public void setStage(Stage stage) {
         this.stage = stage;

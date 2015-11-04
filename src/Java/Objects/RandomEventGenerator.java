@@ -40,7 +40,8 @@ public class RandomEventGenerator {
                     int val = randomMultiplier.get(round) * 4;
                     if (player.getMoney() >= val) {
                         player.setMoney(player.getMoney() - val);
-                        return "Dust storm damaged your buildings! Repars cost " + val + " money!";
+                        return "Dust storm damaged your buildings!"
+                        +" Repairs cost " + val + " money!";
                     } else {
                         int someMoney = player.getMoney();
                         player.setMoney(0);
@@ -139,7 +140,8 @@ public class RandomEventGenerator {
                     } else {
                         player.setMoney(player.getMoney() - val);
                     }
-                    return "YOUR SPACE GYPSY INLAWS MADE A MESS OF THE TOWN. IT COST YOU $" + val
+                    return "YOUR SPACE GYPSY IN-LAWS MADE"
+                        + " A MESS OF THE TOWN. IT COST YOU $" + val
                             + " TO CLEAN IT UP.";
                 } else {
                     return "Wow, your space relatives are remarkably clean and made no mess at all!";
