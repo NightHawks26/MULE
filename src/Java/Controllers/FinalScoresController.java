@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created by anthony bonitatibus on 10/22/15.
+ * Created by anthonybonitatibus on 10/22/15.
  */
 public class FinalScoresController implements Initializable {
 
@@ -73,39 +73,34 @@ public class FinalScoresController implements Initializable {
     private Label firstNameLabel;
 
     private MuleGame muleGame;
+    private Stage stage;
+    private Player first;
+    private Player second;
     private Player third;
+    private Player fourth;
 
-    /**
-     * empty method
-     * @param url url
-     * @param rb resouce bundle
-     */
     public void initialize(URL url, ResourceBundle rb) {
 
     }
 
-    /**
-     * sets the mule game to current instance
-     * @param muleGame the mule game instance
-     */
     public void setMuleGame(MuleGame muleGame) {
         this.muleGame = muleGame;
     }
 
-    /**
-     * Displays user end game scores
-     * houses easter egg code
-     */
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
     public void start() {
         for (Player p: muleGame.getPlayers()) {
             p.refreshScore();
         }
         muleGame.arrangePlayers();
-        Player first = muleGame.getPlayers()[0];
+        first = muleGame.getPlayers()[0];
         firstNameLabel.setText(first.getName());
         firstIndScoreLabel.setText(first.getScore() + "");
         firstTotalScoreLabel.setText("SUPER");
-        Player second = muleGame.getPlayers()[1];
+        second = muleGame.getPlayers()[1];
         secondNameLabel.setText(second.getName());
         secondIndScoreLabel.setText(second.getScore() + "");
         secondTotalScoreLabel.setText("LESS SUPER");
@@ -120,7 +115,7 @@ public class FinalScoresController implements Initializable {
             thirdTotalScoreLabel.setText("");
         }
         if (muleGame.getPlayers().length > 3) {
-            Player fourth = muleGame.getPlayers()[3];
+            fourth = muleGame.getPlayers()[3];
             fourthNameLabel.setText(third.getName());
             fourthIndScoreLabel.setText(third.getScore() + "");
             fourthTotalScoreLabel.setText("Not even duper");
@@ -130,20 +125,18 @@ public class FinalScoresController implements Initializable {
             fourthTotalScoreLabel.setText("");
         }
 
-        secretSurpriseButton.setOnMouseClicked(
-                new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    Pane magic = new Pane(new ImageView(
-                            new Image("/resources/images/magicword.gif")));
-                    PasswordField word = new PasswordField();
-                    VBox vbox = new VBox(magic, word);
-                    Scene magicScene = new Scene(vbox, 620, 400);
-                    Stage magicStage = new Stage();
-                    magicStage.setScene(magicScene);
-                    magicStage.initModality(Modality.APPLICATION_MODAL);
-                    magicStage.show();
-                }
-            });
+        secretSurpriseButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Pane magic = new Pane(new ImageView(new Image("/resources/images/magicword.gif")));
+                PasswordField word = new PasswordField();
+                VBox vbox = new VBox(magic, word);
+                Scene magicScene = new Scene(magic, 620, 400);
+                Stage magicStage = new Stage();
+                magicStage.setScene(magicScene);
+                magicStage.initModality(Modality.APPLICATION_MODAL);
+                magicStage.show();
+            }
+        });
     }
 }
