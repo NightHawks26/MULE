@@ -1,9 +1,5 @@
 package Java.Controllers;
 
-/**
- * Sample Skeleton for 'Configuration.fxml' Controller Class
- */
-
 import Java.Objects.MuleGame;
 import Java.Objects.Player;
 import Java.Objects.Map;
@@ -24,12 +20,6 @@ import javafx.scene.Node;
 
 public class ConfigurationController implements Initializable{
 
-//    @FXML // ResourceBundle that was given to the FXMLLoader
-//    private ResourceBundle resources;
-//
-//    @FXML // URL location of the FXML file that was given to the FXMLLoader
-//    private URL location;
-
     @FXML // fx:id="selectPlayers"
     private ChoiceBox<Integer> selectPlayers; // Value injected by FXMLLoader
 
@@ -46,7 +36,14 @@ public class ConfigurationController implements Initializable{
 
     private JayLayer sound;
 
-    @FXML // This method is called by the FXMLLoader when initialization is complete
+    //@FXML // This method is called by the
+    // FXMLLoader when initialization is complete
+
+    /**
+     * initializes configuration screen options and displays stage
+     * @param url url
+     * @param rb resource bundle
+     */
     public void initialize(URL url, ResourceBundle rb) {
         selectMap.getItems().addAll("default", "random");
         selectPlayers.getItems().addAll(2, 3, 4);
@@ -57,19 +54,21 @@ public class ConfigurationController implements Initializable{
         stage = new Stage();
     }
 
+    /**
+     * method that switches to the add player screen
+     * @param event event that triggers this (button click)
+     * @throws IOException if add player screen doesn't exist
+     */
     public void switchToPlayers(ActionEvent event) throws IOException {
 
         sound.playSoundEffect(16);
         Player[] players = new Player[selectPlayers.getValue()];
         Map map = new Map(selectMap.getValue());
         MuleGame muleGame = new MuleGame(selectDifficulty.getValue(), map, players, sound);
-
-        //((Node)event.getSource()).getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/AddPlayer.fxml"));
         loader.load();
         Parent p = loader.getRoot();
-        //((Node)event.getSource()).getScene().getWindow();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(p));
         AddPlayerController addPlayerController = loader.getController();
@@ -78,6 +77,10 @@ public class ConfigurationController implements Initializable{
         stage.show();
     }
 
+    /**
+     * sets the sound for the screen
+     * @param sound the sound to be played
+     */
     public void setSound(JayLayer sound) {
         this.sound = sound;
     }

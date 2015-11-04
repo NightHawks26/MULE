@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created by anthonybonitatibus on 9/23/15.
+ * Created by anthony bonitatibus on 9/23/15.
  */
 public class AuctionController implements Initializable {
 
@@ -30,17 +30,33 @@ public class AuctionController implements Initializable {
     private int counter = 0;
     private int[] auctionValues;
 
-    @FXML
+   // @FXML
+
+    /**
+     * empty method
+     * @param url url
+     * @param rb resource bundle
+     */
     public void initialize(URL url, ResourceBundle rb) {
     }
 
+    /**
+     * sets the mule game to be used
+     * @param muleGame the current mule game
+     */
     public void setMuleGame(MuleGame muleGame) {
         this.muleGame = muleGame;
         currentPlayer.setText(muleGame.getPlayers()[0].getName());
-        currentMoney.setText(muleGame.getPlayers()[0].getName() + "'s money: " + muleGame.getPlayers()[0].getMoney());
+        currentMoney.setText(muleGame.getPlayers()[0].getName()
+                + "'s money: " + muleGame.getPlayers()[0].getMoney());
         auctionValues = new int[muleGame.getPlayers().length];
     }
 
+    /**
+     * used for auction
+     * @param e action event that triggers auction
+     * @throws IOException if auction goes horribly wrong
+     */
     public void submitAuction(ActionEvent e) throws IOException {
         if (counter < muleGame.getPlayers().length) {
             auctionValues[counter] = Integer.parseInt(auctionAmount.getText());
