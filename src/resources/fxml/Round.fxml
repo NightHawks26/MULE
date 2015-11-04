@@ -83,27 +83,27 @@
                               <Label fx:id="p1Energy" text="player1energy" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label fx:id="p1Ore" text="player1ore" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label fx:id="p1Money" text="player1Money" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="p1img1" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/profile.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                              <ImageView fx:id="p1img2" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                                  <image>
                                     <Image url="@../images/food.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                              <ImageView fx:id="p1img3" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                                  <image>
                                     <Image url="@../images/energy.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                              <ImageView fx:id="p1img4" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                                  <image>
                                     <Image url="@../images/ore.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+                              <ImageView fx:id="p1img5" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                                  <image>
                                     <Image url="@../images/money.png" />
                                  </image>
@@ -122,27 +122,27 @@
                               <Label fx:id="p2Energy" text="player2Energy" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label fx:id="p2Ore" text="player2Ore" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label fx:id="p2Money" text="player2Money" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                              <ImageView fx:id="p2img1" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                                  <image>
                                     <Image url="@../images/food.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                              <ImageView fx:id="p2img2"  fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                                  <image>
                                     <Image url="@../images/energy.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                              <ImageView fx:id="p2img3" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                                  <image>
                                     <Image url="@../images/ore.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+                              <ImageView fx:id="p2img4" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                                  <image>
                                     <Image url="@../images/money.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="p2img5" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/profile.png" />
                                  </image>
@@ -179,27 +179,27 @@
                               <Label fx:id="p3Energy" text="player3Energy" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label fx:id="p3Ore" text="player3Ore" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label fx:id="p3Money" text="player3Money" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="p3img1" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/profile.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                              <ImageView fx:id="p3img2" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                                  <image>
                                     <Image url="@../images/food.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                              <ImageView fx:id="p3img3" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                                  <image>
                                     <Image url="@../images/energy.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                              <ImageView fx:id="p3img4" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                                  <image>
                                     <Image url="@../images/ore.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+                              <ImageView fx:id="p3img5" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                                  <image>
                                     <Image url="@../images/money.png" />
                                  </image>
@@ -236,27 +236,27 @@
                               <Label fx:id="p4Energy" text="player4Energy" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label fx:id="p4Ore" text="player4Ore" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label fx:id="p4Money" text="player4Money" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="p4img1" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/profile.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                              <ImageView fx:id="p4img2" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                                  <image>
                                     <Image url="@../images/food.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                              <ImageView fx:id="p4img3" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                                  <image>
                                     <Image url="@../images/energy.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                              <ImageView fx:id="p4img4" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
                                  <image>
                                     <Image url="@../images/ore.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+                              <ImageView fx:id="p4img5" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
                                  <image>
                                     <Image url="@../images/money.png" />
                                  </image>
