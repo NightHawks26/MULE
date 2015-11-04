@@ -1,6 +1,5 @@
 package Java.Objects;
 
-import javafx.scene.image.Image;
 
 /**
  * Created by Brian on 9/12/2015.

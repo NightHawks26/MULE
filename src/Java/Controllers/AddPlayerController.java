@@ -183,7 +183,7 @@ public class AddPlayerController implements Initializable {
             } else {
                 errorMsg = "Wow you really goofed up";
             }
-            //displaying error messages from the io exceptionss
+            //displaying error messages from the io exceptions
             Button closer = new Button("Try again");
             Label errMsg = new Label(errorMsg);
             Pane poppane1 = new Pane(errMsg);
