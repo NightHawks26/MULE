@@ -210,7 +210,7 @@ public class AddPlayerController implements Initializable {
     /**
      * Starts the round controller
      */
-    public void startGame() {
+    private void startGame() {
         roundController.start();
     }
 

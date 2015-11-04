@@ -1,6 +1,5 @@
 package Java.Objects;
 
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 
 /**
