@@ -31,7 +31,6 @@ public class MapTest {
     //Tests to make sure the random map puts the town in the middle of the map
     @Test
     public void randomMapTest() {
-        private String[] terrains = new String[]{"r", "p", "m1", "m2", "m3"};
         randomMap = new Map("random");
         assertEquals("t", randomMap.getTile(2, 4).getTerrain().getName());
     }
