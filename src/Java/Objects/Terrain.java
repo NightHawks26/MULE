@@ -5,17 +5,16 @@ package Java.Objects;
  */
 public class Terrain {
 
-    private String name;
+    private final String name;
     private int food;
     private int energy;
     private int ore;
     private int crystite;
 
-    private int upper = 3;
-    private int lower = 0;
-
     public Terrain(String name) {
         this.name = name;
+        int upper = 3;
+        int lower = 0;
         if (name.equals("r")) {
             food = 4;
             energy = 2;

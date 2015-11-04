@@ -13,11 +13,7 @@ import static org.junit.Assert.*;
  */
 public class StoreControllerTest {
 
-    private Player[] testPlayers;
-    private MuleGame testMuleGame;
     private JayLayer sound;
-    private Map map;
-    private Store store;
 
     @org.junit.Test
     public void testInitialize() throws Exception {
@@ -28,18 +24,18 @@ public class StoreControllerTest {
     public void testBuyMule() throws Exception {
 
         // create test players
-        testPlayers = new Player[2];
+        Player[] testPlayers = new Player[2];
         testPlayers[0] = new Player("Marco", "Human", "Beginner", "#FFFF99");
         testPlayers[1] = new Player("Polo", "Human", "Beginner", "#FF66FF");
 
         // create map
-        map = new Map("default");
+        Map map = new Map("default");
 
         // create mule game
-        testMuleGame = new MuleGame("Beginner", map, testPlayers, sound);
+        MuleGame testMuleGame = new MuleGame("Beginner", map, testPlayers, sound);
 
         // create store
-        store = new Store(10, 10, 10, 10, 10, 500, 500, 500, 500);
+        Store store = new Store(10, 10, 10, 10, 10, 500, 500, 500, 500);
 
         testMuleGame.setStore(store);
 

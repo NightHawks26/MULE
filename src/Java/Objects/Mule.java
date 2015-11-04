@@ -10,7 +10,7 @@ public class Mule {
     private int mountain1Production;
     private int mountain2Production;
     private int mountain3Production;
-    private String muleType;
+    private final String muleType;
 
     public Mule(String muleType) {
         this.muleType = muleType;

@@ -25,7 +25,6 @@ public class StartScreenController implements Initializable {
 
     private Stage stage;
     private RoundController roundController;
-    private ConfigurationController configurationController;
     private JayLayer sound;
     private MuleGame muleGame;
     @FXML
@@ -138,7 +137,7 @@ public class StartScreenController implements Initializable {
         loader.setLocation(getClass().getResource("/fxml/Configuration.fxml"));
         loader.load();
         Parent p = loader.getRoot();
-        configurationController = loader.getController();
+        ConfigurationController configurationController = loader.getController();
         configurationController.setSound(sound);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(p));

@@ -159,11 +159,7 @@ public class RoundController implements Initializable {
             System.out.println("It is "
                     + muleGame.getCurrentPlayerObject().toString()
                     + "'s turn!");
-            if (muleGame.getCurrentPlayer() == 0) {
-                isLastPlace = true;
-            } else {
-                isLastPlace = false;
-            }
+            isLastPlace = muleGame.getCurrentPlayer() == 0;
             String randomEventText = events.getRandomEvent(
                     muleGame.getCurrentPlayerObject(),
                     isLastPlace, muleGame.getRound());
@@ -261,7 +257,7 @@ public class RoundController implements Initializable {
             public void handle(MouseEvent event) {
                 String fileNameFinal = fileName.getText().trim().
                         replaceAll(" ", "");
-                xmlGenerator.saveGame(muleGame, fileNameFinal);
+                WriteXMLFile.saveGame(muleGame, fileNameFinal);
                 popStage.close();
             }
         });

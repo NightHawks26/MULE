@@ -73,11 +73,7 @@ public class FinalScoresController implements Initializable {
     private Label firstNameLabel;
 
     private MuleGame muleGame;
-    private Stage stage;
-    private Player first;
-    private Player second;
     private Player third;
-    private Player fourth;
 
     /**
      * empty method
@@ -97,14 +93,6 @@ public class FinalScoresController implements Initializable {
     }
 
     /**
-     * sets stage to be displayed
-     * @param stage stage to be dispalyed
-     */
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
-    /**
      * Displays user end game scores
      * houses easter egg code
      */
@@ -113,11 +101,11 @@ public class FinalScoresController implements Initializable {
             p.refreshScore();
         }
         muleGame.arrangePlayers();
-        first = muleGame.getPlayers()[0];
+        Player first = muleGame.getPlayers()[0];
         firstNameLabel.setText(first.getName());
         firstIndScoreLabel.setText(first.getScore() + "");
         firstTotalScoreLabel.setText("SUPER");
-        second = muleGame.getPlayers()[1];
+        Player second = muleGame.getPlayers()[1];
         secondNameLabel.setText(second.getName());
         secondIndScoreLabel.setText(second.getScore() + "");
         secondTotalScoreLabel.setText("LESS SUPER");
@@ -132,7 +120,7 @@ public class FinalScoresController implements Initializable {
             thirdTotalScoreLabel.setText("");
         }
         if (muleGame.getPlayers().length > 3) {
-            fourth = muleGame.getPlayers()[3];
+            Player fourth = muleGame.getPlayers()[3];
             fourthNameLabel.setText(third.getName());
             fourthIndScoreLabel.setText(third.getScore() + "");
             fourthTotalScoreLabel.setText("Not even duper");
@@ -150,7 +138,7 @@ public class FinalScoresController implements Initializable {
                             new Image("/resources/images/magicword.gif")));
                     PasswordField word = new PasswordField();
                     VBox vbox = new VBox(magic, word);
-                    Scene magicScene = new Scene(magic, 620, 400);
+                    Scene magicScene = new Scene(vbox, 620, 400);
                     Stage magicStage = new Stage();
                     magicStage.setScene(magicScene);
                     magicStage.initModality(Modality.APPLICATION_MODAL);

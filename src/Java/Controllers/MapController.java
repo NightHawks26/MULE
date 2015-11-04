@@ -53,7 +53,7 @@ public class MapController implements Initializable {
     @FXML private Button timerEnds;
     @FXML private HBox bottomBar;
 
-    MapController mapController = this;
+    private final MapController mapController = this;
 
     /**
      * Empty method needed for jay layer
@@ -313,9 +313,8 @@ public class MapController implements Initializable {
      * Starts the timer
      * @param turnTime determines how much time to count down from
      */
-    public void startTimer(int turnTime) {
+    private void startTimer(int turnTime) {
         muleGame.timeRemaining = turnTime;
-        int startTime = turnTime;
         System.out.println(muleGame.timeRemaining);
         muleGame.t = new Timer();
         muleGame.t.schedule(new TimerTask() {
@@ -372,7 +371,7 @@ public class MapController implements Initializable {
                     }
                 });
             }
-        }, startTime * 1000);
+        }, turnTime * 1000);
         muleGame.t.scheduleAtFixedRate(
                 new TimerTask() {
                     public void run() {
@@ -465,8 +464,8 @@ public class MapController implements Initializable {
      * @param button the land tile being purchased
      * @param selectionRound the round of selection
      */
-    public void purchaseLand(Player player, TileButton button,
-                             boolean selectionRound) {
+    private void purchaseLand(Player player, TileButton button,
+                              boolean selectionRound) {
         if (selectionRound) {
             button.getTile().setOwner(player);
             player.incLandCounter();

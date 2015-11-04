@@ -72,7 +72,9 @@ public class Player {
         }
     }
 
-    public Player() {};
+    public Player() {
+        
+    }
 
     @Override
     public String toString() {

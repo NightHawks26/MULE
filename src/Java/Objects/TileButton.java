@@ -11,7 +11,7 @@ public class TileButton extends Button {
     private int row;
     private int col;
     private Player owner;
-    private Tile tile;
+    private final Tile tile;
 
     public TileButton(Tile tile) {
         super();
