@@ -209,6 +209,13 @@ public class RoundController implements Initializable {
             playerEnergy[x].setText("ENERGY: " + players[x].getEnergy());
             playerFood[x].setText("FOOD: " + players[x].getFood());
         }
+        for (int x  = players.length; x < 4; x++) {
+            playerNames[x].setText("");
+            playerMoney[x].setText("");
+            playerOre[x].setText("");
+            playerEnergy[x].setText("");
+            playerFood[x].setText("");
+        }
         //loads map, displays to screen
         continueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
