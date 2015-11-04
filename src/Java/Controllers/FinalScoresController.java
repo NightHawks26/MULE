@@ -87,10 +87,25 @@ public class FinalScoresController implements Initializable {
         this.muleGame = muleGame;
     }
 
+<<<<<<< HEAD
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+=======
+    /**
+     * sets stage to be displayed
+     * @param stage stage to be dispalyed
+     */
+    public void setStage(Stage stage) {
+        Stage stage1 = stage;
+    }
+
+    /**
+     * Displays user end game scores
+     * houses easter egg code
+     */
+>>>>>>> origin/master
     public void start() {
         for (Player p: muleGame.getPlayers()) {
             p.refreshScore();
