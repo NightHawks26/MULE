@@ -4,10 +4,10 @@ package Java.Objects;
  * Created by AveryDingler on 9/8/15.
  */
 public class Map {
-    Tile[][] tiles = new Tile[5][9];
-    String level;
+    private Tile[][] tiles = new Tile[5][9];
+    private String level;
 
-    String[] terrains;
+    private final String[] terrains;
 
     /**
      *

@@ -5,10 +5,10 @@ package Java.Objects;
  * Created by Brian on 9/12/2015.
  */
 public class Tile {
-    private int row;
-    private int column;
+    private final int row;
+    private final int column;
     private Player owner;
-    private Terrain terrain;
+    private final Terrain terrain;
     private Mule mule;
 
     public Tile(int row, int col, String ter) {

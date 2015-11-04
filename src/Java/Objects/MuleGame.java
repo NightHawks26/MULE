@@ -9,7 +9,7 @@ import java.util.*;
 public class MuleGame {
 
     public Player[] players;
-    public String difficulty;
+    private String difficulty;
     public Map map;
     private int round = 1;
     private int purchasePrice;
@@ -18,7 +18,7 @@ public class MuleGame {
     private int playerCount = 0;
     public boolean selectionRound = true;
     public JayLayer sound;
-    public int currentPlayer = 0;
+    private int currentPlayer = 0;
     private int timeForTurn = 0;
     public int timeRemaining = 0;
     public Timer t;

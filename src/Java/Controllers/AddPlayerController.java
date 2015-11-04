@@ -92,7 +92,6 @@ public class AddPlayerController implements Initializable {
             muleGame.sound.playSoundEffect(18);
             int x = nextNull(muleGame.getPlayers());
             if (x == 10) {
-                return;
             } else {
                 //color selection
                 String color = null;

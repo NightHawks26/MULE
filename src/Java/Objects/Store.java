@@ -9,10 +9,10 @@ public class Store {
     private int foodStock;
     private int energyStock;
     private int muleStock;
-    private int orePrice;
-    private int crystitePrice;
-    private int foodPrice;
-    private int energyPrice;
+    private final int orePrice;
+    private final int crystitePrice;
+    private final int foodPrice;
+    private final int energyPrice;
 
     //LOAD GAME CONSTRUCTOR
 

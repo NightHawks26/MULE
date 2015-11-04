@@ -28,7 +28,6 @@ public class PubController implements Initializable{
     private Button gamble_button;
 
     private Stage stage;
-    private MapController mapController;
     private MuleGame muleGame;
     //@FXML
 
@@ -40,13 +39,6 @@ public class PubController implements Initializable{
      * @param rb the resource bundle
      */
     public void initialize(URL url, ResourceBundle rb) {
-//        Image img = new Image("/images/bar.jpg");
-//        ImageView imgView = new ImageView(img);
-//        StackPane sp = new StackPane();
-//        sp.getChildren().add(imgView);
-//        Scene scene = new Scene(sp);
-//        stage.setScene(scene);
-//        stage.show();
         gamble_button.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -119,7 +111,6 @@ public class PubController implements Initializable{
      * @param s the stage being displayed
      */
     public void start(MapController dGCC, MuleGame mG, Stage s) {
-        this.mapController = dGCC;
         this.muleGame = mG;
         this.stage = s;
     }

@@ -7,7 +7,7 @@ import java.util.*;
  */
 public class RandomEventGenerator {
 
-    private Random rng;
+    private final Random rng;
     private static final java.util.Map<Integer, Integer> randomMultiplier;
     static {
         java.util.Map<Integer, Integer> aMap = new HashMap<>();

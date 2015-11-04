@@ -18,9 +18,7 @@ import java.util.Arrays;
 
 public class XMLParser {
 
-    private Player[] players;
-    private Tile[][] tiles = new Tile[5][9];
-    private Map map;
+    private final Tile[][] tiles = new Tile[5][9];
     private Store store;
     private JayLayer sound;
     private MuleGame muleGame;
@@ -53,7 +51,7 @@ public class XMLParser {
             //----------CREATE PLAYER ARRAY------------
 
             NodeList nList = doc.getElementsByTagName("player");
-            players = new Player[nList.getLength()];
+            Player[] players = new Player[nList.getLength()];
             for (int temp = 0; temp < nList.getLength(); temp++) {
 
                 Node nNode = nList.item(temp);
@@ -137,7 +135,7 @@ public class XMLParser {
                 }
             }
 
-            map = new Map(tiles);
+            Map map = new Map(tiles);
 
             //-------END MAP TILES-----------
 
