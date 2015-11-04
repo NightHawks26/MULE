@@ -103,6 +103,51 @@ public class RoundController implements Initializable {
     private ImageView p2Image;
 
     @FXML
+    private ImageView p1img1;
+    @FXML
+    private ImageView p2img1;
+    @FXML
+    private ImageView p3img1;
+    @FXML
+    private ImageView p4img1;
+
+    @FXML
+    private ImageView p1img2;
+    @FXML
+    private ImageView p2img2;
+    @FXML
+    private ImageView p3img2;
+    @FXML
+    private ImageView p4img2;
+
+    @FXML
+    private ImageView p1img3;
+    @FXML
+    private ImageView p2img3;
+    @FXML
+    private ImageView p3img3;
+    @FXML
+    private ImageView p4img3;
+
+    @FXML
+    private ImageView p1img4;
+    @FXML
+    private ImageView p2img4;
+    @FXML
+    private ImageView p3img4;
+    @FXML
+    private ImageView p4img4;
+
+    @FXML
+    private ImageView p1img5;
+    @FXML
+    private ImageView p2img5;
+    @FXML
+    private ImageView p3img5;
+    @FXML
+    private ImageView p4img5;
+
+    @FXML
     private Label p4Money;
 
     @FXML
@@ -191,6 +236,12 @@ public class RoundController implements Initializable {
         Label[] playerOre = {p1Ore, p2Ore, p3Ore, p4Ore};
         Label[] playerEnergy = {p1Energy, p2Energy, p3Energy, p4Energy};
         Label[] playerFood = {p1Food, p2Food, p3Food, p4Food};
+        ImageView[] playerImg1 = {p1img1, p2img1, p3img1, p4img1};
+        ImageView[] playerImg2 = {p1img2, p2img2, p3img2, p4img2};
+        ImageView[] playerImg3 = {p1img3, p2img3, p3img3, p4img3};
+        ImageView[] playerImg4 = {p1img4, p2img4, p3img4, p4img4};
+        ImageView[] playerImg5 = {p1img5, p2img5, p3img5, p4img5};
+
         for (int x = 0; x < players.length; x++) {
             if (players[x].getRace().contains("Human")) {
                 images[x].setImage(human);
@@ -205,12 +256,17 @@ public class RoundController implements Initializable {
             playerEnergy[x].setText("ENERGY: " + players[x].getEnergy());
             playerFood[x].setText("FOOD: " + players[x].getFood());
         }
-        for (int x  = players.length; x < 4; x++) {
+        for (int x = players.length; x < 4; x++) {
             playerNames[x].setText("");
             playerMoney[x].setText("");
             playerOre[x].setText("");
             playerEnergy[x].setText("");
             playerFood[x].setText("");
+            playerImg1[x].setImage(null);
+            playerImg2[x].setImage(null);
+            playerImg3[x].setImage(null);
+            playerImg4[x].setImage(null);
+            playerImg5[x].setImage(null);
         }
         //loads map, displays to screen
         continueButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
