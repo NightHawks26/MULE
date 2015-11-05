@@ -3,6 +3,7 @@ package Java.Controllers;
 import Java.Objects.HighScore;
 import Java.Objects.MuleGame;
 import Java.SQLiteJDBC;
+import io.github.jgkamat.JayLayer.JayLayer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,7 +32,7 @@ public class HighScoresController implements Initializable {
     @FXML
     private Button backButton;
 
-
+    private JayLayer sound;
     private StartScreenController startScreenController;
     private Stage stage;
     private final ObservableList<HighScore> scores = FXCollections.observableArrayList(
@@ -56,6 +57,7 @@ public class HighScoresController implements Initializable {
         scoreCol.setMinWidth(100);
         highScoreTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         highScoreTable.setItems(scores);
+        //sound.startPlaylist(0);
         try {
             SQLiteJDBC connector = new SQLiteJDBC();
             Statement statement = connector.getConn().createStatement();
@@ -80,16 +82,25 @@ public class HighScoresController implements Initializable {
      * doesn't exist
      */
     public void backButton(ActionEvent event) throws IOException {
-
+        sound.stopPlaylist(0);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/StartScreen.fxml"));
         loader.load();
         Parent p = loader.getRoot();
         startScreenController = loader.getController();
+        startScreenController.setSound(sound);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(p));
         stage.show();
 
+    }
+
+    /**
+     * sets the sound for the screen
+     * @param sound the sound to be played
+     */
+    public void setSound(JayLayer sound) {
+        this.sound = sound;
     }
 
 

@@ -30,6 +30,7 @@ public class StartScreenController implements Initializable {
     private Boolean firstTimeOpeningGame;
     private JayLayer sound;
     private MuleGame muleGame;
+    private boolean musicGoing;
     @FXML
     private Button loadGame;
 
@@ -38,6 +39,7 @@ public class StartScreenController implements Initializable {
 
     @FXML
     private Button highScoreButton;
+
 
     //@FXML // This method is called by the FXMLLoader
     // when initialization is complete
@@ -49,7 +51,6 @@ public class StartScreenController implements Initializable {
      * @param rb resouce bundle for initialization
      */
     public void initialize(URL url, ResourceBundle rb) {
-
         //javadoc
         //http://jgkamat.github.io/JayLayer/doc/jay/jaysound/JayLayer.html
         sound = new JayLayer("/audio/", "/audio/");
@@ -156,7 +157,7 @@ public class StartScreenController implements Initializable {
 
     /**
      * Goes to the highScore screen
-     * @param event event taht triggers this switch
+     * @param event event that triggers this switch
      * @throws IOException throws an io exception of configuration screen
      * doesn't exist
      */
@@ -167,6 +168,7 @@ public class StartScreenController implements Initializable {
         loader.load();
         Parent p = loader.getRoot();
         highScoresController = loader.getController();
+        highScoresController.setSound(sound);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(p));
         stage.show();
