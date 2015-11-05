@@ -3,6 +3,7 @@ package Java.Controllers;
 import Java.Objects.Mule;
 import Java.Objects.MuleGame;
 import Java.Objects.Player;
+import Java.SQLiteJDBC;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,6 +19,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.sqlite.SQLiteJDBCLoader;
+
+import java.sql.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -61,6 +65,9 @@ public class FinalScoresController implements Initializable {
     private Button playAgainButton;
 
     @FXML
+    private Button saveScores;
+
+    @FXML
     private Label secondTotalScoreLabel;
 
     @FXML
@@ -79,6 +86,12 @@ public class FinalScoresController implements Initializable {
     private Player third;
     private Player fourth;
 
+
+    /**
+     * empty method
+     * @param url url
+     * @param rb resouce bundle
+     */
     public void initialize(URL url, ResourceBundle rb) {
 
     }
@@ -146,5 +159,30 @@ public class FinalScoresController implements Initializable {
                 magicStage.show();
             }
         });
+    }
+
+    public void saveScores() {
+        SQLiteJDBC connector = new SQLiteJDBC();
+        System.out.println("scores saved");
+        Statement statement;
+        for (Player player : muleGame.getPlayers()) {
+            try {
+                statement = connector.getConn().createStatement();
+                String sql = "INSERT INTO high_scores (name, score) VALUES ('"
+                        + player.getName() +  "', " + player.getScore() + ");";
+                statement.executeUpdate(sql);
+                statement.close();
+
+            } catch (Exception e) {
+                System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            }
+        }
+        try {
+            connector.getConn().close();
+        } catch (SQLException e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+        saveScores.setDisable(true);
+        saveScores.setVisible(false);
     }
 }
