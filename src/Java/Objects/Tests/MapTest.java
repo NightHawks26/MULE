@@ -30,6 +30,8 @@ public class MapTest {
     @Test
     public void randomMapTest() {
         Map randomMap = new Map("random");
+        String[] terrains = new String[]{"r", "p", "m1", "m2", "m3"};
+        randomMap = new Map("random");
         assertEquals("t", randomMap.getTile(2, 4).getTerrain().getName());
     }
 

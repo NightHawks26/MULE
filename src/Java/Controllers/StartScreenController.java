@@ -25,6 +25,9 @@ public class StartScreenController implements Initializable {
 
     private Stage stage;
     private RoundController roundController;
+    private ConfigurationController configurationController;
+    private HighScoresController highScoresController;
+    private Boolean firstTimeOpeningGame;
     private JayLayer sound;
     private MuleGame muleGame;
     @FXML
@@ -32,6 +35,9 @@ public class StartScreenController implements Initializable {
 
     @FXML
     private Button newGame;
+
+    @FXML
+    private Button highScoreButton;
 
     //@FXML // This method is called by the FXMLLoader
     // when initialization is complete
@@ -43,6 +49,7 @@ public class StartScreenController implements Initializable {
      * @param rb resouce bundle for initialization
      */
     public void initialize(URL url, ResourceBundle rb) {
+
         //javadoc
         //http://jgkamat.github.io/JayLayer/doc/jay/jaysound/JayLayer.html
         sound = new JayLayer("/audio/", "/audio/");
@@ -79,6 +86,8 @@ public class StartScreenController implements Initializable {
         //    could be used when a mule is lost
 
         sound.startPlaylist(0);
+
+
         loadGame.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -143,6 +152,29 @@ public class StartScreenController implements Initializable {
         stage.setScene(new Scene(p));
         stage.show();
 
+    }
+
+    /**
+     * Goes to the highScore screen
+     * @param event event taht triggers this switch
+     * @throws IOException throws an io exception of configuration screen
+     * doesn't exist
+     */
+    public void switchToHighScores(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/HighScores.fxml"));
+        loader.load();
+        Parent p = loader.getRoot();
+        highScoresController = loader.getController();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(p));
+        stage.show();
+
+    }
+
+    public void setSound(JayLayer sound) {
+        this.sound = sound;
     }
 
 }

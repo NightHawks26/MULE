@@ -30,6 +30,7 @@
                </children>
             </GridPane>
             <Pane fx:id="title" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" />
+            <Button fx:id="highScoresButton" mnemonicParsing="false" onAction="#switchToHighScores" prefHeight="27.0" prefWidth="228.0" text="High Scores" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>
