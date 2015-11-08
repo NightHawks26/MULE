@@ -108,7 +108,9 @@
 #sell_energy_button:hover, #sell_crystite_button:hover,
 #town_menu_button:hover, #map_menu_button:hover,
 #buy_food_mule_button:hover, #buy_energy_mule_button:hover,
-#buy_ore_mule_button:hover, #back_button:hover {
+#buy_ore_mule_button:hover, #back_button:hover,
+ #secretSurpriseButton:hover, #saveScores:hover,
+ #quitButton:hover, #playAgainButton:hover, #gamble_button:hover{
     -fx-background-color: #CCCCCC;
 }
 #selectPlayers, #selectDifficulty,
@@ -118,7 +120,10 @@
 #buy_energy_button, #buy_crystite_button,
 #sell_smithore_button, #sell_food_button,
 #sell_energy_button, #sell_crystite_button,
- back_button{
+#back_button,#secretSurpriseButton,
+#saveScores, #quitButton,
+#playAgainButton, #gamble_button
+ {
     -fx-border-radius: 0;
     -fx-border-color: #333333;
     -fx-border-width: 3;
@@ -154,6 +159,7 @@
 -fx-background-image: url('../images/store.jpg');
 -fx-background-repeat: no-repeat;
 -fx-background-size: cover, auto;
+  -fx-background-position: center center;
 -fx-cursor: hand;
 }
 #pub_button {
@@ -162,5 +168,30 @@
  -fx-background-image: url('../images/bar.jpg');
  -fx-background-repeat: no-repeat;
  -fx-background-size: cover, auto;
+  -fx-background-position: center center;
     -fx-cursor: hand;
  }
+#land_office_button {
+-fx-width: 100%;
+-fx-height: 100%;
+-fx-background-image: url('../images/land_office.jpg');
+-fx-background-repeat: no-repeat;
+-fx-background-size: cover, auto;
+  -fx-background-position: center center;
+-fx-cursor: hand;
+}
+#assay_office_button {
+ -fx-width: 100%;
+ -fx-height: 100%;
+ -fx-background-image: url('../images/assay_office.jpg');
+ -fx-background-repeat: no-repeat;
+ -fx-background-size: cover, auto;
+  -fx-background-position: center center;
+    -fx-cursor: hand;
+ }
+ #pubBackground {
+  -fx-background-image: url('../images/bar.jpg');
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: center center;
+  -fx-background-size: cover, auto;
+  }
