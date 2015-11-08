@@ -2,7 +2,7 @@
     -fx-border-radius: 0;
     -fx-background-radius: 0;
     -fx-border: 1px;
-    -fx-border-color: #000000;
+    -fx-border-color: rgba(0, 0, 0, .2);
 }
 #m1 {
     -fx-background-image: url("../../resources/images/m1.jpg");
