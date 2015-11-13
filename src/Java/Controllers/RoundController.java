@@ -224,7 +224,7 @@ public class RoundController implements Initializable {
             muleGame.map.calculateProduction();
             nextAction.setText("Next is a land selection!");
         }
-        Image human = new Image("/images/human.jpg");
+        Image human = new Image("/images/human.png");
         Image flapper = new Image("/images/flapper.png");
         Image other = new Image("/images/other.gif");
         roundNumber.setText("ROUND: " + Integer.toString(muleGame.getRound()));

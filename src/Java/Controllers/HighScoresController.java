@@ -82,7 +82,11 @@ public class HighScoresController implements Initializable {
      * doesn't exist
      */
     public void backButton(ActionEvent event) throws IOException {
-        sound.stopPlaylist(0);
+        try {
+            sound.stopPlaylist(0);
+        } catch (Exception ignored) {
+            
+        }
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/fxml/StartScreen.fxml"));
         loader.load();

@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Controllers.TownController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="/style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Java.Controllers.TownController">
    <children>
       <Pane prefHeight="50.0" prefWidth="600.0">
          <children>
@@ -27,10 +27,10 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="store_button" mnemonicParsing="false" stylesheets="@../style/style.css" text="STORE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="pub_button" layoutX="137.0" layoutY="48.0" mnemonicParsing="false" text="PUB" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="land_office_button" layoutX="441.0" layoutY="48.0" mnemonicParsing="false" text="LAND OFFICE" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button fx:id="assay_office_button" layoutX="116.0" layoutY="248.0" mnemonicParsing="false" text="ASSAY OFFICE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button fx:id="store_button" alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="300.0" text="" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="pub_button" alignment="CENTER" layoutX="137.0" layoutY="48.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="300.0" text="" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="land_office_button" layoutX="441.0" layoutY="48.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button fx:id="assay_office_button" layoutX="116.0" layoutY="248.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
       <Pane layoutY="350.0" prefHeight="50.0" prefWidth="600.0">
