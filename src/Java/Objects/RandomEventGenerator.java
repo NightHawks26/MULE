@@ -7,6 +7,11 @@ import java.util.*;
  */
 public class RandomEventGenerator {
 
+    private MuleGame muleGame;
+    private Player player;
+    private boolean isLastPlace;
+    private int round;
+    private Player[] allPlayers;
     private final Random rng;
     private static final java.util.Map<Integer, Integer> randomMultiplier;
     static {
@@ -31,10 +36,14 @@ public class RandomEventGenerator {
         this.rng = new Random();
     }
 
-    public String getRandomEvent(Player player, boolean isLastPlace, int round) {
+    public String getRandomEvent(MuleGame muleGame) {
+        this.player = muleGame.getCurrentPlayerObject();
+        this.round = muleGame.getRound();
+        this.isLastPlace = player.getIsLast();
+        this.allPlayers = muleGame.getPlayers();
         int event = rng.nextInt(100);
         if (event < 27) {
-            event = rng.nextInt(15);
+            event = rng.nextInt(17);
             if (event == 0) {
                 if (!isLastPlace) {
                     int val = randomMultiplier.get(round) * 4;
@@ -141,11 +150,32 @@ public class RandomEventGenerator {
                         player.setMoney(player.getMoney() - val);
                     }
                     return "YOUR SPACE GYPSY IN-LAWS MADE"
-                        + " A MESS OF THE TOWN. IT COST YOU $" + val
+                            + " A MESS OF THE TOWN. IT COST YOU $" + val
                             + " TO CLEAN IT UP.";
                 } else {
-                    return "Wow, your space relatives are remarkably clean and made no mess at all!";
+                    return "Wow, your space relatives are remarkably"
+                        + " clean and made no mess at all!";
                 }
+            } else if (event == 15) {
+                for (Player p : allPlayers) {
+                    p.setMoney(p.getMoney() + 3 * randomMultiplier.get(round));
+                }
+                return "Economic stimulus package! Everyone gained "
+                        + (3 * randomMultiplier.get(round)) +
+                        " money!";
+            } else if (event == 16) {
+                int decVal = randomMultiplier.get(round) * 4;
+                for (int i = 1; i < allPlayers.length; i++) {
+                    if (allPlayers[i].getMoney() < decVal) {
+                        allPlayers[i].setMoney(0);
+                    } else {
+                        allPlayers[i].setMoney(allPlayers[i].getMoney()
+                                - decVal);
+                    }
+                }
+                return "Everyone except " + allPlayers[0].getName()
+                        + " lost " + decVal
+                        + " money when the housing market crashed!";
             } else {
                 return "This shouldn't be able to happen";
             }
