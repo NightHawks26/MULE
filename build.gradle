@@ -7,13 +7,14 @@ apply plugin: 'java'
 sourceCompatibility = 1.8
 version '1.0'
 
+
 sourceSets {
     main {
         java {
             srcDir 'src/Java'
         }
         resources {
-            srcDir 'src/resources'
+            srcDirs 'src/resources'
         }
     }
 }
@@ -25,11 +26,12 @@ task copyFXML(type: Copy) {
 
 dependencies {
     runtime files('src/resources/fxml/*.fxml')
-    compile files('src/resources/libs/JayLayer-master.jar')
+    compile files('src/resources/libs/JayLayer-4.1.jar', 'src/resources/libs/sqlite-jdbc-3.8.11.2.jar')
 }
+
 
 jar {
     manifest {
-        attributes 'Implementation-Title': 'M2 NightHawks MULE', 'Main-class': 'Java.Main', 'Class-Path': '../../src/resources/libs/JayLayer-master.jar'
+        attributes 'Implementation-Title': 'M2 NightHawks MULE', 'Main-class': 'Java.Main', 'Class-Path': '../../src/resources/libs/JayLayer-4.1.jar'
     }
 }
