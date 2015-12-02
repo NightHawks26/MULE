@@ -4,10 +4,14 @@ import Java.Objects.Mule;
 import Java.Objects.MuleGame;
 import Java.Objects.Player;
 import Java.SQLiteJDBC;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,6 +25,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.sqlite.SQLiteJDBCLoader;
 
+import java.io.IOException;
 import java.sql.*;
 
 import java.net.URL;
@@ -70,8 +75,6 @@ public class FinalScoresController implements Initializable {
     @FXML
     private Label secondTotalScoreLabel;
 
-    @FXML
-    private Button secretSurpriseButton;
 
     @FXML
     private Label fourthNameLabel;
@@ -110,7 +113,6 @@ public class FinalScoresController implements Initializable {
 
     /**
      * Displays user end game scores
-     * houses easter egg code
      */
     public void start() {
         for (Player p: muleGame.getPlayers()) {
@@ -145,20 +147,28 @@ public class FinalScoresController implements Initializable {
             fourthIndScoreLabel.setText("");
             fourthTotalScoreLabel.setText("");
         }
+    }
 
-        secretSurpriseButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                Pane magic = new Pane(new ImageView(new Image("/resources/images/magicword.gif")));
-                PasswordField word = new PasswordField();
-                VBox vbox = new VBox(magic, word);
-                Scene magicScene = new Scene(magic, 620, 400);
-                Stage magicStage = new Stage();
-                magicStage.setScene(magicScene);
-                magicStage.initModality(Modality.APPLICATION_MODAL);
-                magicStage.show();
-            }
-        });
+    public void playAgainButton(ActionEvent event) throws IOException {
+        try {
+            muleGame.sound.stopPlaylist(0);
+        } catch (Exception ignored) {
+
+        }
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/fxml/StartScreen.fxml"));
+        loader.load();
+        Parent p = loader.getRoot();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(p));
+        stage.show();
+
+    }
+
+    public void quitGame() {
+        Platform.exit();
+        System.exit(0);
     }
 
     public void saveScores() {
