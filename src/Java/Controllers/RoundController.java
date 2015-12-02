@@ -205,9 +205,7 @@ public class RoundController implements Initializable {
                     + muleGame.getCurrentPlayerObject().toString()
                     + "'s turn!");
             isLastPlace = muleGame.getCurrentPlayer() == 0;
-            String randomEventText = events.getRandomEvent(
-                    muleGame.getCurrentPlayerObject(),
-                    isLastPlace, muleGame.getRound());
+            String randomEventText = events.getRandomEvent(muleGame);
             System.out.println(randomEventText);
             randomEventLabel.setText(randomEventText);
             muleGame.setTimeForTurn(
