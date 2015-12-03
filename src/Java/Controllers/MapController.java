@@ -100,7 +100,7 @@ public class MapController implements Initializable {
                 button.setCol(i);
                 button.setRow(k);
                 button.getStylesheets().addAll(this.getClass().getResource(
-                        "../../resources/style/style.css").toExternalForm());
+                        "/style/style.css").toExternalForm());
                 if (button.getTile().isOwned()) {
                     String color = button.getTile().getOwner().getColor();
                     button.setStyle("-fx-background-color: " + color);
