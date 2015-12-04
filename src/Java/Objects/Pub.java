@@ -17,6 +17,14 @@ public class Pub {
     //25-37=150
     //12-25=100
     //0-12=50
+
+    /**
+     * Calculates the amount of money the player gets for gambling.
+     * @param pTime int time left in the player's turn
+     * @param round int which round it currently is
+     * @return int amount of money gained from gambling
+     */
+
     public int gamble(int pTime, int round) {
         Random randy = new Random();
         int rando = randy.nextInt(51);
