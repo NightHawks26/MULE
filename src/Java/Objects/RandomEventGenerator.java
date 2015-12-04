@@ -47,45 +47,33 @@ public class RandomEventGenerator {
             if (event == 0) {
                 if (!isLastPlace) {
                     int val = randomMultiplier.get(round) * 4;
-                    if (player.getMoney() >= val) {
-                        player.setMoney(player.getMoney() - val);
-                        return "Dust storm damaged your buildings!"
-                        +" Repairs cost " + val + " money!";
-                    } else {
-                        int someMoney = player.getMoney();
-                        player.setMoney(0);
-                        return "Dust storm damaged your buildings! -" + someMoney + " money";
-                    }
+                    player.subtractMoney(val);
+                    return "Dust storm damaged your buildings!"
+                            +" Repairs cost " + val + " money!";
                 } else {
                     return "A dust storm narrowly missed your buildings!";
                 }
             } else if (event == 1) {
                 if (!isLastPlace) {
-                    if (player.getEnergy() > 0) {
-                        player.setEnergy(player.getEnergy() - 1);
-                        return "Geothermal venting fried a power line! -1 energy";
-                    } else {
-                        return "Geothermal venting fried a power line! But you're already out of energy";
-                    }
+                    player.subtractEnergy(1);
+                    return "Geothermal venting fried a power line! -1 energy";
                 } else {
-                    return "Geothermal venting almost fried your power lines, but the insulation held!";
+                    return "Geothermal venting almost fried your " +
+                            "power lines, but the insulation held!";
                 }
             } else if (event == 2) {
-                player.setFood(player.getFood() + 2);
+                player.addFood(2);
                 return "You stumble upon some wild space-corn! +2 food";
             } else if (event == 3) {
-                player.setOre(player.getOre() + 1);
+                player.addOre(1);
                 return "Happened upon an ore vein after an earthquake! +1 ore";
             } else if (event == 4) {
                 if (!isLastPlace) {
-                    if (player.getFood() > 0) {
-                        player.setFood(player.getFood() - 1);
-                        return "Space locusts ate part of your crops! -1 food";
-                    } else {
-                        return "Space locusts came to eat your crops but you didn't have any!";
-                    }
+                    player.subtractFood(1);
+                    return "Space locusts ate part of your crops! -1 food";
                 } else {
-                    return "Space locusts flew right over your crops! Must have been that scarecrow you have set up";
+                    return "Space locusts flew right over your crops! " +
+                            "Must have been that scarecrow you have set up";
                 }
             } else if (event == 5) {
                 player.setEnergy(player.getEnergy() + 1);
@@ -103,39 +91,38 @@ public class RandomEventGenerator {
                 }
             } else if (event == 7) {
                 int val = randomMultiplier.get(round) * 2;
-                player.setMoney(player.getMoney() + val);
-                return "Found some loose change in the couch! +" + "val" + " money";
+                player.addMoney(val);
+                return "Found some loose change in the couch! +" + val + " money";
             } else if (event == 8) {
-                player.setFood(player.getFood() + 3);
-                player.setEnergy(player.getEnergy() + 2);
-                return "YOU JUST RECEIVED A PACKAGE FROM THE GT ALUMNI CONTAINING 3 FOOD AND 2 ENERGY UNITS.";
+                player.addFood(3);
+                player.addEnergy(2);
+                return "YOU JUST RECEIVED A PACKAGE FROM THE GT " +
+                        "ALUMNI CONTAINING 3 FOOD AND 2 ENERGY UNITS.";
             } else if (event == 9) {
-                player.setOre(player.getOre() + 2);
-                return "A WANDERING TECH STUDENT REPAID YOUR HOSPITALITY BY LEAVING TWO BARS OF ORE.";
+                player.addOre(2);
+                return "A WANDERING TECH STUDENT REPAID YOUR " +
+                        "HOSPITALITY BY LEAVING TWO BARS OF ORE.";
             } else if (event == 10) {
                 int val = 8 * randomMultiplier.get(round);
-                player.setMoney(player.getMoney() + val);
-                return "THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL COMPUTER FOR $" + val;
+                player.addMoney(val);
+                return "THE MUSEUM BOUGHT YOUR ANTIQUE PERSONAL " +
+                        "COMPUTER FOR $" + val;
             } else if (event == 11) {
                 int val = 2 * randomMultiplier.get(round);
                 player.setMoney(player.getMoney() + val);
-                return "YOU FOUND A DEAD MOOSE RAT AND SOLD THE HIDE FOR $" + val;
+                return "YOU FOUND A DEAD MOOSE RAT AND SOLD" +
+                        " THE HIDE FOR $" + val;
             } else if (event == 12) {
                 if (!isLastPlace) {
                     int val = 4 * randomMultiplier.get(round);
-                    if (player.getMoney() <= val) {
-                        val = player.getMoney();
-                        player.setMoney(0);
-                    } else {
-                        player.setMoney(player.getMoney() - val);
-                    }
+                    player.subtractMoney(val);
                     return "FLYING CAT-BUGS ATE THE ROOF OFF YOUR HOUSE. REPAIRS COST $" + val;
                 } else {
                     return "Those flying cat-bugs just missed you!";
                 }
             } else if (event == 13) {
                 if (!isLastPlace) {
-                    player.setFood(player.getFood() / 2);
+                    player.subtractFood(player.getFood() / 2);
                     return "MISCHIEVOUS UGA STUDENTS BROKE INTO YOUR STORAGE SHED AND STOLE HALF YOUR FOOD.";
                 } else {
                     return "Your advanced security system kept the u(sic)ga students at bay.";
@@ -143,12 +130,7 @@ public class RandomEventGenerator {
             } else if (event == 14) {
                 if (!isLastPlace) {
                     int val = 6 * randomMultiplier.get(round);
-                    if (player.getMoney() <= val) {
-                        val = player.getMoney();
-                        player.setMoney(0);
-                    } else {
-                        player.setMoney(player.getMoney() - val);
-                    }
+                    player.subtractMoney(val);
                     return "YOUR SPACE GYPSY IN-LAWS MADE"
                             + " A MESS OF THE TOWN. IT COST YOU $" + val
                             + " TO CLEAN IT UP.";
@@ -166,12 +148,7 @@ public class RandomEventGenerator {
             } else if (event == 16) {
                 int decVal = randomMultiplier.get(round) * 4;
                 for (int i = 1; i < allPlayers.length; i++) {
-                    if (allPlayers[i].getMoney() < decVal) {
-                        allPlayers[i].setMoney(0);
-                    } else {
-                        allPlayers[i].setMoney(allPlayers[i].getMoney()
-                                - decVal);
-                    }
+                    allPlayers[i].subtractMoney(decVal);
                 }
                 return "Everyone except " + allPlayers[0].getName()
                         + " lost " + decVal
