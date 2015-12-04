@@ -95,7 +95,7 @@ public class Store {
 
     public void sellOre(Player player) {
         if (player.getOre() > 0) {
-            player.setMoney(player.getMoney() + (orePrice / 2));
+            player.addMoney(orePrice / 2);
             player.setOre(player.getOre() - 1);
             oreStock++;
         }
@@ -111,7 +111,7 @@ public class Store {
 
     public void sellCrystite(Player player) {
         if (player.getCrystite() > 0) {
-            player.setMoney(player.getMoney() + (crystitePrice / 2));
+            player.addMoney(crystitePrice / 2);
             player.setCrystite(player.getCrystite() - 1);
             crystiteStock++;
         }
@@ -127,7 +127,7 @@ public class Store {
 
     public void sellEnergy(Player player) {
         if (player.getEnergy() > 0) {
-            player.setMoney(player.getMoney() + (energyPrice / 2));
+            player.addMoney(energyPrice / 2);
             player.setEnergy(player.getEnergy() - 1);
             energyStock++;
         }
@@ -143,7 +143,7 @@ public class Store {
 
     public void sellFood(Player player) {
         if (player.getFood() > 0) {
-            player.setMoney(player.getMoney() + (foodPrice / 2));
+            player.addMoney(foodPrice / 2);
             player.setFood(player.getFood() - 1);
             foodStock++;
         }

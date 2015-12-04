@@ -5,69 +5,69 @@
     -fx-border-color: rgba(0, 0, 0, .2);
 }
 #m1 {
-    -fx-background-image: url("../../resources/images/m1.jpg");
+    -fx-background-image: url("/images/m1.jpg");
     -fx-background-color: #359e03;
     -fx-background-repeat: no-repeat;
     -fx-background-size: auto;
     -fx-background-position: center center;
 }
 #m1:hover {
-    -fx-background-image: url("../../resources/images/m1_hover.jpg");
+    -fx-background-image: url("/images/m1_hover.jpg");
     -fx-background-color: #C65BF9;
 }
 #m2 {
-    -fx-background-image: url("../../resources/images/m2.jpg");
+    -fx-background-image: url("/images/m2.jpg");
     -fx-background-color: #359e03;
     -fx-background-repeat: no-repeat;
     -fx-background-size: auto;
     -fx-background-position: center center;
 }
 #m2:hover {
-    -fx-background-image: url("../../resources/images/m2_hover.jpg");
+    -fx-background-image: url("/images/m2_hover.jpg");
     -fx-background-color: #C65BF9;
 }
 #m3 {
-    -fx-background-image: url("../../resources/images/m3.jpg");
+    -fx-background-image: url("/images/m3.jpg");
     -fx-background-color: #359e03;
     -fx-background-repeat: no-repeat;
     -fx-background-size: auto;
     -fx-background-position: center center;
 }
 #m3:hover {
-    -fx-background-image: url("../../resources/images/m3_hover.jpg");
+    -fx-background-image: url("/images/m3_hover.jpg");
     -fx-background-color: #C65BF9;
 }
 #p {
-    -fx-background-image: url("../../resources/images/p.jpg");
+    -fx-background-image: url("/images/p.jpg");
     -fx-background-color: #359e03;
     -fx-background-repeat: no-repeat;
     -fx-background-size: auto;
     -fx-background-position: center center;
 }
 #p:hover {
-    -fx-background-image: url("../../resources/images/p_hover.jpg");
+    -fx-background-image: url("/images/p_hover.jpg");
     -fx-background-color: #C65BF9;
 }
 #r {
-    -fx-background-image: url("../../resources/images/r.jpg");
+    -fx-background-image: url("/images/r.jpg");
     -fx-background-color: #359e03;
     -fx-background-repeat: no-repeat;
     -fx-background-size: auto;
     -fx-background-position: center center;
 }
 #r:hover {
-     -fx-background-image: url("../../resources/images/r_hover.jpg");
+     -fx-background-image: url("/images/r_hover.jpg");
     -fx-background-color: #C65BF9;
 }
 #t {
-    -fx-background-image: url("../../resources/images/t.jpg");
+    -fx-background-image: url("/images/t.jpg");
     -fx-background-color: #359e03;
     -fx-background-repeat: no-repeat;
     -fx-background-size: auto;
     -fx-background-position: center center;
 }
 #t:hover {
-    -fx-background-image: url("../../resources/images/t_hover.jpg");
+    -fx-background-image: url("/images/t_hover.jpg");
     -fx-background-color: #C65BF9;
 }
 
@@ -76,13 +76,13 @@
 }
 
 #title {
-    -fx-background-image: url('../images/mule_logo_new.png');
+    -fx-background-image: url('/images/mule_logo_new.png');
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 80%;
 }
 #game_config {
-    -fx-background-image: url('../images/game_config.png');
+    -fx-background-image: url('/images/game_config.png');
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 80%;
@@ -156,7 +156,7 @@
 #store_button {
 -fx-width: 100%;
 -fx-height: 100%;
--fx-background-image: url('../images/store.jpg');
+-fx-background-image: url('/images/store.jpg');
 -fx-background-repeat: no-repeat;
 -fx-background-size: cover, auto;
   -fx-background-position: center center;
@@ -165,7 +165,7 @@
 #pub_button {
  -fx-width: 100%;
  -fx-height: 100%;
- -fx-background-image: url('../images/bar.jpg');
+ -fx-background-image: url('/images/bar.jpg');
  -fx-background-repeat: no-repeat;
  -fx-background-size: cover, auto;
   -fx-background-position: center center;
@@ -174,7 +174,7 @@
 #land_office_button {
 -fx-width: 100%;
 -fx-height: 100%;
--fx-background-image: url('../images/land_office.jpg');
+-fx-background-image: url('/images/land_office.jpg');
 -fx-background-repeat: no-repeat;
 -fx-background-size: cover, auto;
   -fx-background-position: center center;
@@ -183,14 +183,14 @@
 #assay_office_button {
  -fx-width: 100%;
  -fx-height: 100%;
- -fx-background-image: url('../images/assay_office.jpg');
+ -fx-background-image: url('/images/assay_office.jpg');
  -fx-background-repeat: no-repeat;
  -fx-background-size: cover, auto;
   -fx-background-position: center center;
     -fx-cursor: hand;
  }
  #pubBackground {
-  -fx-background-image: url('../images/bar.jpg');
+  -fx-background-image: url('/images/bar.jpg');
   -fx-background-repeat: no-repeat;
   -fx-background-position: center center;
   -fx-background-size: cover, auto;

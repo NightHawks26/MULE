@@ -117,12 +117,32 @@ public class Player {
         return food;
     }
 
+    public void addFood(int amount) { this.food += amount; }
+
+    public void subtractFood(int amount) {
+        if (this.food < amount) {
+            this.food = 0;
+        } else {
+            this.food -= amount;
+        }
+    }
+
     public void setFood(int food) {
         this.food = food;
     }
 
     public int getEnergy() {
         return energy;
+    }
+
+    public void addEnergy(int amount) { this.energy += amount; }
+
+    public void subtractEnergy(int amount) {
+        if (this.energy < amount) {
+            this.energy = 0;
+        } else {
+            this.energy -= amount;
+        }
     }
 
     public void setEnergy(int energy) {
@@ -133,12 +153,32 @@ public class Player {
         return ore;
     }
 
+    public void addOre(int amount) { this.ore += amount; }
+
+    public void subtractOre(int amount) {
+        if (this.ore < amount) {
+            this.ore = 0;
+        } else {
+            this.ore -= amount;
+        }
+    }
+
     public void setOre(int ore) {
         this.ore = ore;
     }
 
     public int getCrystite() {
         return crystite;
+    }
+
+    public void addCrystite(int amount) { this.crystite += amount; }
+
+    public void subtractCrystite(int amount) {
+        if (this.crystite < amount) {
+            this.crystite = 0;
+        } else {
+            this.crystite -= amount;
+        }
     }
 
     public void setCrystite(int crystite) {
@@ -152,6 +192,7 @@ public class Player {
     public void setMoney(int money) {
         this.money = money;
     }
+
     public String getColor() {
         return color;
     }
@@ -192,8 +233,16 @@ public class Player {
         isLast = value;
     }
 
-    public void addMoney(int money) {
-        this.money += money;
+    public void addMoney(int amount) {
+        this.money += amount;
+    }
+
+    public void subtractMoney(int amount) {
+        if (this.money < amount) {
+            this.money = 0;
+        } else {
+            this.money -= amount;
+        }
     }
 
     public Mule getMuleInHand() {
@@ -204,14 +253,13 @@ public class Player {
         this.muleInHand = muleInHand;
     }
 
-
     public int calculateTimeForTurn(int round) {
         if (food <= 0) {
             return 5;
         } else {
             if (food >= foodRequirements.get(round) && energy >= numberOfMules) {
                 //return 10;
-                return 50;// need for demo tomorrow
+                return 50;
             } else {
                 return 30;
             }
