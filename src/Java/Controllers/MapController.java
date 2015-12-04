@@ -475,7 +475,7 @@ public class MapController implements Initializable {
 
             String color = player.getColor();
             button.setStyle("-fx-background-color: " + color);
-            player.setMoney(player.getMoney() - currentPrice);
+            player.subtractMoney(currentPrice);
             //set the tile to be owned by player
             //if (muleGame.selectionRound) {
             if (selectingPlayer
@@ -521,7 +521,7 @@ public class MapController implements Initializable {
 
             String color = player.getColor();
             button.setStyle("-fx-background-color: " + color);
-            player.setMoney(player.getMoney() - currentPrice);
+            player.subtractMoney(currentPrice);
             currentPlayerLabel.setText("TURN: "
                     + muleGame.getCurrentPlayerObject().getName()
                     + " Money Remaining: "

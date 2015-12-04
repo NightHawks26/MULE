@@ -175,6 +175,11 @@ public class StartScreenController implements Initializable {
 
     }
 
+    /**
+     * Sets the current sound
+     * @param sound JayLayer sound
+     */
+
     public void setSound(JayLayer sound) {
         this.sound = sound;
     }

@@ -31,10 +31,20 @@ public class RandomEventGenerator {
         randomMultiplier = Collections.unmodifiableMap(aMap);
     }
 
+    /**
+     * Constructs a new RandomEventGenerator which initializes the
+     * random number generator
+     */
 
     public RandomEventGenerator() {
         this.rng = new Random();
     }
+
+    /**
+     * Gets a random event for the current player
+     * @param muleGame MuleGame currently being played
+     * @return String output describing what event happened
+     */
 
     public String getRandomEvent(MuleGame muleGame) {
         this.player = muleGame.getCurrentPlayerObject();
@@ -80,12 +90,8 @@ public class RandomEventGenerator {
                 return "Lightning struck your power station! +1 energy";
             } else if (event == 6) {
                 if (!isLastPlace) {
-                    if (player.getOre() > 0) {
-                        player.setOre(player.getOre() - 1);
-                        return "Cave in! -1 ore";
-                    } else {
-                        return "Cave in! But your mines are barren anyways...";
-                    }
+                    player.subtractOre(1);
+                    return "Cave in! -1 ore";
                 } else {
                     return "Your mine nearly caved in, but your supports held!";
                 }

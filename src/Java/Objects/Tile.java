@@ -11,6 +11,13 @@ public class Tile {
     private final Terrain terrain;
     private Mule mule;
 
+    /**
+     * Creates a Tile object based on parameters
+     * @param row int row of Tile
+     * @param col int column of Tile
+     * @param ter String terrain value of the Tile
+     */
+
     public Tile(int row, int col, String ter) {
         try {
             if (row < 0 || row > 8) {
@@ -30,6 +37,15 @@ public class Tile {
         owner = null;
         terrain = new Terrain(ter);
     }
+
+    /**
+     * Creates a Tile with full Ownership and MULE values
+     * @param row int row of Tile
+     * @param col int column of Tile
+     * @param ter String terrain type
+     * @param owner Player owner
+     * @param mule Mule placed on Tile
+     */
 
     public Tile(int row, int col, String ter, Player owner, Mule mule) {
         try {
@@ -52,35 +68,79 @@ public class Tile {
         this.mule = mule;
     }
 
+    /**
+     * Gets the row of the Tile
+     * @return int row of Tile
+     */
+
     public int getRow() {
         return row;
     }
+
+    /**
+     * Gets the column of the Tile
+     * @return int column of Tile
+     */
 
     public int getColumn() {
         return column;
     }
 
+    /**
+     * Gets the owner of the Tile
+     * @return Player owner of the Tile
+     */
+
     public Player getOwner() {
         return owner;
     }
+
+    /**
+     * Sets the Player owner of the Tile
+     * @param owner Player who owns the Tile
+     */
 
     public void setOwner(Player owner) {
         this.owner = owner;
     }
 
+    /**
+     * Terrain value fo the Tile
+     * @return Terrain terrain value
+     */
+
     public Terrain getTerrain() {
         return terrain;
     }
 
+    /**
+     * Checks if the Tile is owned
+     * @return boolean true if owned, false otherwise
+     */
+
     public boolean isOwned() { return owner != null; }
+
+    /**
+     * Gets the MULE object on the Tile
+     * @return Mule object on the Tile
+     */
 
     public Mule getMule() {
         return mule;
     }
 
+    /**
+     * Sets the Mule object on the Tile
+     * @param mule Mule object on the Tile
+     */
+
     public void setMule(Mule mule) {
         this.mule = mule;
     }
+
+    /**
+     * Calculates the production values for this Tile
+     */
 
     public void calculateProduction() {
         if (owner != null && owner.getEnergy() < 1) {

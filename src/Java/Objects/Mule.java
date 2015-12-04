@@ -12,6 +12,11 @@ public class Mule {
     private int mountain3Production;
     private final String muleType;
 
+    /**
+     * Creates a MULE object based on what type is passed in
+     * @param muleType String type of MULE to be created
+     */
+
     public Mule(String muleType) {
         this.muleType = muleType;
         if (muleType.equals("Food")) {
@@ -37,25 +42,55 @@ public class Mule {
         }
     }
 
+    /**
+     * Gets the production value for river terrain
+     * @return int production value
+     */
+
     public int getRiverProduction() {
         return riverProduction;
     }
+
+    /**
+     * Gets the production value for plain terrain
+     * @return int production value
+     */
 
     public int getPlainProduction() {
         return plainProduction;
     }
 
+    /**
+     * Gets the production value for mountain1 terrain
+     * @return int production value
+     */
+
     public int getMountain1Production() {
         return mountain1Production;
     }
+
+    /**
+     * Gets the production value for mountain2 terrain
+     * @return int production value
+     */
 
     public int getMountain2Production() {
         return mountain2Production;
     }
 
+    /**
+     * Gets the production value for mountain3 terrain
+     * @return int production value
+     */
+
     public int getMountain3Production() {
         return mountain3Production;
     }
+
+    /**
+     * Gets the MULE object's type
+     * @return String type
+     */
 
     public String getMuleType() {
         return muleType;

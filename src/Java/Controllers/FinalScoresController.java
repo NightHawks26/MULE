@@ -149,6 +149,13 @@ public class FinalScoresController implements Initializable {
         }
     }
 
+    /**
+     * Handles when the playAgainButton is clicked, switching
+     * back to the start screen for the game.
+     * @param event ActionEvent when the button is clicked
+     * @throws IOException potential exception
+     */
+
     public void playAgainButton(ActionEvent event) throws IOException {
         try {
             muleGame.sound.stopPlaylist(0);
@@ -166,10 +173,18 @@ public class FinalScoresController implements Initializable {
 
     }
 
+    /**
+     * Quits out of the game
+     */
+
     public void quitGame() {
         Platform.exit();
         System.exit(0);
     }
+
+    /**
+     * Saves the scores to the high score database
+     */
 
     public void saveScores() {
         SQLiteJDBC connector = new SQLiteJDBC();

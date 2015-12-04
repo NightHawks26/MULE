@@ -18,6 +18,7 @@ public class Map {
      *
      * @param level the level configuration of the map
      **/
+
     public Map(String level) {
         this.level = level;
         terrains = new String[]{"r", "p", "m1", "m2", "m3"};
@@ -50,18 +51,39 @@ public class Map {
         }
     }
 
+    /**
+     * Creates a Map based on a preset array of tiles
+     * @param tiles Tile objects to be used
+     */
+
     public Map(Tile[][] tiles) {
         terrains = new String[]{"r", "p", "m1", "m2", "m3"};
         this.tiles = tiles;
     }
 
+    /**
+     * Gets the level of the Map
+     * @return String level
+     */
+
     public String getName() {
         return level;
     }
 
+    /**
+     * Gets a specific Tile from the Map
+     * @param i int row of Tile
+     * @param k int column of Tile
+     * @return Tile object being looked for
+     */
+
     public Tile getTile(int i, int k) {
         return tiles[i][k];
     }
+
+    /**
+     * Prints out all of the tiles and their attributes to the console.
+     */
 
     public void printTiles() {
         for (int i = 0; i < tiles.length; i++) {
@@ -73,6 +95,10 @@ public class Map {
             }
         }
     }
+
+    /**
+     * Tells each Tile to calculate its own production
+     */
 
     public void calculateProduction() {
         for (int i = 0; i < tiles.length; i++) {

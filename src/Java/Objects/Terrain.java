@@ -11,6 +11,11 @@ public class Terrain {
     private int ore;
     private int crystite;
 
+    /**
+     * Terrain constructor based on terrain type
+     * @param name String type of terrain
+     */
+
     public Terrain(String name) {
         this.name = name;
         int upper = 3;
@@ -43,18 +48,47 @@ public class Terrain {
         }
     }
 
+    /**
+     * Gets the terrain type defined as the name
+     * @return String terrain type
+     */
+
     public String getName() {
         return name;
     }
+
+    /**
+     * Gets the food value of the terrain
+     * @return int food
+     */
+
     public int getFood() {
         return food;
     }
+
+    /**
+     * Gets the energy value of the terrain
+     * @return int energy
+     */
+
     public int getEnergy() {
         return energy;
     }
+
+    /**
+     * Gets the ore value of the terrain
+     * @return int ore
+     */
+
     public int getOre() {
         return ore;
     }
+
+    /**
+     * Gets the crystite value of the terrain
+     * @return int crystite
+     */
+
     public int getCrystite() {
         return crystite;
     }
