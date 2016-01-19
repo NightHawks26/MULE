@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Implementation-Title: M2 NightHawks MULE
+Main-class: Java.Main
+Class-Path: ../../src/resources/libs/JayLayer-4.1.jar
+
