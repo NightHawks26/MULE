@@ -1,0 +1,197 @@
+#m1, #m2, #m3, #p, #r, #t {
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-border: 1px;
+    -fx-border-color: rgba(0, 0, 0, .2);
+}
+#m1 {
+    -fx-background-image: url("/images/m1.jpg");
+    -fx-background-color: #359e03;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto;
+    -fx-background-position: center center;
+}
+#m1:hover {
+    -fx-background-image: url("/images/m1_hover.jpg");
+    -fx-background-color: #C65BF9;
+}
+#m2 {
+    -fx-background-image: url("/images/m2.jpg");
+    -fx-background-color: #359e03;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto;
+    -fx-background-position: center center;
+}
+#m2:hover {
+    -fx-background-image: url("/images/m2_hover.jpg");
+    -fx-background-color: #C65BF9;
+}
+#m3 {
+    -fx-background-image: url("/images/m3.jpg");
+    -fx-background-color: #359e03;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto;
+    -fx-background-position: center center;
+}
+#m3:hover {
+    -fx-background-image: url("/images/m3_hover.jpg");
+    -fx-background-color: #C65BF9;
+}
+#p {
+    -fx-background-image: url("/images/p.jpg");
+    -fx-background-color: #359e03;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto;
+    -fx-background-position: center center;
+}
+#p:hover {
+    -fx-background-image: url("/images/p_hover.jpg");
+    -fx-background-color: #C65BF9;
+}
+#r {
+    -fx-background-image: url("/images/r.jpg");
+    -fx-background-color: #359e03;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto;
+    -fx-background-position: center center;
+}
+#r:hover {
+     -fx-background-image: url("/images/r_hover.jpg");
+    -fx-background-color: #C65BF9;
+}
+#t {
+    -fx-background-image: url("/images/t.jpg");
+    -fx-background-color: #359e03;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: auto;
+    -fx-background-position: center center;
+}
+#t:hover {
+    -fx-background-image: url("/images/t_hover.jpg");
+    -fx-background-color: #C65BF9;
+}
+
+#configBackground {
+    -fx-background-color: #FFFFFF;
+}
+
+#title {
+    -fx-background-image: url('/images/mule_logo_new.png');
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 80%;
+}
+#game_config {
+    -fx-background-image: url('/images/game_config.png');
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 80%;
+}
+
+#newGame, #loadGame, #startGame {
+    -fx-border-radius: 0;
+    -fx-border-color: #333333;
+    -fx-border-width: 3;
+    -fx-padding: 20 40;
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 18;
+    -fx-font-weight: 600;
+}
+#newGame:hover, #loadGame:hover,
+#startGame:hover, #selectPlayers:hover,
+#selectDifficulty:hover, #selectMap:hover,
+#addPlayerButton:hover, #highScoresButton:hover,
+#continueButton:hover, #skipButton:hover, #backButton:hover,
+#buy_smithore_button:hover, #buy_food_button:hover,
+#buy_energy_button:hover, #buy_crystite_button:hover,
+#sell_smithore_button:hover, #sell_food_button:hover,
+#sell_energy_button:hover, #sell_crystite_button:hover,
+#town_menu_button:hover, #map_menu_button:hover,
+#buy_food_mule_button:hover, #buy_energy_mule_button:hover,
+#buy_ore_mule_button:hover, #back_button:hover,
+ #secretSurpriseButton:hover, #saveScores:hover,
+ #quitButton:hover, #playAgainButton:hover, #gamble_button:hover{
+    -fx-background-color: #CCCCCC;
+}
+#selectPlayers, #selectDifficulty,
+#selectMap, #addPlayerButton,
+#highScoresButton, #backButton,
+#buy_smithore_button, #buy_food_button,
+#buy_energy_button, #buy_crystite_button,
+#sell_smithore_button, #sell_food_button,
+#sell_energy_button, #sell_crystite_button,
+#back_button,#secretSurpriseButton,
+#saveScores, #quitButton,
+#playAgainButton, #gamble_button
+ {
+    -fx-border-radius: 0;
+    -fx-border-color: #333333;
+    -fx-border-width: 3;
+    -fx-padding: 5 10;
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 16;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+}
+#continueButton, #skipButton,
+#town_menu_button, #map_menu_button,
+#buy_food_mule_button, #buy_energy_mule_button,
+#buy_ore_mule_button {
+    -fx-border-radius: 0;
+    -fx-border-color: #333333;
+    -fx-border-width: 3;
+    -fx-padding: 2 10;
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 16;
+    -fx-font-weight: 600;
+    -fx-cursor: pointer;
+}
+#background {
+    -fx-background-color: #FFFFFF;
+}
+
+#addPlayerTitle {
+}
+
+#store_button {
+-fx-width: 100%;
+-fx-height: 100%;
+-fx-background-image: url('/images/store.jpg');
+-fx-background-repeat: no-repeat;
+-fx-background-size: cover, auto;
+  -fx-background-position: center center;
+-fx-cursor: hand;
+}
+#pub_button {
+ -fx-width: 100%;
+ -fx-height: 100%;
+ -fx-background-image: url('/images/bar.jpg');
+ -fx-background-repeat: no-repeat;
+ -fx-background-size: cover, auto;
+  -fx-background-position: center center;
+    -fx-cursor: hand;
+ }
+#land_office_button {
+-fx-width: 100%;
+-fx-height: 100%;
+-fx-background-image: url('/images/land_office.jpg');
+-fx-background-repeat: no-repeat;
+-fx-background-size: cover, auto;
+  -fx-background-position: center center;
+-fx-cursor: hand;
+}
+#assay_office_button {
+ -fx-width: 100%;
+ -fx-height: 100%;
+ -fx-background-image: url('/images/assay_office.jpg');
+ -fx-background-repeat: no-repeat;
+ -fx-background-size: cover, auto;
+  -fx-background-position: center center;
+    -fx-cursor: hand;
+ }
+ #pubBackground {
+  -fx-background-image: url('/images/bar.jpg');
+  -fx-background-repeat: no-repeat;
+  -fx-background-position: center center;
+  -fx-background-size: cover, auto;
+  }
